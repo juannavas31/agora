@@ -3,9 +3,9 @@ pragma solidity ^0.5.0;
 import "./CompanyState.sol";
 import "./RewardCoin.sol";
 
-Contract Fabric {
+contract Fabric {
 
-  RewardCoin private rewardCoin;
+  address private rewardCoin;
 
   struct RegisteredCompany {
     string name;
@@ -13,10 +13,10 @@ Contract Fabric {
   }
 
   RegisteredCompany[] private companyList;
-  map(address => bool) companyRegistered;
+  mapping(address => bool) companyRegistered;
 
-  Constructor (address _rewardCoin) public {
-    rewardCoin = RewardCoin(_rewardCoin);
+  constructor (address _rewardCoin) public {
+    rewardCoin = _rewardCoin;
   }
 
   event CompanyRegistered(string indexed name, address indexed companyContract, bool result);
@@ -26,17 +26,17 @@ Contract Fabric {
     // proceed to create a new contract for the company and add it to the mapping of registered companies
     CompanyState companyContract = new CompanyState(rewardCoin);
 
-    result = companyState.setOwner(msg.sender);
+    result = companyContract.setOwner(msg.sender);
     companyRegistered[msg.sender] = true;
 
-    RegisteredCompany store newCompany;
+    RegisteredCompany memory newCompany;
     newCompany.name = _name;
     newCompany.companyAddress = address(companyContract);
 
     companyList.push(newCompany);
 
-    emit CompanyRegistered(_name, address, result);
-    
+    emit CompanyRegistered(_name, newCompany.companyAddress, result);
+
   }
 
 

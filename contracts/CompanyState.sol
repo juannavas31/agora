@@ -1,17 +1,12 @@
 pragma solidity ^0.5.0;
 
 import "./RewardCoin.sol";
+import "./IRewardCoin.sol";
 
-Contract CompanyState {
+contract CompanyState is IRewardCoin {
 
   address private owner;
   RewardCoin private rewardCoin;
-
-  struct State {
-    uint kpi1;
-    uint kpi2;
-    uint dateOfReport;
-  }
 
   State[] KPIList;
 
@@ -36,17 +31,21 @@ Contract CompanyState {
   function setState(uint _p1, uint _p2, uint _p3) public {
     require(owner == msg.sender, "Error - Only owner can report indicators");
 
-    State store newReport;
+    State memory newReport;
 
     newReport.dateOfReport = now ;
 
     // compute the rest of kpis
-    newReport.kp1 = _p1;
+    newReport.kpi1 = _p1;
 
     // add new company state to the history log
     KPIList.push(newReport);
 
-    uint reward = rewardCoin.getReward(newReport);
+    // I need to fix a compilation error due to the use of a struct as param.
+    uint tempState = 0;
+
+    // uint reward = rewardCoin.setReward(newReport, msg.sender);
+    uint reward = rewardCoin.setReward(tempState, msg.sender);
 
     emit StateRecorded(msg.sender, newReport.kpi1, newReport.kpi2, reward);
 
@@ -65,7 +64,7 @@ Contract CompanyState {
     // only owner can check its reward (current balance of tokens)
     require(msg.sender == owner, "Error - Only owner can check its balance");
 
-    reward = rewardCoin.getBalance();
+    reward = rewardCoin.getBalance(msg.sender);
   }
 
 
