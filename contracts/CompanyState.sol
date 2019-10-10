@@ -61,20 +61,16 @@ contract CompanyState is ICompanySate {
     newReport.dateOfReport = now ;
 
     // compute the rest of indicators and kpis
-
-    uint32 imci = 100*_nmci/_nci;
+    newReport.imci = 100*_nmci/_nci;
     uint32 imciA = 100*_nmciA/_nciA;
     uint32 imciB = 100*_nmciB/_nciB;
     uint32 imciC = 100*_nmciC/_nciC;
-    uint32 ideA = 4*(imciA * (100 - imciA))/100;
-    uint32 ideB = 4*(imciB * (100 - imciB))/100;
-    uint32 ideC = 4*(imciC * (100 - imciC))/100;
-    uint32 ide = factorA * ideA + factorB * ideB + factorC * ideC;
-    uint32 ic = 0;
-    uint32 npo = 0;
-    uint32 npop = 0;
+    newReport.ideA = 4*(imciA * (100 - imciA))/100;
+    newReport.ideB = 4*(imciB * (100 - imciB))/100;
+    newReport.ideC = 4*(imciC * (100 - imciC))/100;
+    newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC;
 
-    uint32 imc = 100*_nmc/_nc;
+    newReport.imc = 100*_nmc/_nc;
 
     newReport.nc = _nc;
     newReport.nci = _nci;
@@ -86,64 +82,42 @@ contract CompanyState is ICompanySate {
     newReport.nmciA = _nmciA;
     newReport.nmciB = _nmciB;
     newReport.nmciC = _nmciC;
-    newReport.imci = imci;
-    newReport.imc = imc;
-    newReport.ideA = ideA;
-    newReport.ideB = ideB;
-    newReport.ideC = ideC;
-    newReport.ide = ide;
-    newReport.ic = ic;
+    newReport.ic = 0;
     newReport.np = _np;
 
     // add new company state to the history log
     KPIList.push(newReport);
 
-    uint32 reward = rewardCoin.setReward(msg.sender, ide, imc, imci, npo, npop);
+    uint32 reward = rewardCoin.setReward(msg.sender, newReport.ide, newReport.imc,
+                                        newReport.imci, 0, 0);
+    // emit StateRecorded(msg.sender, ide, ideA, ideB, ideC, npo, npop, reward);
 
-    emit StateRecorded(msg.sender, ide, ideA, ideB, ideC, npo, npop, reward);
-
+    emit StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, 0, 0, reward);
   }
 
   function getLatestState() public view returns (
-      uint32 nc,
-      uint32 nci,
-      uint32 nciA,
-      uint32 nciB,
-      uint32 nciC,
-      uint32 nmc,
-      uint32 nmci,
-      uint32 nmciA,
-      uint32 nmciB,
-      uint32 nmciC,
-      uint32 imci,
-      uint32 imc,
-      uint32 np,
-      uint32 ideA,
-      uint32 ideB,
-      uint32 ideC,
-      uint32 ide,
-      uint32 ic,
-      uint dateOfReport) {
+      uint32 [17] memory values,
+      uint256 dateOfReport) {
 
     uint index = KPIList.length -1 ;
 
-    nc = KPIList[index].nc;
-    nci = KPIList[index].nci;
-    nciA = KPIList[index].nciA;
-    nciB = KPIList[index].nciB;
-    nciC = KPIList[index].nciC;
-    nmc = KPIList[index].nmc;
-    nmci = KPIList[index].nmci;
-    nmciA = KPIList[index].nmciA;
-    nmciB = KPIList[index].nmciB;
-    nmciC = KPIList[index].nmciC;
-    imci = KPIList[index].imci;
-    imc = KPIList[index].imc;
-    ideA = KPIList[index].ideA;
-    ideB = KPIList[index].ideB;
-    ideC = KPIList[index].ideC;
-    ide = KPIList[index].ide;
-    ic = KPIList[index].ic;
+    values[0] = KPIList[index].nc;
+    values[1] = KPIList[index].nci;
+    values[2] = KPIList[index].nciA;
+    values[3] = KPIList[index].nciB;
+    values[4] = KPIList[index].nciC;
+    values[5] = KPIList[index].nmc;
+    values[6] = KPIList[index].nmci;
+    values[7] = KPIList[index].nmciA;
+    values[8] = KPIList[index].nmciB;
+    values[9] = KPIList[index].nmciC;
+    values[10] = KPIList[index].imci;
+    values[11] = KPIList[index].imc;
+    values[12] = KPIList[index].ideA;
+    values[13] = KPIList[index].ideB;
+    values[14] = KPIList[index].ideC;
+    values[15] = KPIList[index].ide;
+    values[16] = KPIList[index].ic;
     dateOfReport = KPIList[index].dateOfReport;
 
   }

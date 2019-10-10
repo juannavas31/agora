@@ -60,24 +60,7 @@ interface ICompanySate {
                     uint32 _np) external;
 
   function getLatestState() view external returns (
-    uint32 nc,
-    uint32 nci,
-    uint32 nciA,
-    uint32 nciB,
-    uint32 nciC,
-    uint32 nmc,
-    uint32 nmci,
-    uint32 nmciA,
-    uint32 nmciB,
-    uint32 nmciC,
-    uint32 imci,
-    uint32 imc,
-    uint32 np,
-    uint32 ideA,
-    uint32 ideB,
-    uint32 ideC,
-    uint32 ide,
-    uint32 ic,
+    uint32 [17] memory values,
     uint dateOfReport);
 
   function getReward() view external returns (uint reward);
