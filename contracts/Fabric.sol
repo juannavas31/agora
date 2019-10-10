@@ -21,12 +21,12 @@ contract Fabric {
 
   event CompanyRegistered(string indexed name, address indexed companyContract, bool result);
 
-  function registerCompany(string memory _name) public returns (bool result) {
+  function registerCompany(string memory _name, uint32 _factorA, uint32 _factorB, uint32 _factorC)
+                      public returns (bool result) {
     require(companyRegistered[msg.sender] == false, "Error - Company already registered");
     // proceed to create a new contract for the company and add it to the mapping of registered companies
-    CompanyState companyContract = new CompanyState(rewardCoin);
+    CompanyState companyContract = new CompanyState(msg.sender, rewardCoin, _factorA, _factorB, _factorC);
 
-    result = companyContract.setOwner(msg.sender);
     companyRegistered[msg.sender] = true;
 
     RegisteredCompany memory newCompany;
@@ -34,6 +34,8 @@ contract Fabric {
     newCompany.companyAddress = address(companyContract);
 
     companyList.push(newCompany);
+
+    result = true;
 
     emit CompanyRegistered(_name, newCompany.companyAddress, result);
 
