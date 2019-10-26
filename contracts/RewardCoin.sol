@@ -4,22 +4,27 @@ import "./ERC20.sol";
 
 contract RewardCoin is ERC20 {
 
-  function setReward(address company, uint32 ide, uint32 imc, uint32 imci,
+  uint32 constant private bronceIdeThreshold = 70;
+  uint32 constant private silverIdeThreshold = 80;
+  uint32 constant private  goldIdeThreshold = 90;
+  uint32 constant private silverPoliciesThreshold = 5;
+  uint32 constant private goldPoliciesThreshold = 15;
+
+  function setReward(address company, uint32 ide, uint32 imc,
                       uint32 npo, uint32 npop) public returns (uint32 reward) {
     require(company != address(0), "Error - Company address cannot be ZERO");
     // formula to compute the reward based on the kpis coming in State structure
 
     reward = 0;
 
-    if (imci > 90)  ++reward;
-    if (imc > 90)  ++reward;
-    if (ide > 70)  ++reward;
-    if (ide > 80)  ++reward;
-    if (ide > 90)  ++reward;
-    if (npo > 5)  ++reward;
-    if (npo > 15)  ++reward;
-    if (npop > 5)  ++reward;
-    if (npop > 15)  ++reward;
+    if (imc > 30 && imc < 70)  ++reward;
+    if (ide > bronceIdeThreshold)  ++reward;
+    if (ide > silverIdeThreshold)  ++reward;
+    if (ide > goldIdeThreshold)  ++reward;
+    if (npo > silverPoliciesThreshold)  ++reward;
+    if (npo > goldPoliciesThreshold)  ++reward;
+    if (npop > silverPoliciesThreshold)  ++reward;
+    if (npop > goldPoliciesThreshold)  ++reward;
 
 
     _mint(company, reward);

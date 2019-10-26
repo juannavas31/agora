@@ -4,63 +4,50 @@ pragma solidity ^0.5.0;
 
 /*
 Indicators to consider in this contract as input from the company.
-Nc: Nº de contratos (temporales + indefinidos)
-Nci: Nº de contratos indefinidos
-NciA: Nº de contratos indefinidos en el nivel A
-NciB: Nº de contratos indefinidos en el nivel B
-NciC: Nº de contratos indefinidos en el nivel C
-NMc: Nº de mujeres con contrato
-NMci: Nº de mujeres con contrato indefinido
-NMciA: Nº de mujeres con contrato indefinido en el nivel A
-NMciB: Nº de mujeres con contrato indefinido en el nivel B
-NMciC: Nº de mujeres con contrato indefinido en el nivel C
-NP: Nº de políticas
-PA: Coeficiente de ponderación para nivel A
-PB: Coeficiente de ponderación para nivel B
-PC: Coeficiente de ponderación para nivel C
+- total number of managers in top level, mid level and low level positions
+- total number of women managers in the same management levels
+- policies in place, both mandatory and optional
 
-Output results from indicators above
-IM: Índice de Mujeres
-IDE: Índice de Equidad. Hay un indice global y otro por cada nivel
-IC: Índice de Cumplimiento
-
-
-NTok: Número de Tokens
-
+the contract computes and stores the equality index.
 */
 
 
 interface ICompanySate {
 
   struct State {
-    uint32 nc;
-    uint32 nci;
-    uint32 nciA;
-    uint32 nciB;
-    uint32 nciC;
-    uint32 nmc;
-    uint32 nmci;
-    uint32 nmciA;
-    uint32 nmciB;
-    uint32 nmciC;
-    uint32 imci;
-    uint32 imc;
-    uint32 np;
-    uint32 ideA;
+    uint32 mgrsLevelA;
+    uint32 mgrsLevelB;
+    uint32 mgrsLevelC;
+    uint32 womenMgrsLevelA;
+    uint32 womenMgrsLevelB;
+    uint32 womenMgrsLevelC;
+    uint32 npo;  // number of mandatory policies
+    uint32 npop; // number of voluntary policies
+    uint32 ideA;  // "Indice de Equidad" Equality index at management level A
     uint32 ideB;
     uint32 ideC;
-    uint32 ide;
-    uint32 ic;
+    uint32 ide;  // global equality index.
 
     uint dateOfReport;
   }
 
-  function setState(uint32 _nc, uint32 _nci, uint32 _nciA, uint32 _nciB, uint32 _nciC,
-                    uint32 _nmc, uint32 _nmci, uint32 _nmciA, uint32 _nmciB, uint32 _nmciC,
-                    uint32 _np) external;
+  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,
+                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC,
+                    uint32 _npo, uint32 _npop) external;
 
   function getLatestState() view external returns (
-    uint32 [17] memory values,
+    uint32 mgrsLevelA,
+    uint32 mgrsLevelB,
+    uint32 mgrsLevelC,
+    uint32 womenMgrsLevelA,
+    uint32 womenMgrsLevelB,
+    uint32 womenMgrsLevelC,
+    uint32 npo,
+    uint32 npop,
+    uint32 ideA,
+    uint32 ideB,
+    uint32 ideC,
+    uint32 ide,
     uint dateOfReport);
 
   function getReward() view external returns (uint reward);
