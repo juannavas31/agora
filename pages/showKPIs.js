@@ -111,7 +111,7 @@ class ShowKPIs extends Component {
           },
           {
             header: 'Women Ratio',
-            description: 'Woment vs Total ratio',
+            description: 'Women vs Total ratio',
             meta: womenRatio
           },
           {
@@ -144,33 +144,33 @@ class ShowKPIs extends Component {
 
         const items = [
           {
-            header: 'Mgrs level A',
-            description: 'Managers in level A',
+            header: 'Top Level Executives',
+            description: 'CEO and Board of Directors',
             meta: mgrsLevelA
           },
           {
-            header: 'Women Mgrs level A',
+            header: 'Women Top Level Executives',
             description: 'Women managers in level A',
             meta: womenMgrsLevelA
           },
           {
-            header: 'Mgrs level B',
-            description: 'Managers in level B',
+            header: 'Second Level Executives',
+            description: 'Executives reporting to Board of Directors',
             meta: mgrsLevelB
           },
           {
-            header: 'Women Mgrs level B',
-            description: 'Women managers in level B',
+            header: 'Women Second Level Executives',
+            description: 'Executives reporting to Board of Directors',
             meta: womenMgrsLevelB
           },
           {
-            header: 'Mgrs level C',
-            description: 'Managers in level C',
+            header: 'Third Level Executives',
+            description: 'Area Directors',
             meta: mgrsLevelC
           },
           {
-            header: 'Women Mgrs level C',
-            description: 'Women managers in level C',
+            header: 'Women Third Level Executives',
+            description: 'Area Directors',
             meta: womenMgrsLevelC
           },
           {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card, Button, Grid, Segment, Table } from 'semantic-ui-react';
+import { Card, Button, Grid, Segment, Table, Image, Container, Divider } from 'semantic-ui-react';
 import Factory from '../ethereum/factory';
 import Layout from '../components/layout';
 import { Link } from '../routes';
@@ -61,7 +61,14 @@ class HomeIndex extends Component{
                   <Table.Cell>
                     <Link route={`/showKPIs/${this.props.company.cAddress}`} >
                     <a>
-                        <Button primary floated='right' style={{marginBottom:10}}>Show KPIs</Button>
+                        <Button primary floated='right' style={{marginBottom:10}}>Current KPIs</Button>
+                    </a>
+                    </Link>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link route={`/listKPIs/${this.props.company.cAddress}`} >
+                    <a>
+                        <Button primary floated='right' style={{marginBottom:10}}>Previous KPIs</Button>
                     </a>
                     </Link>
                   </Table.Cell>
@@ -74,12 +81,30 @@ class HomeIndex extends Component{
         }
     };
 
+    renderUNTarget(){
+      return(
+        <Container >
+          
+          <Image src={'https://sustainabledevelopment.un.org/content/images/sdgskp.png'} size='medium' 
+            href="https://sustainabledevelopment.un.org/sdg5" bordered />
+          <Card fluid
+                header='Target 5.4 Equal Opportunities'
+                description='Recognize and value unpaid care and domestic work through the provision of public services, infrastructure and social protection policies and the promotion of shared responsibility within the household and the family as nationally appropriate'
+              />
+        </Container>
+      ); 
+    }
+
     render(){
         return (
             <Layout >
                 <div>
-                    <h2>Gender Gap Reduction Program</h2>
+                    <h2>Achieve Gender Equality</h2>
                     {this.renderCompany()}
+                </div>
+                <Divider> </Divider>
+                <div>
+                  {this.renderUNTarget()}
                 </div>
             </Layout>
         );
