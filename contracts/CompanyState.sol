@@ -27,19 +27,19 @@ contract CompanyState is ICompanySate {
                     uint32 _npop) public {
 
     require(owner == msg.sender, "Error - Only owner can report indicators");
-    require((_wMgrsA + _wMgrsB + _wMgrsC) <= (_mgrsA + _mgrsB + _mgrsC), "Error, women managers cannot be greater than total managers");
+    require(((_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC)), "Error, women executives cannot be greater than total executives");
 
     State memory newReport;
 
-    newReport.dateOfReport = now ;
+    newReport.dateOfReport = now;
 
     // compute the rest of indicators and kpis
     uint32 wMgrsA_Ratio = 100*_wMgrsA/_mgrsA;
     uint32 wMgrsB_Ratio = 100*_wMgrsB/_mgrsB;
     uint32 wMgrsC_Ratio = 100*_wMgrsB/_mgrsC;
-    newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio))/100;
-    newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio))/100;
-    newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio))/100;
+    newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio));
+    newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio));
+    newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio));
     newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC;
 
     newReport.mgrsLevelA = _mgrsA;

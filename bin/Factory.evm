@@ -1,0 +1,3805 @@
+    /* "contracts/Factory.sol":82:1230  contract Factory {... */
+  mstore(0x40, 0x80)
+    /* "contracts/Factory.sol":274:350  constructor (address _rewardCoin) public {... */
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+    /* "contracts/Factory.sol":274:350  constructor (address _rewardCoin) public {... */
+  pop
+  mload(0x40)
+  sub(codesize, bytecodeSize)
+  dup1
+  bytecodeSize
+  dup4
+  codecopy
+  dup2
+  dup2
+  add
+  0x40
+  mstore
+    /* "--CODEGEN--":13:15   */
+  0x20
+    /* "--CODEGEN--":8:11   */
+  dup2
+    /* "--CODEGEN--":5:16   */
+  lt
+    /* "--CODEGEN--":2:4   */
+  iszero
+  tag_2
+  jumpi
+    /* "--CODEGEN--":29:30   */
+  0x00
+    /* "--CODEGEN--":26:27   */
+  dup1
+    /* "--CODEGEN--":19:31   */
+  revert
+    /* "--CODEGEN--":2:4   */
+tag_2:
+    /* "contracts/Factory.sol":274:350  constructor (address _rewardCoin) public {... */
+  dup2
+  add
+  swap1
+  dup1
+  dup1
+  mload
+  swap1
+  0x20
+  add
+  swap1
+  swap3
+  swap2
+  swap1
+  pop
+  pop
+  pop
+    /* "contracts/Factory.sol":334:345  _rewardCoin */
+  dup1
+    /* "contracts/Factory.sol":321:331  rewardCoin */
+  0x00
+  dup1
+    /* "contracts/Factory.sol":321:345  rewardCoin = _rewardCoin */
+  0x0100
+  exp
+  dup2
+  sload
+  dup2
+  0xffffffffffffffffffffffffffffffffffffffff
+  mul
+  not
+  and
+  swap1
+  dup4
+  0xffffffffffffffffffffffffffffffffffffffff
+  and
+  mul
+  or
+  swap1
+  sstore
+  pop
+    /* "contracts/Factory.sol":274:350  constructor (address _rewardCoin) public {... */
+  pop
+    /* "contracts/Factory.sol":82:1230  contract Factory {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "contracts/Factory.sol":82:1230  contract Factory {... */
+      mstore(0x40, 0x80)
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_1
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x00
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_1:
+        /* "contracts/Factory.sol":82:1230  contract Factory {... */
+      pop
+      jumpi(tag_2, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x544194
+      eq
+      tag_3
+      jumpi
+      dup1
+      0x127810bc
+      eq
+      tag_4
+      jumpi
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+    tag_3:
+      tag_5
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x20
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_6
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_6:
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+        /* "--CODEGEN--":21:32   */
+      0x0100000000
+        /* "--CODEGEN--":8:19   */
+      dup2
+        /* "--CODEGEN--":5:33   */
+      gt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_7
+      jumpi
+        /* "--CODEGEN--":46:47   */
+      0x00
+        /* "--CODEGEN--":43:44   */
+      dup1
+        /* "--CODEGEN--":36:48   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_7:
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+      dup3
+      add
+        /* "--CODEGEN--":35:44   */
+      dup4
+        /* "--CODEGEN--":28:32   */
+      0x20
+        /* "--CODEGEN--":12:26   */
+      dup3
+        /* "--CODEGEN--":8:33   */
+      add
+        /* "--CODEGEN--":5:45   */
+      gt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_8
+      jumpi
+        /* "--CODEGEN--":58:59   */
+      0x00
+        /* "--CODEGEN--":55:56   */
+      dup1
+        /* "--CODEGEN--":48:60   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_8:
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap2
+        /* "--CODEGEN--":100:109   */
+      dup5
+        /* "--CODEGEN--":95:96   */
+      0x01
+        /* "--CODEGEN--":81:93   */
+      dup4
+        /* "--CODEGEN--":77:97   */
+      mul
+        /* "--CODEGEN--":67:75   */
+      dup5
+        /* "--CODEGEN--":63:98   */
+      add
+        /* "--CODEGEN--":60:110   */
+      gt
+        /* "--CODEGEN--":39:50   */
+      0x0100000000
+        /* "--CODEGEN--":25:37   */
+      dup4
+        /* "--CODEGEN--":22:51   */
+      gt
+        /* "--CODEGEN--":11:118   */
+      or
+        /* "--CODEGEN--":8:10   */
+      iszero
+      tag_9
+      jumpi
+        /* "--CODEGEN--":131:132   */
+      0x00
+        /* "--CODEGEN--":128:129   */
+      dup1
+        /* "--CODEGEN--":121:133   */
+      revert
+        /* "--CODEGEN--":8:10   */
+    tag_9:
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+      swap2
+      swap1
+      dup1
+      dup1
+      0x1f
+      add
+      0x20
+      dup1
+      swap2
+      div
+      mul
+      0x20
+      add
+      mload(0x40)
+      swap1
+      dup2
+      add
+      0x40
+      mstore
+      dup1
+      swap4
+      swap3
+      swap2
+      swap1
+      dup2
+      dup2
+      mstore
+      0x20
+      add
+      dup4
+      dup4
+        /* "--CODEGEN--":30:33   */
+      dup1
+        /* "--CODEGEN--":22:28   */
+      dup3
+        /* "--CODEGEN--":14:20   */
+      dup5
+        /* "--CODEGEN--":1:34   */
+      calldatacopy
+        /* "--CODEGEN--":99:100   */
+      0x00
+        /* "--CODEGEN--":93:96   */
+      dup2
+        /* "--CODEGEN--":85:91   */
+      dup5
+        /* "--CODEGEN--":81:97   */
+      add
+        /* "--CODEGEN--":74:101   */
+      mstore
+        /* "--CODEGEN--":137:141   */
+      0x1f
+        /* "--CODEGEN--":133:142   */
+      not
+        /* "--CODEGEN--":126:130   */
+      0x1f
+        /* "--CODEGEN--":121:124   */
+      dup3
+        /* "--CODEGEN--":117:131   */
+      add
+        /* "--CODEGEN--":113:143   */
+      and
+        /* "--CODEGEN--":106:143   */
+      swap1
+      pop
+        /* "--CODEGEN--":169:172   */
+      dup1
+        /* "--CODEGEN--":161:167   */
+      dup4
+        /* "--CODEGEN--":157:173   */
+      add
+        /* "--CODEGEN--":147:173   */
+      swap3
+      pop
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+      pop
+      pop
+      pop
+      pop
+      pop
+      pop
+      swap2
+      swap3
+      swap2
+      swap3
+      swap1
+      pop
+      pop
+      pop
+      tag_10
+      jump	// in
+    tag_5:
+      mload(0x40)
+      dup1
+      dup3
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/Factory.sol":1022:1227  function getCompany() public view returns(string memory name, address cAddress, bool registered){... */
+    tag_4:
+      tag_11
+      tag_12
+      jump	// in
+    tag_11:
+      mload(0x40)
+      dup1
+      dup1
+      0x20
+      add
+      dup5
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      dup4
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      dup6
+      dup2
+      dup2
+      mload
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      dup1
+      mload
+      swap1
+      0x20
+      add
+      swap1
+      dup1
+      dup4
+      dup4
+        /* "--CODEGEN--":23:24   */
+      0x00
+        /* "--CODEGEN--":8:108   */
+    tag_13:
+        /* "--CODEGEN--":33:36   */
+      dup4
+        /* "--CODEGEN--":30:31   */
+      dup2
+        /* "--CODEGEN--":27:37   */
+      lt
+        /* "--CODEGEN--":8:108   */
+      iszero
+      tag_15
+      jumpi
+        /* "--CODEGEN--":99:100   */
+      dup1
+        /* "--CODEGEN--":94:97   */
+      dup3
+        /* "--CODEGEN--":90:101   */
+      add
+        /* "--CODEGEN--":84:102   */
+      mload
+        /* "--CODEGEN--":80:81   */
+      dup2
+        /* "--CODEGEN--":75:78   */
+      dup5
+        /* "--CODEGEN--":71:82   */
+      add
+        /* "--CODEGEN--":64:103   */
+      mstore
+        /* "--CODEGEN--":52:54   */
+      0x20
+        /* "--CODEGEN--":49:50   */
+      dup2
+        /* "--CODEGEN--":45:55   */
+      add
+        /* "--CODEGEN--":40:55   */
+      swap1
+      pop
+        /* "--CODEGEN--":8:108   */
+      jump(tag_13)
+    tag_15:
+        /* "--CODEGEN--":12:26   */
+      pop
+        /* "contracts/Factory.sol":1022:1227  function getCompany() public view returns(string memory name, address cAddress, bool registered){... */
+      pop
+      pop
+      pop
+      swap1
+      pop
+      swap1
+      dup2
+      add
+      swap1
+      0x1f
+      and
+      dup1
+      iszero
+      tag_16
+      jumpi
+      dup1
+      dup3
+      sub
+      dup1
+      mload
+      0x01
+      dup4
+      0x20
+      sub
+      0x0100
+      exp
+      sub
+      not
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+    tag_16:
+      pop
+      swap5
+      pop
+      pop
+      pop
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+    tag_10:
+        /* "contracts/Factory.sol":533:544  bool result */
+      0x00
+        /* "contracts/Factory.sol":582:587  false */
+      dup1
+        /* "contracts/Factory.sol":560:587  company.registered == false */
+      iszero
+      iszero
+        /* "contracts/Factory.sol":560:567  company */
+      0x01
+        /* "contracts/Factory.sol":560:578  company.registered */
+      0x00
+      add
+      0x00
+      swap1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xff
+      and
+        /* "contracts/Factory.sol":560:587  company.registered == false */
+      iszero
+      iszero
+      eq
+        /* "contracts/Factory.sol":552:626  require(company.registered == false, "Error - Company already registered") */
+      tag_18
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x22
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      data_64ebc3b65e3c5cc81247b3c99ba912df11bf984b783ec2b068d27687cce09f05
+      0x22
+      swap2
+      codecopy
+      0x40
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_18:
+        /* "contracts/Factory.sol":738:766  CompanyState companyContract */
+      0x00
+        /* "contracts/Factory.sol":786:796  msg.sender */
+      caller
+        /* "contracts/Factory.sol":798:808  rewardCoin */
+      0x00
+      dup1
+      swap1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/Factory.sol":769:809  new CompanyState(msg.sender, rewardCoin) */
+      mload(0x40)
+      tag_19
+      swap1
+      tag_20
+      jump	// in
+    tag_19:
+      dup1
+      dup4
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      dup3
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap3
+      pop
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      0x00
+      create
+      dup1
+      iszero
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_21
+      jumpi
+        /* "--CODEGEN--":45:61   */
+      returndatasize
+        /* "--CODEGEN--":42:43   */
+      0x00
+        /* "--CODEGEN--":39:40   */
+      dup1
+        /* "--CODEGEN--":24:62   */
+      returndatacopy
+        /* "--CODEGEN--":77:93   */
+      returndatasize
+        /* "--CODEGEN--":74:75   */
+      0x00
+        /* "--CODEGEN--":67:94   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_21:
+        /* "contracts/Factory.sol":769:809  new CompanyState(msg.sender, rewardCoin) */
+      pop
+        /* "contracts/Factory.sol":738:809  CompanyState companyContract = new CompanyState(msg.sender, rewardCoin) */
+      swap1
+      pop
+        /* "contracts/Factory.sol":837:841  true */
+      0x01
+        /* "contracts/Factory.sol":816:823  company */
+      dup1
+        /* "contracts/Factory.sol":816:834  company.registered */
+      0x00
+      add
+      0x00
+        /* "contracts/Factory.sol":816:841  company.registered = true */
+      0x0100
+      exp
+      dup2
+      sload
+      dup2
+      0xff
+      mul
+      not
+      and
+      swap1
+      dup4
+      iszero
+      iszero
+      mul
+      or
+      swap1
+      sstore
+      pop
+        /* "contracts/Factory.sol":862:867  _name */
+      dup3
+        /* "contracts/Factory.sol":847:854  company */
+      0x01
+        /* "contracts/Factory.sol":847:859  company.name */
+      dup1
+      add
+        /* "contracts/Factory.sol":847:867  company.name = _name */
+      swap1
+      dup1
+      mload
+      swap1
+      0x20
+      add
+      swap1
+      tag_22
+      swap3
+      swap2
+      swap1
+      tag_23
+      jump	// in
+    tag_22:
+      pop
+        /* "contracts/Factory.sol":907:922  companyContract */
+      dup1
+        /* "contracts/Factory.sol":873:880  company */
+      0x01
+        /* "contracts/Factory.sol":873:896  company.companyContract */
+      0x02
+      add
+      0x00
+        /* "contracts/Factory.sol":873:923  company.companyContract = address(companyContract) */
+      0x0100
+      exp
+      dup2
+      sload
+      dup2
+      0xffffffffffffffffffffffffffffffffffffffff
+      mul
+      not
+      and
+      swap1
+      dup4
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      mul
+      or
+      swap1
+      sstore
+      pop
+        /* "contracts/Factory.sol":939:943  true */
+      0x01
+        /* "contracts/Factory.sol":930:943  result = true */
+      swap2
+      pop
+        /* "contracts/Factory.sol":980:987  company */
+      0x01
+        /* "contracts/Factory.sol":980:1003  company.companyContract */
+      0x02
+      add
+      0x00
+      swap1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/Factory.sol":955:1012  CompanyRegistered(_name, company.companyContract, result) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/Factory.sol":973:978  _name */
+      dup4
+        /* "contracts/Factory.sol":955:1012  CompanyRegistered(_name, company.companyContract, result) */
+      mload(0x40)
+      dup1
+      dup3
+      dup1
+      mload
+      swap1
+      0x20
+      add
+      swap1
+      dup1
+      dup4
+      dup4
+        /* "--CODEGEN--":36:189   */
+    tag_24:
+        /* "--CODEGEN--":66:68   */
+      0x20
+        /* "--CODEGEN--":61:64   */
+      dup4
+        /* "--CODEGEN--":58:69   */
+      lt
+        /* "--CODEGEN--":36:189   */
+      tag_26
+      jumpi
+        /* "--CODEGEN--":182:185   */
+      dup1
+        /* "--CODEGEN--":176:186   */
+      mload
+        /* "--CODEGEN--":171:174   */
+      dup3
+        /* "--CODEGEN--":164:187   */
+      mstore
+        /* "--CODEGEN--":98:100   */
+      0x20
+        /* "--CODEGEN--":93:96   */
+      dup3
+        /* "--CODEGEN--":89:101   */
+      add
+        /* "--CODEGEN--":82:101   */
+      swap2
+      pop
+        /* "--CODEGEN--":123:125   */
+      0x20
+        /* "--CODEGEN--":118:121   */
+      dup2
+        /* "--CODEGEN--":114:126   */
+      add
+        /* "--CODEGEN--":107:126   */
+      swap1
+      pop
+        /* "--CODEGEN--":148:150   */
+      0x20
+        /* "--CODEGEN--":143:146   */
+      dup4
+        /* "--CODEGEN--":139:151   */
+      sub
+        /* "--CODEGEN--":132:151   */
+      swap3
+      pop
+        /* "--CODEGEN--":36:189   */
+      jump(tag_24)
+    tag_26:
+        /* "--CODEGEN--":274:275   */
+      0x01
+        /* "--CODEGEN--":267:270   */
+      dup4
+        /* "--CODEGEN--":263:265   */
+      0x20
+        /* "--CODEGEN--":259:271   */
+      sub
+        /* "--CODEGEN--":254:257   */
+      0x0100
+        /* "--CODEGEN--":250:272   */
+      exp
+        /* "--CODEGEN--":246:276   */
+      sub
+        /* "--CODEGEN--":315:319   */
+      dup1
+        /* "--CODEGEN--":311:320   */
+      not
+        /* "--CODEGEN--":305:308   */
+      dup3
+        /* "--CODEGEN--":299:309   */
+      mload
+        /* "--CODEGEN--":295:321   */
+      and
+        /* "--CODEGEN--":356:360   */
+      dup2
+        /* "--CODEGEN--":350:353   */
+      dup5
+        /* "--CODEGEN--":344:354   */
+      mload
+        /* "--CODEGEN--":340:361   */
+      and
+        /* "--CODEGEN--":389:396   */
+      dup1
+        /* "--CODEGEN--":380:387   */
+      dup3
+        /* "--CODEGEN--":377:397   */
+      or
+        /* "--CODEGEN--":372:375   */
+      dup6
+        /* "--CODEGEN--":365:398   */
+      mstore
+        /* "--CODEGEN--":3:402   */
+      pop
+      pop
+      pop
+        /* "contracts/Factory.sol":955:1012  CompanyRegistered(_name, company.companyContract, result) */
+      pop
+      pop
+      pop
+      swap1
+      pop
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      keccak256
+      0x0709ed6273534054e52b199c1737de079139d0a52d902ca24fdd94689f1e8979
+        /* "contracts/Factory.sol":1005:1011  result */
+      dup5
+        /* "contracts/Factory.sol":955:1012  CompanyRegistered(_name, company.companyContract, result) */
+      mload(0x40)
+      dup1
+      dup3
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log3
+        /* "contracts/Factory.sol":449:1018  function registerCompany(string memory _name)... */
+      pop
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "contracts/Factory.sol":1022:1227  function getCompany() public view returns(string memory name, address cAddress, bool registered){... */
+    tag_12:
+        /* "contracts/Factory.sol":1064:1082  string memory name */
+      0x60
+        /* "contracts/Factory.sol":1084:1100  address cAddress */
+      0x00
+        /* "contracts/Factory.sol":1102:1117  bool registered */
+      dup1
+        /* "contracts/Factory.sol":1138:1145  company */
+      0x01
+        /* "contracts/Factory.sol":1138:1156  company.registered */
+      0x00
+      add
+      0x00
+      swap1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xff
+      and
+        /* "contracts/Factory.sol":1125:1156  registered = company.registered */
+      swap1
+      pop
+        /* "contracts/Factory.sol":1173:1180  company */
+      0x01
+        /* "contracts/Factory.sol":1173:1196  company.companyContract */
+      0x02
+      add
+      0x00
+      swap1
+      sload
+      swap1
+      0x0100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/Factory.sol":1162:1196  cAddress = company.companyContract */
+      swap2
+      pop
+        /* "contracts/Factory.sol":1209:1216  company */
+      0x01
+        /* "contracts/Factory.sol":1209:1221  company.name */
+      dup1
+      add
+        /* "contracts/Factory.sol":1202:1221  name = company.name */
+      dup1
+      sload
+      0x01
+      dup2
+      0x01
+      and
+      iszero
+      0x0100
+      mul
+      sub
+      and
+      0x02
+      swap1
+      div
+      dup1
+      0x1f
+      add
+      0x20
+      dup1
+      swap2
+      div
+      mul
+      0x20
+      add
+      mload(0x40)
+      swap1
+      dup2
+      add
+      0x40
+      mstore
+      dup1
+      swap3
+      swap2
+      swap1
+      dup2
+      dup2
+      mstore
+      0x20
+      add
+      dup3
+      dup1
+      sload
+      0x01
+      dup2
+      0x01
+      and
+      iszero
+      0x0100
+      mul
+      sub
+      and
+      0x02
+      swap1
+      div
+      dup1
+      iszero
+      tag_28
+      jumpi
+      dup1
+      0x1f
+      lt
+      tag_29
+      jumpi
+      0x0100
+      dup1
+      dup4
+      sload
+      div
+      mul
+      dup4
+      mstore
+      swap2
+      0x20
+      add
+      swap2
+      jump(tag_28)
+    tag_29:
+      dup3
+      add
+      swap2
+      swap1
+      0x00
+      mstore
+      keccak256(0x00, 0x20)
+      swap1
+    tag_30:
+      dup2
+      sload
+      dup2
+      mstore
+      swap1
+      0x01
+      add
+      swap1
+      0x20
+      add
+      dup1
+      dup4
+      gt
+      tag_30
+      jumpi
+      dup3
+      swap1
+      sub
+      0x1f
+      and
+      dup3
+      add
+      swap2
+    tag_28:
+      pop
+      pop
+      pop
+      pop
+      pop
+      swap3
+      pop
+        /* "contracts/Factory.sol":1022:1227  function getCompany() public view returns(string memory name, address cAddress, bool registered){... */
+      swap1
+      swap2
+      swap3
+      jump	// out
+        /* "contracts/Factory.sol":82:1230  contract Factory {... */
+    tag_20:
+      dataSize(sub_0)
+      dup1
+      dataOffset(sub_0)
+      dup4
+      codecopy
+      add
+      swap1
+      jump	// out
+    tag_23:
+      dup3
+      dup1
+      sload
+      0x01
+      dup2
+      0x01
+      and
+      iszero
+      0x0100
+      mul
+      sub
+      and
+      0x02
+      swap1
+      div
+      swap1
+      0x00
+      mstore
+      keccak256(0x00, 0x20)
+      swap1
+      0x1f
+      add
+      0x20
+      swap1
+      div
+      dup2
+      add
+      swap3
+      dup3
+      0x1f
+      lt
+      tag_32
+      jumpi
+      dup1
+      mload
+      not(0xff)
+      and
+      dup4
+      dup1
+      add
+      or
+      dup6
+      sstore
+      jump(tag_31)
+    tag_32:
+      dup3
+      dup1
+      add
+      0x01
+      add
+      dup6
+      sstore
+      dup3
+      iszero
+      tag_31
+      jumpi
+      swap2
+      dup3
+      add
+    tag_33:
+      dup3
+      dup2
+      gt
+      iszero
+      tag_34
+      jumpi
+      dup3
+      mload
+      dup3
+      sstore
+      swap2
+      0x20
+      add
+      swap2
+      swap1
+      0x01
+      add
+      swap1
+      jump(tag_33)
+    tag_34:
+    tag_31:
+      pop
+      swap1
+      pop
+      tag_35
+      swap2
+      swap1
+      tag_36
+      jump	// in
+    tag_35:
+      pop
+      swap1
+      jump	// out
+    tag_36:
+      tag_37
+      swap2
+      swap1
+    tag_38:
+      dup1
+      dup3
+      gt
+      iszero
+      tag_39
+      jumpi
+      0x00
+      dup2
+      0x00
+      swap1
+      sstore
+      pop
+      0x01
+      add
+      jump(tag_38)
+    tag_39:
+      pop
+      swap1
+      jump
+    tag_37:
+      swap1
+      jump	// out
+    stop
+    data_64ebc3b65e3c5cc81247b3c99ba912df11bf984b783ec2b068d27687cce09f05 4572726f72202d20436f6d70616e7920616c72656164792072656769737465726564
+
+    sub_0: assembly {
+            /* "contracts/CompanyState.sol":84:3632  contract CompanyState is ICompanySate {... */
+          mstore(0x40, 0x80)
+            /* "contracts/CompanyState.sol":361:489  constructor (address _company, address _rewardCoin) public {... */
+          callvalue
+            /* "--CODEGEN--":8:17   */
+          dup1
+            /* "--CODEGEN--":5:7   */
+          iszero
+          tag_1
+          jumpi
+            /* "--CODEGEN--":30:31   */
+          0x00
+            /* "--CODEGEN--":27:28   */
+          dup1
+            /* "--CODEGEN--":20:32   */
+          revert
+            /* "--CODEGEN--":5:7   */
+        tag_1:
+            /* "contracts/CompanyState.sol":361:489  constructor (address _company, address _rewardCoin) public {... */
+          pop
+          mload(0x40)
+          sub(codesize, bytecodeSize)
+          dup1
+          bytecodeSize
+          dup4
+          codecopy
+          dup2
+          dup2
+          add
+          0x40
+          mstore
+            /* "--CODEGEN--":13:15   */
+          0x40
+            /* "--CODEGEN--":8:11   */
+          dup2
+            /* "--CODEGEN--":5:16   */
+          lt
+            /* "--CODEGEN--":2:4   */
+          iszero
+          tag_2
+          jumpi
+            /* "--CODEGEN--":29:30   */
+          0x00
+            /* "--CODEGEN--":26:27   */
+          dup1
+            /* "--CODEGEN--":19:31   */
+          revert
+            /* "--CODEGEN--":2:4   */
+        tag_2:
+            /* "contracts/CompanyState.sol":361:489  constructor (address _company, address _rewardCoin) public {... */
+          dup2
+          add
+          swap1
+          dup1
+          dup1
+          mload
+          swap1
+          0x20
+          add
+          swap1
+          swap3
+          swap2
+          swap1
+          dup1
+          mload
+          swap1
+          0x20
+          add
+          swap1
+          swap3
+          swap2
+          swap1
+          pop
+          pop
+          pop
+            /* "contracts/CompanyState.sol":450:461  _rewardCoin */
+          dup1
+            /* "contracts/CompanyState.sol":426:436  rewardCoin */
+          0x01
+          0x00
+            /* "contracts/CompanyState.sol":426:462  rewardCoin = RewardCoin(_rewardCoin) */
+          0x0100
+          exp
+          dup2
+          sload
+          dup2
+          0xffffffffffffffffffffffffffffffffffffffff
+          mul
+          not
+          and
+          swap1
+          dup4
+          0xffffffffffffffffffffffffffffffffffffffff
+          and
+          mul
+          or
+          swap1
+          sstore
+          pop
+            /* "contracts/CompanyState.sol":476:484  _company */
+          dup2
+            /* "contracts/CompanyState.sol":468:473  owner */
+          0x00
+          dup1
+            /* "contracts/CompanyState.sol":468:484  owner = _company */
+          0x0100
+          exp
+          dup2
+          sload
+          dup2
+          0xffffffffffffffffffffffffffffffffffffffff
+          mul
+          not
+          and
+          swap1
+          dup4
+          0xffffffffffffffffffffffffffffffffffffffff
+          and
+          mul
+          or
+          swap1
+          sstore
+          pop
+            /* "contracts/CompanyState.sol":361:489  constructor (address _company, address _rewardCoin) public {... */
+          pop
+          pop
+            /* "contracts/CompanyState.sol":84:3632  contract CompanyState is ICompanySate {... */
+          dataSize(sub_0)
+          dup1
+          dataOffset(sub_0)
+          0x00
+          codecopy
+          0x00
+          return
+        stop
+
+        sub_0: assembly {
+                /* "contracts/CompanyState.sol":84:3632  contract CompanyState is ICompanySate {... */
+              mstore(0x40, 0x80)
+              callvalue
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_1
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_1:
+                /* "contracts/CompanyState.sol":84:3632  contract CompanyState is ICompanySate {... */
+              pop
+              jumpi(tag_2, lt(calldatasize, 0x04))
+              shr(0xe0, calldataload(0x00))
+              dup1
+              0x2d904eb8
+              eq
+              tag_3
+              jumpi
+              dup1
+              0x3d18b912
+              eq
+              tag_4
+              jumpi
+              dup1
+              0xb86d2c21
+              eq
+              tag_5
+              jumpi
+            tag_2:
+              0x00
+              dup1
+              revert
+                /* "contracts/CompanyState.sol":2442:3370  function getLatestState() public view returns (... */
+            tag_3:
+              tag_6
+              tag_7
+              jump	// in
+            tag_6:
+              mload(0x40)
+              dup1
+              dup15
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup14
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup13
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup12
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup11
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup10
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup9
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup8
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup7
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup6
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup5
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup4
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup3
+              dup2
+              mstore
+              0x20
+              add
+              swap14
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              return
+                /* "contracts/CompanyState.sol":3374:3628  function getReward() public view returns (uint reward) {... */
+            tag_4:
+              tag_8
+              tag_9
+              jump	// in
+            tag_8:
+              mload(0x40)
+              dup1
+              dup3
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              return
+                /* "contracts/CompanyState.sol":653:2438  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,... */
+            tag_5:
+              tag_10
+              0x04
+              dup1
+              calldatasize
+              sub
+                /* "--CODEGEN--":13:16   */
+              0x0100
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:17   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_11
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_11:
+                /* "contracts/CompanyState.sol":653:2438  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,... */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              dup1
+              calldataload
+              0xffffffff
+              and
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+              tag_12
+              jump	// in
+            tag_10:
+              stop
+                /* "contracts/CompanyState.sol":2442:3370  function getLatestState() public view returns (... */
+            tag_7:
+                /* "contracts/CompanyState.sol":2496:2513  uint32 mgrsLevelA */
+              0x00
+                /* "contracts/CompanyState.sol":2521:2538  uint32 mgrsLevelB */
+              dup1
+                /* "contracts/CompanyState.sol":2546:2563  uint32 mgrsLevelC */
+              0x00
+                /* "contracts/CompanyState.sol":2571:2593  uint32 womenMgrsLevelA */
+              dup1
+                /* "contracts/CompanyState.sol":2601:2623  uint32 womenMgrsLevelB */
+              0x00
+                /* "contracts/CompanyState.sol":2631:2653  uint32 womenMgrsLevelC */
+              dup1
+                /* "contracts/CompanyState.sol":2661:2671  uint32 npo */
+              0x00
+                /* "contracts/CompanyState.sol":2679:2690  uint32 npop */
+              dup1
+                /* "contracts/CompanyState.sol":2698:2709  uint32 ideA */
+              0x00
+                /* "contracts/CompanyState.sol":2717:2728  uint32 ideB */
+              dup1
+                /* "contracts/CompanyState.sol":2736:2747  uint32 ideC */
+              0x00
+                /* "contracts/CompanyState.sol":2755:2765  uint32 ide */
+              dup1
+                /* "contracts/CompanyState.sol":2773:2793  uint256 dateOfReport */
+              0x00
+                /* "contracts/CompanyState.sol":2802:2812  uint index */
+              dup1
+                /* "contracts/CompanyState.sol":2831:2832  1 */
+              0x01
+                /* "contracts/CompanyState.sol":2815:2822  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":2815:2829  KPIList.length */
+              dup1
+              sload
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":2815:2832  KPIList.length -1 */
+              sub
+                /* "contracts/CompanyState.sol":2802:2832  uint index = KPIList.length -1 */
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":2853:2860  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":2861:2866  index */
+              dup2
+                /* "contracts/CompanyState.sol":2853:2867  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_14
+              jumpi
+              invalid
+            tag_14:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":2853:2878  KPIList[index].mgrsLevelA */
+              0x00
+              add
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":2840:2878  mgrsLevelA = KPIList[index].mgrsLevelA */
+              swap14
+              pop
+                /* "contracts/CompanyState.sol":2897:2904  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":2905:2910  index */
+              dup2
+                /* "contracts/CompanyState.sol":2897:2911  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_16
+              jumpi
+              invalid
+            tag_16:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":2897:2922  KPIList[index].mgrsLevelB */
+              0x00
+              add
+              0x04
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":2884:2922  mgrsLevelB = KPIList[index].mgrsLevelB */
+              swap13
+              pop
+                /* "contracts/CompanyState.sol":2941:2948  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":2949:2954  index */
+              dup2
+                /* "contracts/CompanyState.sol":2941:2955  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_18
+              jumpi
+              invalid
+            tag_18:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":2941:2966  KPIList[index].mgrsLevelC */
+              0x00
+              add
+              0x08
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":2928:2966  mgrsLevelC = KPIList[index].mgrsLevelC */
+              swap12
+              pop
+                /* "contracts/CompanyState.sol":2990:2997  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":2998:3003  index */
+              dup2
+                /* "contracts/CompanyState.sol":2990:3004  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_20
+              jumpi
+              invalid
+            tag_20:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":2990:3020  KPIList[index].womenMgrsLevelA */
+              0x00
+              add
+              0x0c
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":2972:3020  womenMgrsLevelA = KPIList[index].womenMgrsLevelA */
+              swap11
+              pop
+                /* "contracts/CompanyState.sol":3044:3051  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3052:3057  index */
+              dup2
+                /* "contracts/CompanyState.sol":3044:3058  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_22
+              jumpi
+              invalid
+            tag_22:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3044:3074  KPIList[index].womenMgrsLevelB */
+              0x00
+              add
+              0x10
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3026:3074  womenMgrsLevelB = KPIList[index].womenMgrsLevelB */
+              swap10
+              pop
+                /* "contracts/CompanyState.sol":3098:3105  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3106:3111  index */
+              dup2
+                /* "contracts/CompanyState.sol":3098:3112  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_24
+              jumpi
+              invalid
+            tag_24:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3098:3128  KPIList[index].womenMgrsLevelC */
+              0x00
+              add
+              0x14
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3080:3128  womenMgrsLevelC = KPIList[index].womenMgrsLevelC */
+              swap9
+              pop
+                /* "contracts/CompanyState.sol":3140:3147  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3148:3153  index */
+              dup2
+                /* "contracts/CompanyState.sol":3140:3154  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_26
+              jumpi
+              invalid
+            tag_26:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3140:3158  KPIList[index].npo */
+              0x00
+              add
+              0x18
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3134:3158  npo = KPIList[index].npo */
+              swap8
+              pop
+                /* "contracts/CompanyState.sol":3171:3178  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3179:3184  index */
+              dup2
+                /* "contracts/CompanyState.sol":3171:3185  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_28
+              jumpi
+              invalid
+            tag_28:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3171:3190  KPIList[index].npop */
+              0x00
+              add
+              0x1c
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3164:3190  npop = KPIList[index].npop */
+              swap7
+              pop
+                /* "contracts/CompanyState.sol":3203:3210  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3211:3216  index */
+              dup2
+                /* "contracts/CompanyState.sol":3203:3217  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_30
+              jumpi
+              invalid
+            tag_30:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3203:3222  KPIList[index].ideA */
+              0x01
+              add
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3196:3222  ideA = KPIList[index].ideA */
+              swap6
+              pop
+                /* "contracts/CompanyState.sol":3235:3242  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3243:3248  index */
+              dup2
+                /* "contracts/CompanyState.sol":3235:3249  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_32
+              jumpi
+              invalid
+            tag_32:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3235:3254  KPIList[index].ideB */
+              0x01
+              add
+              0x04
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3228:3254  ideB = KPIList[index].ideB */
+              swap5
+              pop
+                /* "contracts/CompanyState.sol":3267:3274  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3275:3280  index */
+              dup2
+                /* "contracts/CompanyState.sol":3267:3281  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_34
+              jumpi
+              invalid
+            tag_34:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3267:3286  KPIList[index].ideC */
+              0x01
+              add
+              0x08
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3260:3286  ideC = KPIList[index].ideC */
+              swap4
+              pop
+                /* "contracts/CompanyState.sol":3298:3305  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3306:3311  index */
+              dup2
+                /* "contracts/CompanyState.sol":3298:3312  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_36
+              jumpi
+              invalid
+            tag_36:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3298:3316  KPIList[index].ide */
+              0x01
+              add
+              0x0c
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":3292:3316  ide = KPIList[index].ide */
+              swap3
+              pop
+                /* "contracts/CompanyState.sol":3337:3344  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":3345:3350  index */
+              dup2
+                /* "contracts/CompanyState.sol":3337:3351  KPIList[index] */
+              dup2
+              sload
+              dup2
+              lt
+              tag_38
+              jumpi
+              invalid
+            tag_38:
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+                /* "contracts/CompanyState.sol":3337:3364  KPIList[index].dateOfReport */
+              0x02
+              add
+              sload
+                /* "contracts/CompanyState.sol":3322:3364  dateOfReport = KPIList[index].dateOfReport */
+              swap2
+              pop
+                /* "contracts/CompanyState.sol":2442:3370  function getLatestState() public view returns (... */
+              pop
+              swap1
+              swap2
+              swap3
+              swap4
+              swap5
+              swap6
+              swap7
+              swap8
+              swap9
+              swap10
+              swap11
+              swap12
+              swap13
+              jump	// out
+                /* "contracts/CompanyState.sol":3374:3628  function getReward() public view returns (uint reward) {... */
+            tag_9:
+                /* "contracts/CompanyState.sol":3416:3427  uint reward */
+              0x00
+                /* "contracts/CompanyState.sol":3524:3529  owner */
+              dup1
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "contracts/CompanyState.sol":3510:3529  msg.sender == owner */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "contracts/CompanyState.sol":3510:3520  msg.sender */
+              caller
+                /* "contracts/CompanyState.sol":3510:3529  msg.sender == owner */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              eq
+                /* "contracts/CompanyState.sol":3502:3574  require(msg.sender == owner, "Error - Only owner can check its balance") */
+              tag_41
+              jumpi
+              mload(0x40)
+              0x08c379a000000000000000000000000000000000000000000000000000000000
+              dup2
+              mstore
+              0x04
+              add
+              dup1
+              dup1
+              0x20
+              add
+              dup3
+              dup2
+              sub
+              dup3
+              mstore
+              0x28
+              dup2
+              mstore
+              0x20
+              add
+              dup1
+              data_1b6021819113f485913dc6d13e0701e69ad5b6381538e02ef9d98f49ec9ddaec
+              0x28
+              swap2
+              codecopy
+              0x40
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              revert
+            tag_41:
+                /* "contracts/CompanyState.sol":3590:3600  rewardCoin */
+              0x01
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "contracts/CompanyState.sol":3590:3611  rewardCoin.getBalance */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xf8b2cb4f
+                /* "contracts/CompanyState.sol":3612:3622  msg.sender */
+              caller
+                /* "contracts/CompanyState.sol":3590:3623  rewardCoin.getBalance(msg.sender) */
+              mload(0x40)
+              dup3
+              0xffffffff
+              and
+              0xe0
+              shl
+              dup2
+              mstore
+              0x04
+              add
+              dup1
+              dup3
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap2
+              pop
+              pop
+              0x20
+              mload(0x40)
+              dup1
+              dup4
+              sub
+              dup2
+              dup7
+              dup1
+              extcodesize
+              iszero
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_42
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_42:
+                /* "contracts/CompanyState.sol":3590:3623  rewardCoin.getBalance(msg.sender) */
+              pop
+              gas
+              staticcall
+              iszero
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_43
+              jumpi
+                /* "--CODEGEN--":45:61   */
+              returndatasize
+                /* "--CODEGEN--":42:43   */
+              0x00
+                /* "--CODEGEN--":39:40   */
+              dup1
+                /* "--CODEGEN--":24:62   */
+              returndatacopy
+                /* "--CODEGEN--":77:93   */
+              returndatasize
+                /* "--CODEGEN--":74:75   */
+              0x00
+                /* "--CODEGEN--":67:94   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_43:
+                /* "contracts/CompanyState.sol":3590:3623  rewardCoin.getBalance(msg.sender) */
+              pop
+              pop
+              pop
+              pop
+              mload(0x40)
+              returndatasize
+                /* "--CODEGEN--":13:15   */
+              0x20
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:16   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_44
+              jumpi
+                /* "--CODEGEN--":29:30   */
+              0x00
+                /* "--CODEGEN--":26:27   */
+              dup1
+                /* "--CODEGEN--":19:31   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_44:
+                /* "contracts/CompanyState.sol":3590:3623  rewardCoin.getBalance(msg.sender) */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              mload
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+                /* "contracts/CompanyState.sol":3581:3623  reward = rewardCoin.getBalance(msg.sender) */
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":3374:3628  function getReward() public view returns (uint reward) {... */
+              swap1
+              jump	// out
+                /* "contracts/CompanyState.sol":653:2438  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,... */
+            tag_12:
+                /* "contracts/CompanyState.sol":862:872  msg.sender */
+              caller
+                /* "contracts/CompanyState.sol":853:872  owner == msg.sender */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "contracts/CompanyState.sol":853:858  owner */
+              0x00
+              dup1
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "contracts/CompanyState.sol":853:872  owner == msg.sender */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              eq
+                /* "contracts/CompanyState.sol":845:917  require(owner == msg.sender, "Error - Only owner can report indicators") */
+              tag_46
+              jumpi
+              mload(0x40)
+              0x08c379a000000000000000000000000000000000000000000000000000000000
+              dup2
+              mstore
+              0x04
+              add
+              dup1
+              dup1
+              0x20
+              add
+              dup3
+              dup2
+              sub
+              dup3
+              mstore
+              0x28
+              dup2
+              mstore
+              0x20
+              add
+              dup1
+              data_2e530429f6b4cf84080a9b14ebc979c6ba8fc4dc5bcd73af2cb64b1be64d5799
+              0x28
+              swap2
+              codecopy
+              0x40
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              revert
+            tag_46:
+                /* "contracts/CompanyState.sol":983:989  _mgrsC */
+              dup6
+                /* "contracts/CompanyState.sol":974:980  _mgrsB */
+              dup8
+                /* "contracts/CompanyState.sol":965:971  _mgrsA */
+              dup10
+                /* "contracts/CompanyState.sol":965:980  _mgrsA + _mgrsB */
+              add
+                /* "contracts/CompanyState.sol":965:989  _mgrsA + _mgrsB + _mgrsC */
+              add
+                /* "contracts/CompanyState.sol":931:990  (_wMgrsA + _wMgrsB + _wMgrsC) <= (_mgrsA + _mgrsB + _mgrsC) */
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":952:959  _wMgrsC */
+              dup4
+                /* "contracts/CompanyState.sol":942:949  _wMgrsB */
+              dup6
+                /* "contracts/CompanyState.sol":932:939  _wMgrsA */
+              dup8
+                /* "contracts/CompanyState.sol":932:949  _wMgrsA + _wMgrsB */
+              add
+                /* "contracts/CompanyState.sol":932:959  _wMgrsA + _wMgrsB + _wMgrsC */
+              add
+                /* "contracts/CompanyState.sol":931:990  (_wMgrsA + _wMgrsB + _wMgrsC) <= (_mgrsA + _mgrsB + _mgrsC) */
+              0xffffffff
+              and
+              gt
+              iszero
+                /* "contracts/CompanyState.sol":923:1054  require((_wMgrsA + _wMgrsB + _wMgrsC) <= (_mgrsA + _mgrsB + _mgrsC), "Error, women managers cannot be greater than total managers") */
+              tag_47
+              jumpi
+              mload(0x40)
+              0x08c379a000000000000000000000000000000000000000000000000000000000
+              dup2
+              mstore
+              0x04
+              add
+              dup1
+              dup1
+              0x20
+              add
+              dup3
+              dup2
+              sub
+              dup3
+              mstore
+              0x3b
+              dup2
+              mstore
+              0x20
+              add
+              dup1
+              data_bc1ed364d897f8513389e87290386797770ecca83923ac83010fde21323c60f6
+              0x3b
+              swap2
+              codecopy
+              0x40
+              add
+              swap2
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              revert
+            tag_47:
+                /* "contracts/CompanyState.sol":1061:1083  State memory newReport */
+              tag_48
+              tag_49
+              jump	// in
+            tag_48:
+                /* "contracts/CompanyState.sol":1115:1118  now */
+              timestamp
+                /* "contracts/CompanyState.sol":1090:1099  newReport */
+              dup2
+                /* "contracts/CompanyState.sol":1090:1112  newReport.dateOfReport */
+              0x0180
+              add
+                /* "contracts/CompanyState.sol":1090:1118  newReport.dateOfReport = now */
+              dup2
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1173:1192  uint32 wMgrsA_Ratio */
+              0x00
+                /* "contracts/CompanyState.sol":1207:1213  _mgrsA */
+              dup10
+                /* "contracts/CompanyState.sol":1195:1213  100*_wMgrsA/_mgrsA */
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":1199:1206  _wMgrsA */
+              dup8
+                /* "contracts/CompanyState.sol":1195:1198  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1195:1206  100*_wMgrsA */
+              mul
+                /* "contracts/CompanyState.sol":1195:1213  100*_wMgrsA/_mgrsA */
+              0xffffffff
+              and
+              dup2
+              tag_50
+              jumpi
+              invalid
+            tag_50:
+              div
+                /* "contracts/CompanyState.sol":1173:1213  uint32 wMgrsA_Ratio = 100*_wMgrsA/_mgrsA */
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":1219:1238  uint32 wMgrsB_Ratio */
+              0x00
+                /* "contracts/CompanyState.sol":1253:1259  _mgrsB */
+              dup10
+                /* "contracts/CompanyState.sol":1241:1259  100*_wMgrsB/_mgrsB */
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":1245:1252  _wMgrsB */
+              dup8
+                /* "contracts/CompanyState.sol":1241:1244  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1241:1252  100*_wMgrsB */
+              mul
+                /* "contracts/CompanyState.sol":1241:1259  100*_wMgrsB/_mgrsB */
+              0xffffffff
+              and
+              dup2
+              tag_51
+              jumpi
+              invalid
+            tag_51:
+              div
+                /* "contracts/CompanyState.sol":1219:1259  uint32 wMgrsB_Ratio = 100*_wMgrsB/_mgrsB */
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":1265:1284  uint32 wMgrsC_Ratio */
+              0x00
+                /* "contracts/CompanyState.sol":1299:1305  _mgrsC */
+              dup10
+                /* "contracts/CompanyState.sol":1287:1305  100*_wMgrsB/_mgrsC */
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":1291:1298  _wMgrsB */
+              dup9
+                /* "contracts/CompanyState.sol":1287:1290  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1287:1298  100*_wMgrsB */
+              mul
+                /* "contracts/CompanyState.sol":1287:1305  100*_wMgrsB/_mgrsC */
+              0xffffffff
+              and
+              dup2
+              tag_52
+              jumpi
+              invalid
+            tag_52:
+              div
+                /* "contracts/CompanyState.sol":1265:1305  uint32 wMgrsC_Ratio = 100*_wMgrsB/_mgrsC */
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":1368:1371  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1353:1365  wMgrsA_Ratio */
+              dup4
+                /* "contracts/CompanyState.sol":1347:1350  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1347:1365  100 - wMgrsA_Ratio */
+              sub
+                /* "contracts/CompanyState.sol":1331:1343  wMgrsA_Ratio */
+              dup5
+                /* "contracts/CompanyState.sol":1331:1366  wMgrsA_Ratio * (100 - wMgrsA_Ratio) */
+              mul
+                /* "contracts/CompanyState.sol":1328:1329  4 */
+              0x04
+                /* "contracts/CompanyState.sol":1328:1367  4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio)) */
+              mul
+                /* "contracts/CompanyState.sol":1328:1371  4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio))/100 */
+              0xffffffff
+              and
+              dup2
+              tag_53
+              jumpi
+              invalid
+            tag_53:
+              div
+                /* "contracts/CompanyState.sol":1311:1320  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1311:1325  newReport.ideA */
+              0x0100
+              add
+                /* "contracts/CompanyState.sol":1311:1371  newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio))/100 */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1434:1437  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1419:1431  wMgrsB_Ratio */
+              dup3
+                /* "contracts/CompanyState.sol":1413:1416  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1413:1431  100 - wMgrsB_Ratio */
+              sub
+                /* "contracts/CompanyState.sol":1397:1409  wMgrsB_Ratio */
+              dup4
+                /* "contracts/CompanyState.sol":1397:1432  wMgrsB_Ratio * (100 - wMgrsB_Ratio) */
+              mul
+                /* "contracts/CompanyState.sol":1394:1395  4 */
+              0x04
+                /* "contracts/CompanyState.sol":1394:1433  4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio)) */
+              mul
+                /* "contracts/CompanyState.sol":1394:1437  4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio))/100 */
+              0xffffffff
+              and
+              dup2
+              tag_54
+              jumpi
+              invalid
+            tag_54:
+              div
+                /* "contracts/CompanyState.sol":1377:1386  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1377:1391  newReport.ideB */
+              0x0120
+              add
+                /* "contracts/CompanyState.sol":1377:1437  newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio))/100 */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1500:1503  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1485:1497  wMgrsC_Ratio */
+              dup2
+                /* "contracts/CompanyState.sol":1479:1482  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1479:1497  100 - wMgrsC_Ratio */
+              sub
+                /* "contracts/CompanyState.sol":1463:1475  wMgrsC_Ratio */
+              dup3
+                /* "contracts/CompanyState.sol":1463:1498  wMgrsC_Ratio * (100 - wMgrsC_Ratio) */
+              mul
+                /* "contracts/CompanyState.sol":1460:1461  4 */
+              0x04
+                /* "contracts/CompanyState.sol":1460:1499  4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio)) */
+              mul
+                /* "contracts/CompanyState.sol":1460:1503  4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio))/100 */
+              0xffffffff
+              and
+              dup2
+              tag_55
+              jumpi
+              invalid
+            tag_55:
+              div
+                /* "contracts/CompanyState.sol":1443:1452  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1443:1457  newReport.ideC */
+              0x0140
+              add
+                /* "contracts/CompanyState.sol":1443:1503  newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio))/100 */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1589:1598  newReport */
+              dup4
+                /* "contracts/CompanyState.sol":1589:1603  newReport.ideC */
+              0x0140
+              add
+              mload
+                /* "contracts/CompanyState.sol":334:336  30 */
+              0x1e
+                /* "contracts/CompanyState.sol":1579:1603  factorC * newReport.ideC */
+              mul
+                /* "contracts/CompanyState.sol":1562:1571  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1562:1576  newReport.ideB */
+              0x0120
+              add
+              mload
+                /* "contracts/CompanyState.sol":294:296  40 */
+              0x28
+                /* "contracts/CompanyState.sol":1552:1576  factorB * newReport.ideB */
+              mul
+                /* "contracts/CompanyState.sol":1535:1544  newReport */
+              dup6
+                /* "contracts/CompanyState.sol":1535:1549  newReport.ideA */
+              0x0100
+              add
+              mload
+                /* "contracts/CompanyState.sol":219:221  30 */
+              0x1e
+                /* "contracts/CompanyState.sol":1525:1549  factorA * newReport.ideA */
+              mul
+                /* "contracts/CompanyState.sol":1525:1576  factorA * newReport.ideA + factorB * newReport.ideB */
+              add
+                /* "contracts/CompanyState.sol":1525:1603  factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC */
+              add
+                /* "contracts/CompanyState.sol":1509:1518  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1509:1522  newReport.ide */
+              0x0160
+              add
+                /* "contracts/CompanyState.sol":1509:1603  newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1633:1639  _mgrsA */
+              dup12
+                /* "contracts/CompanyState.sol":1610:1619  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1610:1630  newReport.mgrsLevelA */
+              0x00
+              add
+                /* "contracts/CompanyState.sol":1610:1639  newReport.mgrsLevelA = _mgrsA */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1668:1674  _mgrsB */
+              dup11
+                /* "contracts/CompanyState.sol":1645:1654  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1645:1665  newReport.mgrsLevelB */
+              0x20
+              add
+                /* "contracts/CompanyState.sol":1645:1674  newReport.mgrsLevelB = _mgrsB */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1703:1709  _mgrsC */
+              dup10
+                /* "contracts/CompanyState.sol":1680:1689  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1680:1700  newReport.mgrsLevelC */
+              0x40
+              add
+                /* "contracts/CompanyState.sol":1680:1709  newReport.mgrsLevelC = _mgrsC */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1743:1750  _wMgrsA */
+              dup9
+                /* "contracts/CompanyState.sol":1715:1724  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1715:1740  newReport.womenMgrsLevelA */
+              0x60
+              add
+                /* "contracts/CompanyState.sol":1715:1750  newReport.womenMgrsLevelA = _wMgrsA */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1784:1791  _wMgrsB */
+              dup8
+                /* "contracts/CompanyState.sol":1756:1765  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1756:1781  newReport.womenMgrsLevelB */
+              0x80
+              add
+                /* "contracts/CompanyState.sol":1756:1791  newReport.womenMgrsLevelB = _wMgrsB */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1825:1832  _wMgrsC */
+              dup7
+                /* "contracts/CompanyState.sol":1797:1806  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1797:1822  newReport.womenMgrsLevelC */
+              0xa0
+              add
+                /* "contracts/CompanyState.sol":1797:1832  newReport.womenMgrsLevelC = _wMgrsC */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1854:1858  _npo */
+              dup6
+                /* "contracts/CompanyState.sol":1838:1847  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1838:1851  newReport.npo */
+              0xc0
+              add
+                /* "contracts/CompanyState.sol":1838:1858  newReport.npo = _npo */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1881:1886  _npop */
+              dup5
+                /* "contracts/CompanyState.sol":1864:1873  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1864:1878  newReport.npop */
+              0xe0
+              add
+                /* "contracts/CompanyState.sol":1864:1886  newReport.npop = _npop */
+              swap1
+              0xffffffff
+              and
+              swap1
+              dup2
+              0xffffffff
+              and
+              dup2
+              mstore
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1941:1948  KPIList */
+              0x02
+                /* "contracts/CompanyState.sol":1954:1963  newReport */
+              dup5
+                /* "contracts/CompanyState.sol":1941:1964  KPIList.push(newReport) */
+              swap1
+              dup1
+                /* "--CODEGEN--":39:40   */
+              0x01
+                /* "--CODEGEN--":33:36   */
+              dup2
+                /* "--CODEGEN--":27:37   */
+              sload
+                /* "--CODEGEN--":23:41   */
+              add
+                /* "--CODEGEN--":57:67   */
+              dup1
+                /* "--CODEGEN--":52:55   */
+              dup3
+                /* "--CODEGEN--":45:68   */
+              sstore
+                /* "--CODEGEN--":79:89   */
+              dup1
+                /* "--CODEGEN--":72:89   */
+              swap2
+              pop
+                /* "--CODEGEN--":0:93   */
+              pop
+                /* "contracts/CompanyState.sol":1941:1964  KPIList.push(newReport) */
+              swap1
+              0x01
+              dup3
+              sub
+              swap1
+              0x00
+              mstore
+              keccak256(0x00, 0x20)
+              swap1
+              0x03
+              mul
+              add
+              0x00
+              swap1
+              swap2
+              swap3
+              swap1
+              swap2
+              swap1
+              swap2
+              pop
+              0x00
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x00)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x20
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x04)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x40
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x08)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x60
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x0c)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x80
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x10)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0xa0
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x14)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0xc0
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x18)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0xe0
+              dup3
+              add
+              mload
+              dup2
+              0x00
+              add
+              exp(0x0100, 0x1c)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x0100
+              dup3
+              add
+              mload
+              dup2
+              0x01
+              add
+              exp(0x0100, 0x00)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x0120
+              dup3
+              add
+              mload
+              dup2
+              0x01
+              add
+              exp(0x0100, 0x04)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x0140
+              dup3
+              add
+              mload
+              dup2
+              0x01
+              add
+              exp(0x0100, 0x08)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x0160
+              dup3
+              add
+              mload
+              dup2
+              0x01
+              add
+              exp(0x0100, 0x0c)
+              dup2
+              sload
+              dup2
+              0xffffffff
+              mul
+              not
+              and
+              swap1
+              dup4
+              0xffffffff
+              and
+              mul
+              or
+              swap1
+              sstore
+              pop
+              0x0180
+              dup3
+              add
+              mload
+              dup2
+              0x02
+              add
+              sstore
+              pop
+              pop
+              pop
+                /* "contracts/CompanyState.sol":1971:1992  uint32 womenMgrsRatio */
+              0x00
+                /* "contracts/CompanyState.sol":2048:2054  _mgrsC */
+              dup11
+                /* "contracts/CompanyState.sol":2039:2045  _mgrsB */
+              dup13
+                /* "contracts/CompanyState.sol":2030:2036  _mgrsA */
+              dup15
+                /* "contracts/CompanyState.sol":2030:2045  _mgrsA + _mgrsB */
+              add
+                /* "contracts/CompanyState.sol":2030:2054  _mgrsA + _mgrsB + _mgrsC */
+              add
+                /* "contracts/CompanyState.sol":1995:2055  100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC) */
+              0xffffffff
+              and
+                /* "contracts/CompanyState.sol":2020:2027  _wMgrsC */
+              dup9
+                /* "contracts/CompanyState.sol":2010:2017  _wMgrsB */
+              dup11
+                /* "contracts/CompanyState.sol":2000:2007  _wMgrsA */
+              dup13
+                /* "contracts/CompanyState.sol":2000:2017  _wMgrsA + _wMgrsB */
+              add
+                /* "contracts/CompanyState.sol":2000:2027  _wMgrsA + _wMgrsB + _wMgrsC */
+              add
+                /* "contracts/CompanyState.sol":1995:1998  100 */
+              0x64
+                /* "contracts/CompanyState.sol":1995:2028  100*(_wMgrsA + _wMgrsB + _wMgrsC) */
+              mul
+                /* "contracts/CompanyState.sol":1995:2055  100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC) */
+              0xffffffff
+              and
+              dup2
+              tag_57
+              jumpi
+              invalid
+            tag_57:
+              div
+                /* "contracts/CompanyState.sol":1971:2055  uint32 womenMgrsRatio = 100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC) */
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":2062:2075  uint32 reward */
+              0x00
+                /* "contracts/CompanyState.sol":2078:2088  rewardCoin */
+              0x01
+              0x00
+              swap1
+              sload
+              swap1
+              0x0100
+              exp
+              swap1
+              div
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+                /* "contracts/CompanyState.sol":2078:2098  rewardCoin.setReward */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0x697fa281
+                /* "contracts/CompanyState.sol":2099:2109  msg.sender */
+              caller
+                /* "contracts/CompanyState.sol":2111:2120  newReport */
+              dup9
+                /* "contracts/CompanyState.sol":2111:2124  newReport.ide */
+              0x0160
+              add
+              mload
+                /* "contracts/CompanyState.sol":2126:2140  womenMgrsRatio */
+              dup6
+                /* "contracts/CompanyState.sol":2183:2192  newReport */
+              dup11
+                /* "contracts/CompanyState.sol":2183:2196  newReport.npo */
+              0xc0
+              add
+              mload
+                /* "contracts/CompanyState.sol":2198:2207  newReport */
+              dup12
+                /* "contracts/CompanyState.sol":2198:2212  newReport.npop */
+              0xe0
+              add
+              mload
+                /* "contracts/CompanyState.sol":2078:2213  rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,... */
+              mload(0x40)
+              dup7
+              0xffffffff
+              and
+              0xe0
+              shl
+              dup2
+              mstore
+              0x04
+              add
+              dup1
+              dup7
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup6
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup5
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup4
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup3
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap6
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              0x20
+              mload(0x40)
+              dup1
+              dup4
+              sub
+              dup2
+              0x00
+              dup8
+              dup1
+              extcodesize
+              iszero
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_58
+              jumpi
+                /* "--CODEGEN--":30:31   */
+              0x00
+                /* "--CODEGEN--":27:28   */
+              dup1
+                /* "--CODEGEN--":20:32   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_58:
+                /* "contracts/CompanyState.sol":2078:2213  rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,... */
+              pop
+              gas
+              call
+              iszero
+                /* "--CODEGEN--":8:17   */
+              dup1
+                /* "--CODEGEN--":5:7   */
+              iszero
+              tag_59
+              jumpi
+                /* "--CODEGEN--":45:61   */
+              returndatasize
+                /* "--CODEGEN--":42:43   */
+              0x00
+                /* "--CODEGEN--":39:40   */
+              dup1
+                /* "--CODEGEN--":24:62   */
+              returndatacopy
+                /* "--CODEGEN--":77:93   */
+              returndatasize
+                /* "--CODEGEN--":74:75   */
+              0x00
+                /* "--CODEGEN--":67:94   */
+              revert
+                /* "--CODEGEN--":5:7   */
+            tag_59:
+                /* "contracts/CompanyState.sol":2078:2213  rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,... */
+              pop
+              pop
+              pop
+              pop
+              mload(0x40)
+              returndatasize
+                /* "--CODEGEN--":13:15   */
+              0x20
+                /* "--CODEGEN--":8:11   */
+              dup2
+                /* "--CODEGEN--":5:16   */
+              lt
+                /* "--CODEGEN--":2:4   */
+              iszero
+              tag_60
+              jumpi
+                /* "--CODEGEN--":29:30   */
+              0x00
+                /* "--CODEGEN--":26:27   */
+              dup1
+                /* "--CODEGEN--":19:31   */
+              revert
+                /* "--CODEGEN--":2:4   */
+            tag_60:
+                /* "contracts/CompanyState.sol":2078:2213  rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,... */
+              dup2
+              add
+              swap1
+              dup1
+              dup1
+              mload
+              swap1
+              0x20
+              add
+              swap1
+              swap3
+              swap2
+              swap1
+              pop
+              pop
+              pop
+                /* "contracts/CompanyState.sol":2062:2213  uint32 reward = rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,... */
+              swap1
+              pop
+                /* "contracts/CompanyState.sol":2320:2330  msg.sender */
+              caller
+                /* "contracts/CompanyState.sol":2306:2433  StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward) */
+              0xffffffffffffffffffffffffffffffffffffffff
+              and
+              0x1701d242a1b75ed5cdf10512d1a8d92a6174e2b53c5fadbca140dcafc828c3af
+                /* "contracts/CompanyState.sol":2332:2341  newReport */
+              dup8
+                /* "contracts/CompanyState.sol":2332:2345  newReport.ide */
+              0x0160
+              add
+              mload
+                /* "contracts/CompanyState.sol":2347:2356  newReport */
+              dup9
+                /* "contracts/CompanyState.sol":2347:2361  newReport.ideA */
+              0x0100
+              add
+              mload
+                /* "contracts/CompanyState.sol":2363:2372  newReport */
+              dup10
+                /* "contracts/CompanyState.sol":2363:2377  newReport.ideB */
+              0x0120
+              add
+              mload
+                /* "contracts/CompanyState.sol":2379:2388  newReport */
+              dup11
+                /* "contracts/CompanyState.sol":2379:2393  newReport.ideC */
+              0x0140
+              add
+              mload
+                /* "contracts/CompanyState.sol":2395:2404  newReport */
+              dup12
+                /* "contracts/CompanyState.sol":2395:2408  newReport.npo */
+              0xc0
+              add
+              mload
+                /* "contracts/CompanyState.sol":2410:2419  newReport */
+              dup13
+                /* "contracts/CompanyState.sol":2410:2424  newReport.npop */
+              0xe0
+              add
+              mload
+                /* "contracts/CompanyState.sol":2426:2432  reward */
+              dup9
+                /* "contracts/CompanyState.sol":2306:2433  StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward) */
+              mload(0x40)
+              dup1
+              dup9
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup8
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup7
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup6
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup5
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup4
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              dup3
+              0xffffffff
+              and
+              0xffffffff
+              and
+              dup2
+              mstore
+              0x20
+              add
+              swap8
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              mload(0x40)
+              dup1
+              swap2
+              sub
+              swap1
+              log2
+                /* "contracts/CompanyState.sol":653:2438  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,... */
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              pop
+              jump	// out
+                /* "contracts/CompanyState.sol":84:3632  contract CompanyState is ICompanySate {... */
+            tag_49:
+              mload(0x40)
+              dup1
+              0x01a0
+              add
+              0x40
+              mstore
+              dup1
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              and(0xffffffff, 0x00)
+              dup2
+              mstore
+              0x20
+              add
+              0x00
+              dup2
+              mstore
+              pop
+              swap1
+              jump	// out
+            stop
+            data_1b6021819113f485913dc6d13e0701e69ad5b6381538e02ef9d98f49ec9ddaec 4572726f72202d204f6e6c79206f776e65722063616e20636865636b206974732062616c616e6365
+            data_2e530429f6b4cf84080a9b14ebc979c6ba8fc4dc5bcd73af2cb64b1be64d5799 4572726f72202d204f6e6c79206f776e65722063616e207265706f727420696e64696361746f7273
+            data_bc1ed364d897f8513389e87290386797770ecca83923ac83010fde21323c60f6 4572726f722c20776f6d656e206d616e61676572732063616e6e6f742062652067726561746572207468616e20746f74616c206d616e6167657273
+
+            auxdata: 0xa265627a7a723158203efad4c7c294cc2eb5a9c8de9c98794cd0b6f9da3af89ca3fe8ba1463f6f748364736f6c634300050b0032
+        }
+    }
+
+    auxdata: 0xa265627a7a72315820a4497b4136b92219cc892cf719d155f493fdf190c5bdcc2efe091a4075b4ac2764736f6c634300050b0032
+}

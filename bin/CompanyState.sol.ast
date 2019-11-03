@@ -1,0 +1,1209 @@
+PragmaDirective
+   Source: "pragma solidity ^0.5.0;"
+ImportDirective "./RewardCoin.sol"
+   Source: "import \"./RewardCoin.sol\";"
+ImportDirective "./ICompanyState.sol"
+   Source: "import \"./ICompanyState.sol\";"
+ContractDefinition "CompanyState"
+   Source: "contract CompanyState is ICompanySate {\n\n  address private owner;\n  RewardCoin private rewardCoin;\n  uint32 constant private factorA = 30;  // factor to adjust level A ratio\n  uint32 constant private factorB = 40;\n  uint32 constant private factorC = 30;\n\n  State[] KPIList;\n\n  constructor (address _company, address _rewardCoin) public {\n    rewardCoin = RewardCoin(_rewardCoin);\n    owner = _company;\n  }\n\n  event StateRecorded(address indexed owner, uint32 ide, uint32 ideA, uint32 ideB,\n                      uint32 ideC, uint32 npo, uint32 npop, uint32 reward);\n\n  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,\n                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC, uint32 _npo,\n                    uint32 _npop) public {\n\n    require(owner == msg.sender, \"Error - Only owner can report indicators\");\n    require(((_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC)), \"Error, women executives cannot be greater than total executives\");\n\n    State memory newReport;\n\n    newReport.dateOfReport = now;\n\n    // compute the rest of indicators and kpis\n    uint32 wMgrsA_Ratio = 100*_wMgrsA/_mgrsA;\n    uint32 wMgrsB_Ratio = 100*_wMgrsB/_mgrsB;\n    uint32 wMgrsC_Ratio = 100*_wMgrsB/_mgrsC;\n    newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio));\n    newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio));\n    newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio));\n    newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC;\n\n    newReport.mgrsLevelA = _mgrsA;\n    newReport.mgrsLevelB = _mgrsB;\n    newReport.mgrsLevelC = _mgrsC;\n    newReport.womenMgrsLevelA = _wMgrsA;\n    newReport.womenMgrsLevelB = _wMgrsB;\n    newReport.womenMgrsLevelC = _wMgrsC;\n    newReport.npo = _npo;\n    newReport.npop = _npop;\n\n    // add new company state to the history log\n    KPIList.push(newReport);\n\n    uint32 womenMgrsRatio = 100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC);\n\n    uint32 reward = rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,\n                                         newReport.npo, newReport.npop);\n    // emit StateRecorded(msg.sender, ide, ideA, ideB, ideC, npo, npop, reward);\n\n    emit StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward);\n  }\n\n  function getLatestState() public view returns (\n      uint32 mgrsLevelA,\n      uint32 mgrsLevelB,\n      uint32 mgrsLevelC,\n      uint32 womenMgrsLevelA,\n      uint32 womenMgrsLevelB,\n      uint32 womenMgrsLevelC,\n      uint32 npo,\n      uint32 npop,\n      uint32 ideA,\n      uint32 ideB,\n      uint32 ideC,\n      uint32 ide,\n      uint256 dateOfReport) {\n\n    uint index = KPIList.length -1 ;\n\n    mgrsLevelA = KPIList[index].mgrsLevelA;\n    mgrsLevelB = KPIList[index].mgrsLevelB;\n    mgrsLevelC = KPIList[index].mgrsLevelC;\n    womenMgrsLevelA = KPIList[index].womenMgrsLevelA;\n    womenMgrsLevelB = KPIList[index].womenMgrsLevelB;\n    womenMgrsLevelC = KPIList[index].womenMgrsLevelC;\n    npo = KPIList[index].npo;\n    npop = KPIList[index].npop;\n    ideA = KPIList[index].ideA;\n    ideB = KPIList[index].ideB;\n    ideC = KPIList[index].ideC;\n    ide = KPIList[index].ide;\n    dateOfReport = KPIList[index].dateOfReport;\n\n  }\n\n  function getReward() public view returns (uint reward) {\n    // only owner can check its reward (current balance of tokens)\n    require(msg.sender == owner, \"Error - Only owner can check its balance\");\n\n    reward = rewardCoin.getBalance(msg.sender);\n  }\n\n\n}"
+  InheritanceSpecifier
+     Source: "ICompanySate"
+    UserDefinedTypeName "ICompanySate"
+       Source: "ICompanySate"
+  VariableDeclaration "owner"
+     Type: address
+     Source: "address private owner"
+    ElementaryTypeName address
+       Source: "address"
+  VariableDeclaration "rewardCoin"
+     Type: contract RewardCoin
+     Source: "RewardCoin private rewardCoin"
+    UserDefinedTypeName "RewardCoin"
+       Source: "RewardCoin"
+  VariableDeclaration "factorA"
+     Type: uint32
+     Source: "uint32 constant private factorA = 30"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 30
+       Type: int_const 30
+       Source: "30"
+  VariableDeclaration "factorB"
+     Type: uint32
+     Source: "uint32 constant private factorB = 40"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 40
+       Type: int_const 40
+       Source: "40"
+  VariableDeclaration "factorC"
+     Type: uint32
+     Source: "uint32 constant private factorC = 30"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 30
+       Type: int_const 30
+       Source: "30"
+  VariableDeclaration "KPIList"
+     Type: struct ICompanySate.State storage ref[] storage ref
+     Source: "State[] KPIList"
+    ArrayTypeName
+       Source: "State[]"
+      UserDefinedTypeName "State"
+         Source: "State"
+  FunctionDefinition "" - public
+     Source: "constructor (address _company, address _rewardCoin) public {\n    rewardCoin = RewardCoin(_rewardCoin);\n    owner = _company;\n  }"
+    ParameterList
+       Source: "(address _company, address _rewardCoin)"
+      VariableDeclaration "_company"
+         Type: address
+         Source: "address _company"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "_rewardCoin"
+         Type: address
+         Source: "address _rewardCoin"
+        ElementaryTypeName address
+           Source: "address"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n    rewardCoin = RewardCoin(_rewardCoin);\n    owner = _company;\n  }"
+      ExpressionStatement
+         Source: "rewardCoin = RewardCoin(_rewardCoin)"
+        Assignment using operator =
+           Type: contract RewardCoin
+           Source: "rewardCoin = RewardCoin(_rewardCoin)"
+          Identifier rewardCoin
+             Type: contract RewardCoin
+             Source: "rewardCoin"
+          FunctionCall
+             Type: contract RewardCoin
+             Source: "RewardCoin(_rewardCoin)"
+            Identifier RewardCoin
+               Type: type(contract RewardCoin)
+               Source: "RewardCoin"
+            Identifier _rewardCoin
+               Type: address
+               Source: "_rewardCoin"
+      ExpressionStatement
+         Source: "owner = _company"
+        Assignment using operator =
+           Type: address
+           Source: "owner = _company"
+          Identifier owner
+             Type: address
+             Source: "owner"
+          Identifier _company
+             Type: address
+             Source: "_company"
+  EventDefinition "StateRecorded"
+     Source: "event StateRecorded(address indexed owner, uint32 ide, uint32 ideA, uint32 ideB,\n                      uint32 ideC, uint32 npo, uint32 npop, uint32 reward);"
+    ParameterList
+       Source: "(address indexed owner, uint32 ide, uint32 ideA, uint32 ideB,\n                      uint32 ideC, uint32 npo, uint32 npop, uint32 reward)"
+      VariableDeclaration "owner"
+         Type: address
+         Source: "address indexed owner"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "ide"
+         Type: uint32
+         Source: "uint32 ide"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideA"
+         Type: uint32
+         Source: "uint32 ideA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideB"
+         Type: uint32
+         Source: "uint32 ideB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideC"
+         Type: uint32
+         Source: "uint32 ideC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npo"
+         Type: uint32
+         Source: "uint32 npo"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npop"
+         Type: uint32
+         Source: "uint32 npop"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "reward"
+         Type: uint32
+         Source: "uint32 reward"
+        ElementaryTypeName uint32
+           Source: "uint32"
+  FunctionDefinition "setState" - public
+     Source: "function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,\n                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC, uint32 _npo,\n                    uint32 _npop) public {\n\n    require(owner == msg.sender, \"Error - Only owner can report indicators\");\n    require(((_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC)), \"Error, women executives cannot be greater than total executives\");\n\n    State memory newReport;\n\n    newReport.dateOfReport = now;\n\n    // compute the rest of indicators and kpis\n    uint32 wMgrsA_Ratio = 100*_wMgrsA/_mgrsA;\n    uint32 wMgrsB_Ratio = 100*_wMgrsB/_mgrsB;\n    uint32 wMgrsC_Ratio = 100*_wMgrsB/_mgrsC;\n    newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio));\n    newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio));\n    newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio));\n    newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC;\n\n    newReport.mgrsLevelA = _mgrsA;\n    newReport.mgrsLevelB = _mgrsB;\n    newReport.mgrsLevelC = _mgrsC;\n    newReport.womenMgrsLevelA = _wMgrsA;\n    newReport.womenMgrsLevelB = _wMgrsB;\n    newReport.womenMgrsLevelC = _wMgrsC;\n    newReport.npo = _npo;\n    newReport.npop = _npop;\n\n    // add new company state to the history log\n    KPIList.push(newReport);\n\n    uint32 womenMgrsRatio = 100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC);\n\n    uint32 reward = rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,\n                                         newReport.npo, newReport.npop);\n    // emit StateRecorded(msg.sender, ide, ideA, ideB, ideC, npo, npop, reward);\n\n    emit StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward);\n  }"
+    ParameterList
+       Source: "(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,\n                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC, uint32 _npo,\n                    uint32 _npop)"
+      VariableDeclaration "_mgrsA"
+         Type: uint32
+         Source: "uint32 _mgrsA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_mgrsB"
+         Type: uint32
+         Source: "uint32 _mgrsB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_mgrsC"
+         Type: uint32
+         Source: "uint32 _mgrsC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_wMgrsA"
+         Type: uint32
+         Source: "uint32 _wMgrsA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_wMgrsB"
+         Type: uint32
+         Source: "uint32 _wMgrsB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_wMgrsC"
+         Type: uint32
+         Source: "uint32 _wMgrsC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_npo"
+         Type: uint32
+         Source: "uint32 _npo"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_npop"
+         Type: uint32
+         Source: "uint32 _npop"
+        ElementaryTypeName uint32
+           Source: "uint32"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\n    require(owner == msg.sender, \"Error - Only owner can report indicators\");\n    require(((_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC)), \"Error, women executives cannot be greater than total executives\");\n\n    State memory newReport;\n\n    newReport.dateOfReport = now;\n\n    // compute the rest of indicators and kpis\n    uint32 wMgrsA_Ratio = 100*_wMgrsA/_mgrsA;\n    uint32 wMgrsB_Ratio = 100*_wMgrsB/_mgrsB;\n    uint32 wMgrsC_Ratio = 100*_wMgrsB/_mgrsC;\n    newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio));\n    newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio));\n    newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio));\n    newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC;\n\n    newReport.mgrsLevelA = _mgrsA;\n    newReport.mgrsLevelB = _mgrsB;\n    newReport.mgrsLevelC = _mgrsC;\n    newReport.womenMgrsLevelA = _wMgrsA;\n    newReport.womenMgrsLevelB = _wMgrsB;\n    newReport.womenMgrsLevelC = _wMgrsC;\n    newReport.npo = _npo;\n    newReport.npop = _npop;\n\n    // add new company state to the history log\n    KPIList.push(newReport);\n\n    uint32 womenMgrsRatio = 100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC);\n\n    uint32 reward = rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,\n                                         newReport.npo, newReport.npop);\n    // emit StateRecorded(msg.sender, ide, ideA, ideB, ideC, npo, npop, reward);\n\n    emit StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward);\n  }"
+      ExpressionStatement
+         Source: "require(owner == msg.sender, \"Error - Only owner can report indicators\")"
+        FunctionCall
+           Type: tuple()
+           Source: "require(owner == msg.sender, \"Error - Only owner can report indicators\")"
+          Identifier require
+             Type: function (bool,string memory) pure
+             Source: "require"
+          BinaryOperation using operator ==
+             Type: bool
+             Source: "owner == msg.sender"
+            Identifier owner
+               Type: address
+               Source: "owner"
+            MemberAccess to member sender
+               Type: address payable
+               Source: "msg.sender"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"
+          Literal, token: [no token] value: Error - Only owner can report indicators
+             Type: literal_string "Error - Only owner can report indicators"
+             Source: "\"Error - Only owner can report indicators\""
+      ExpressionStatement
+         Source: "require(((_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC)), \"Error, women executives cannot be greater than total executives\")"
+        FunctionCall
+           Type: tuple()
+           Source: "require(((_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC)), \"Error, women executives cannot be greater than total executives\")"
+          Identifier require
+             Type: function (bool,string memory) pure
+             Source: "require"
+          TupleExpression
+             Type: bool
+             Source: "((_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC))"
+            BinaryOperation using operator &&
+               Type: bool
+               Source: "(_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB) && ( _wMgrsC <= _mgrsC)"
+              BinaryOperation using operator &&
+                 Type: bool
+                 Source: "(_wMgrsA <= _mgrsA) && (_wMgrsB <= _mgrsB)"
+                TupleExpression
+                   Type: bool
+                   Source: "(_wMgrsA <= _mgrsA)"
+                  BinaryOperation using operator <=
+                     Type: bool
+                     Source: "_wMgrsA <= _mgrsA"
+                    Identifier _wMgrsA
+                       Type: uint32
+                       Source: "_wMgrsA"
+                    Identifier _mgrsA
+                       Type: uint32
+                       Source: "_mgrsA"
+                TupleExpression
+                   Type: bool
+                   Source: "(_wMgrsB <= _mgrsB)"
+                  BinaryOperation using operator <=
+                     Type: bool
+                     Source: "_wMgrsB <= _mgrsB"
+                    Identifier _wMgrsB
+                       Type: uint32
+                       Source: "_wMgrsB"
+                    Identifier _mgrsB
+                       Type: uint32
+                       Source: "_mgrsB"
+              TupleExpression
+                 Type: bool
+                 Source: "( _wMgrsC <= _mgrsC)"
+                BinaryOperation using operator <=
+                   Type: bool
+                   Source: "_wMgrsC <= _mgrsC"
+                  Identifier _wMgrsC
+                     Type: uint32
+                     Source: "_wMgrsC"
+                  Identifier _mgrsC
+                     Type: uint32
+                     Source: "_mgrsC"
+          Literal, token: [no token] value: Error, women executives cannot be greater than total executives
+             Type: literal_string "Error, women executives cannot be greater than total executives"
+             Source: "\"Error, women executives cannot be greater than total executives\""
+      VariableDeclarationStatement
+         Source: "State memory newReport"
+        VariableDeclaration "newReport"
+           Type: struct ICompanySate.State memory
+           Source: "State memory newReport"
+          UserDefinedTypeName "State"
+             Source: "State"
+      ExpressionStatement
+         Source: "newReport.dateOfReport = now"
+        Assignment using operator =
+           Type: uint256
+           Source: "newReport.dateOfReport = now"
+          MemberAccess to member dateOfReport
+             Type: uint256
+             Source: "newReport.dateOfReport"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier now
+             Type: uint256
+             Source: "now"
+      VariableDeclarationStatement
+         Source: "uint32 wMgrsA_Ratio = 100*_wMgrsA/_mgrsA"
+        VariableDeclaration "wMgrsA_Ratio"
+           Type: uint32
+           Source: "uint32 wMgrsA_Ratio"
+          ElementaryTypeName uint32
+             Source: "uint32"
+        BinaryOperation using operator /
+           Type: uint32
+           Source: "100*_wMgrsA/_mgrsA"
+          BinaryOperation using operator *
+             Type: uint32
+             Source: "100*_wMgrsA"
+            Literal, token: [no token] value: 100
+               Type: int_const 100
+               Source: "100"
+            Identifier _wMgrsA
+               Type: uint32
+               Source: "_wMgrsA"
+          Identifier _mgrsA
+             Type: uint32
+             Source: "_mgrsA"
+      VariableDeclarationStatement
+         Source: "uint32 wMgrsB_Ratio = 100*_wMgrsB/_mgrsB"
+        VariableDeclaration "wMgrsB_Ratio"
+           Type: uint32
+           Source: "uint32 wMgrsB_Ratio"
+          ElementaryTypeName uint32
+             Source: "uint32"
+        BinaryOperation using operator /
+           Type: uint32
+           Source: "100*_wMgrsB/_mgrsB"
+          BinaryOperation using operator *
+             Type: uint32
+             Source: "100*_wMgrsB"
+            Literal, token: [no token] value: 100
+               Type: int_const 100
+               Source: "100"
+            Identifier _wMgrsB
+               Type: uint32
+               Source: "_wMgrsB"
+          Identifier _mgrsB
+             Type: uint32
+             Source: "_mgrsB"
+      VariableDeclarationStatement
+         Source: "uint32 wMgrsC_Ratio = 100*_wMgrsB/_mgrsC"
+        VariableDeclaration "wMgrsC_Ratio"
+           Type: uint32
+           Source: "uint32 wMgrsC_Ratio"
+          ElementaryTypeName uint32
+             Source: "uint32"
+        BinaryOperation using operator /
+           Type: uint32
+           Source: "100*_wMgrsB/_mgrsC"
+          BinaryOperation using operator *
+             Type: uint32
+             Source: "100*_wMgrsB"
+            Literal, token: [no token] value: 100
+               Type: int_const 100
+               Source: "100"
+            Identifier _wMgrsB
+               Type: uint32
+               Source: "_wMgrsB"
+          Identifier _mgrsC
+             Type: uint32
+             Source: "_mgrsC"
+      ExpressionStatement
+         Source: "newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio))"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio))"
+          MemberAccess to member ideA
+             Type: uint32
+             Source: "newReport.ideA"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          BinaryOperation using operator *
+             Type: uint32
+             Source: "4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio))"
+            Literal, token: [no token] value: 4
+               Type: int_const 4
+               Source: "4"
+            TupleExpression
+               Type: uint32
+               Source: "(wMgrsA_Ratio * (100 - wMgrsA_Ratio))"
+              BinaryOperation using operator *
+                 Type: uint32
+                 Source: "wMgrsA_Ratio * (100 - wMgrsA_Ratio)"
+                Identifier wMgrsA_Ratio
+                   Type: uint32
+                   Source: "wMgrsA_Ratio"
+                TupleExpression
+                   Type: uint32
+                   Source: "(100 - wMgrsA_Ratio)"
+                  BinaryOperation using operator -
+                     Type: uint32
+                     Source: "100 - wMgrsA_Ratio"
+                    Literal, token: [no token] value: 100
+                       Type: int_const 100
+                       Source: "100"
+                    Identifier wMgrsA_Ratio
+                       Type: uint32
+                       Source: "wMgrsA_Ratio"
+      ExpressionStatement
+         Source: "newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio))"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio))"
+          MemberAccess to member ideB
+             Type: uint32
+             Source: "newReport.ideB"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          BinaryOperation using operator *
+             Type: uint32
+             Source: "4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio))"
+            Literal, token: [no token] value: 4
+               Type: int_const 4
+               Source: "4"
+            TupleExpression
+               Type: uint32
+               Source: "(wMgrsB_Ratio * (100 - wMgrsB_Ratio))"
+              BinaryOperation using operator *
+                 Type: uint32
+                 Source: "wMgrsB_Ratio * (100 - wMgrsB_Ratio)"
+                Identifier wMgrsB_Ratio
+                   Type: uint32
+                   Source: "wMgrsB_Ratio"
+                TupleExpression
+                   Type: uint32
+                   Source: "(100 - wMgrsB_Ratio)"
+                  BinaryOperation using operator -
+                     Type: uint32
+                     Source: "100 - wMgrsB_Ratio"
+                    Literal, token: [no token] value: 100
+                       Type: int_const 100
+                       Source: "100"
+                    Identifier wMgrsB_Ratio
+                       Type: uint32
+                       Source: "wMgrsB_Ratio"
+      ExpressionStatement
+         Source: "newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio))"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio))"
+          MemberAccess to member ideC
+             Type: uint32
+             Source: "newReport.ideC"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          BinaryOperation using operator *
+             Type: uint32
+             Source: "4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio))"
+            Literal, token: [no token] value: 4
+               Type: int_const 4
+               Source: "4"
+            TupleExpression
+               Type: uint32
+               Source: "(wMgrsC_Ratio * (100 - wMgrsC_Ratio))"
+              BinaryOperation using operator *
+                 Type: uint32
+                 Source: "wMgrsC_Ratio * (100 - wMgrsC_Ratio)"
+                Identifier wMgrsC_Ratio
+                   Type: uint32
+                   Source: "wMgrsC_Ratio"
+                TupleExpression
+                   Type: uint32
+                   Source: "(100 - wMgrsC_Ratio)"
+                  BinaryOperation using operator -
+                     Type: uint32
+                     Source: "100 - wMgrsC_Ratio"
+                    Literal, token: [no token] value: 100
+                       Type: int_const 100
+                       Source: "100"
+                    Identifier wMgrsC_Ratio
+                       Type: uint32
+                       Source: "wMgrsC_Ratio"
+      ExpressionStatement
+         Source: "newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC"
+          MemberAccess to member ide
+             Type: uint32
+             Source: "newReport.ide"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          BinaryOperation using operator +
+             Type: uint32
+             Source: "factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC"
+            BinaryOperation using operator +
+               Type: uint32
+               Source: "factorA * newReport.ideA + factorB * newReport.ideB"
+              BinaryOperation using operator *
+                 Type: uint32
+                 Source: "factorA * newReport.ideA"
+                Identifier factorA
+                   Type: uint32
+                   Source: "factorA"
+                MemberAccess to member ideA
+                   Type: uint32
+                   Source: "newReport.ideA"
+                  Identifier newReport
+                     Type: struct ICompanySate.State memory
+                     Source: "newReport"
+              BinaryOperation using operator *
+                 Type: uint32
+                 Source: "factorB * newReport.ideB"
+                Identifier factorB
+                   Type: uint32
+                   Source: "factorB"
+                MemberAccess to member ideB
+                   Type: uint32
+                   Source: "newReport.ideB"
+                  Identifier newReport
+                     Type: struct ICompanySate.State memory
+                     Source: "newReport"
+            BinaryOperation using operator *
+               Type: uint32
+               Source: "factorC * newReport.ideC"
+              Identifier factorC
+                 Type: uint32
+                 Source: "factorC"
+              MemberAccess to member ideC
+                 Type: uint32
+                 Source: "newReport.ideC"
+                Identifier newReport
+                   Type: struct ICompanySate.State memory
+                   Source: "newReport"
+      ExpressionStatement
+         Source: "newReport.mgrsLevelA = _mgrsA"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.mgrsLevelA = _mgrsA"
+          MemberAccess to member mgrsLevelA
+             Type: uint32
+             Source: "newReport.mgrsLevelA"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _mgrsA
+             Type: uint32
+             Source: "_mgrsA"
+      ExpressionStatement
+         Source: "newReport.mgrsLevelB = _mgrsB"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.mgrsLevelB = _mgrsB"
+          MemberAccess to member mgrsLevelB
+             Type: uint32
+             Source: "newReport.mgrsLevelB"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _mgrsB
+             Type: uint32
+             Source: "_mgrsB"
+      ExpressionStatement
+         Source: "newReport.mgrsLevelC = _mgrsC"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.mgrsLevelC = _mgrsC"
+          MemberAccess to member mgrsLevelC
+             Type: uint32
+             Source: "newReport.mgrsLevelC"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _mgrsC
+             Type: uint32
+             Source: "_mgrsC"
+      ExpressionStatement
+         Source: "newReport.womenMgrsLevelA = _wMgrsA"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.womenMgrsLevelA = _wMgrsA"
+          MemberAccess to member womenMgrsLevelA
+             Type: uint32
+             Source: "newReport.womenMgrsLevelA"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _wMgrsA
+             Type: uint32
+             Source: "_wMgrsA"
+      ExpressionStatement
+         Source: "newReport.womenMgrsLevelB = _wMgrsB"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.womenMgrsLevelB = _wMgrsB"
+          MemberAccess to member womenMgrsLevelB
+             Type: uint32
+             Source: "newReport.womenMgrsLevelB"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _wMgrsB
+             Type: uint32
+             Source: "_wMgrsB"
+      ExpressionStatement
+         Source: "newReport.womenMgrsLevelC = _wMgrsC"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.womenMgrsLevelC = _wMgrsC"
+          MemberAccess to member womenMgrsLevelC
+             Type: uint32
+             Source: "newReport.womenMgrsLevelC"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _wMgrsC
+             Type: uint32
+             Source: "_wMgrsC"
+      ExpressionStatement
+         Source: "newReport.npo = _npo"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.npo = _npo"
+          MemberAccess to member npo
+             Type: uint32
+             Source: "newReport.npo"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _npo
+             Type: uint32
+             Source: "_npo"
+      ExpressionStatement
+         Source: "newReport.npop = _npop"
+        Assignment using operator =
+           Type: uint32
+           Source: "newReport.npop = _npop"
+          MemberAccess to member npop
+             Type: uint32
+             Source: "newReport.npop"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier _npop
+             Type: uint32
+             Source: "_npop"
+      ExpressionStatement
+         Source: "KPIList.push(newReport)"
+        FunctionCall
+           Type: uint256
+           Source: "KPIList.push(newReport)"
+          MemberAccess to member push
+             Type: function (struct ICompanySate.State storage ref) returns (uint256)
+             Source: "KPIList.push"
+            Identifier KPIList
+               Type: struct ICompanySate.State storage ref[] storage ref
+               Source: "KPIList"
+          Identifier newReport
+             Type: struct ICompanySate.State memory
+             Source: "newReport"
+      VariableDeclarationStatement
+         Source: "uint32 womenMgrsRatio = 100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC)"
+        VariableDeclaration "womenMgrsRatio"
+           Type: uint32
+           Source: "uint32 womenMgrsRatio"
+          ElementaryTypeName uint32
+             Source: "uint32"
+        BinaryOperation using operator /
+           Type: uint32
+           Source: "100*(_wMgrsA + _wMgrsB + _wMgrsC)/(_mgrsA + _mgrsB + _mgrsC)"
+          BinaryOperation using operator *
+             Type: uint32
+             Source: "100*(_wMgrsA + _wMgrsB + _wMgrsC)"
+            Literal, token: [no token] value: 100
+               Type: int_const 100
+               Source: "100"
+            TupleExpression
+               Type: uint32
+               Source: "(_wMgrsA + _wMgrsB + _wMgrsC)"
+              BinaryOperation using operator +
+                 Type: uint32
+                 Source: "_wMgrsA + _wMgrsB + _wMgrsC"
+                BinaryOperation using operator +
+                   Type: uint32
+                   Source: "_wMgrsA + _wMgrsB"
+                  Identifier _wMgrsA
+                     Type: uint32
+                     Source: "_wMgrsA"
+                  Identifier _wMgrsB
+                     Type: uint32
+                     Source: "_wMgrsB"
+                Identifier _wMgrsC
+                   Type: uint32
+                   Source: "_wMgrsC"
+          TupleExpression
+             Type: uint32
+             Source: "(_mgrsA + _mgrsB + _mgrsC)"
+            BinaryOperation using operator +
+               Type: uint32
+               Source: "_mgrsA + _mgrsB + _mgrsC"
+              BinaryOperation using operator +
+                 Type: uint32
+                 Source: "_mgrsA + _mgrsB"
+                Identifier _mgrsA
+                   Type: uint32
+                   Source: "_mgrsA"
+                Identifier _mgrsB
+                   Type: uint32
+                   Source: "_mgrsB"
+              Identifier _mgrsC
+                 Type: uint32
+                 Source: "_mgrsC"
+      VariableDeclarationStatement
+         Source: "uint32 reward = rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,\n                                         newReport.npo, newReport.npop)"
+        VariableDeclaration "reward"
+           Type: uint32
+           Source: "uint32 reward"
+          ElementaryTypeName uint32
+             Source: "uint32"
+        FunctionCall
+           Type: uint32
+           Source: "rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,\n                                         newReport.npo, newReport.npop)"
+          MemberAccess to member setReward
+             Type: function (address,uint32,uint32,uint32,uint32) external returns (uint32)
+             Source: "rewardCoin.setReward"
+            Identifier rewardCoin
+               Type: contract RewardCoin
+               Source: "rewardCoin"
+          MemberAccess to member sender
+             Type: address payable
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+          MemberAccess to member ide
+             Type: uint32
+             Source: "newReport.ide"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier womenMgrsRatio
+             Type: uint32
+             Source: "womenMgrsRatio"
+          MemberAccess to member npo
+             Type: uint32
+             Source: "newReport.npo"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          MemberAccess to member npop
+             Type: uint32
+             Source: "newReport.npop"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+      EmitStatement
+         Source: "emit StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward)"
+        FunctionCall
+           Type: tuple()
+           Source: "StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward)"
+          Identifier StateRecorded
+             Type: function (address,uint32,uint32,uint32,uint32,uint32,uint32,uint32)
+             Source: "StateRecorded"
+          MemberAccess to member sender
+             Type: address payable
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+          MemberAccess to member ide
+             Type: uint32
+             Source: "newReport.ide"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          MemberAccess to member ideA
+             Type: uint32
+             Source: "newReport.ideA"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          MemberAccess to member ideB
+             Type: uint32
+             Source: "newReport.ideB"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          MemberAccess to member ideC
+             Type: uint32
+             Source: "newReport.ideC"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          MemberAccess to member npo
+             Type: uint32
+             Source: "newReport.npo"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          MemberAccess to member npop
+             Type: uint32
+             Source: "newReport.npop"
+            Identifier newReport
+               Type: struct ICompanySate.State memory
+               Source: "newReport"
+          Identifier reward
+             Type: uint32
+             Source: "reward"
+  FunctionDefinition "getLatestState" - public - const
+     Source: "function getLatestState() public view returns (\n      uint32 mgrsLevelA,\n      uint32 mgrsLevelB,\n      uint32 mgrsLevelC,\n      uint32 womenMgrsLevelA,\n      uint32 womenMgrsLevelB,\n      uint32 womenMgrsLevelC,\n      uint32 npo,\n      uint32 npop,\n      uint32 ideA,\n      uint32 ideB,\n      uint32 ideC,\n      uint32 ide,\n      uint256 dateOfReport) {\n\n    uint index = KPIList.length -1 ;\n\n    mgrsLevelA = KPIList[index].mgrsLevelA;\n    mgrsLevelB = KPIList[index].mgrsLevelB;\n    mgrsLevelC = KPIList[index].mgrsLevelC;\n    womenMgrsLevelA = KPIList[index].womenMgrsLevelA;\n    womenMgrsLevelB = KPIList[index].womenMgrsLevelB;\n    womenMgrsLevelC = KPIList[index].womenMgrsLevelC;\n    npo = KPIList[index].npo;\n    npop = KPIList[index].npop;\n    ideA = KPIList[index].ideA;\n    ideB = KPIList[index].ideB;\n    ideC = KPIList[index].ideC;\n    ide = KPIList[index].ide;\n    dateOfReport = KPIList[index].dateOfReport;\n\n  }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(\n      uint32 mgrsLevelA,\n      uint32 mgrsLevelB,\n      uint32 mgrsLevelC,\n      uint32 womenMgrsLevelA,\n      uint32 womenMgrsLevelB,\n      uint32 womenMgrsLevelC,\n      uint32 npo,\n      uint32 npop,\n      uint32 ideA,\n      uint32 ideB,\n      uint32 ideC,\n      uint32 ide,\n      uint256 dateOfReport)"
+      VariableDeclaration "mgrsLevelA"
+         Type: uint32
+         Source: "uint32 mgrsLevelA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "mgrsLevelB"
+         Type: uint32
+         Source: "uint32 mgrsLevelB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "mgrsLevelC"
+         Type: uint32
+         Source: "uint32 mgrsLevelC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "womenMgrsLevelA"
+         Type: uint32
+         Source: "uint32 womenMgrsLevelA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "womenMgrsLevelB"
+         Type: uint32
+         Source: "uint32 womenMgrsLevelB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "womenMgrsLevelC"
+         Type: uint32
+         Source: "uint32 womenMgrsLevelC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npo"
+         Type: uint32
+         Source: "uint32 npo"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npop"
+         Type: uint32
+         Source: "uint32 npop"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideA"
+         Type: uint32
+         Source: "uint32 ideA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideB"
+         Type: uint32
+         Source: "uint32 ideB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideC"
+         Type: uint32
+         Source: "uint32 ideC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ide"
+         Type: uint32
+         Source: "uint32 ide"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "dateOfReport"
+         Type: uint256
+         Source: "uint256 dateOfReport"
+        ElementaryTypeName uint256
+           Source: "uint256"
+    Block
+       Source: "{\n\n    uint index = KPIList.length -1 ;\n\n    mgrsLevelA = KPIList[index].mgrsLevelA;\n    mgrsLevelB = KPIList[index].mgrsLevelB;\n    mgrsLevelC = KPIList[index].mgrsLevelC;\n    womenMgrsLevelA = KPIList[index].womenMgrsLevelA;\n    womenMgrsLevelB = KPIList[index].womenMgrsLevelB;\n    womenMgrsLevelC = KPIList[index].womenMgrsLevelC;\n    npo = KPIList[index].npo;\n    npop = KPIList[index].npop;\n    ideA = KPIList[index].ideA;\n    ideB = KPIList[index].ideB;\n    ideC = KPIList[index].ideC;\n    ide = KPIList[index].ide;\n    dateOfReport = KPIList[index].dateOfReport;\n\n  }"
+      VariableDeclarationStatement
+         Source: "uint index = KPIList.length -1"
+        VariableDeclaration "index"
+           Type: uint256
+           Source: "uint index"
+          ElementaryTypeName uint
+             Source: "uint"
+        BinaryOperation using operator -
+           Type: uint256
+           Source: "KPIList.length -1"
+          MemberAccess to member length
+             Type: uint256
+             Source: "KPIList.length"
+            Identifier KPIList
+               Type: struct ICompanySate.State storage ref[] storage ref
+               Source: "KPIList"
+          Literal, token: [no token] value: 1
+             Type: int_const 1
+             Source: "1"
+      ExpressionStatement
+         Source: "mgrsLevelA = KPIList[index].mgrsLevelA"
+        Assignment using operator =
+           Type: uint32
+           Source: "mgrsLevelA = KPIList[index].mgrsLevelA"
+          Identifier mgrsLevelA
+             Type: uint32
+             Source: "mgrsLevelA"
+          MemberAccess to member mgrsLevelA
+             Type: uint32
+             Source: "KPIList[index].mgrsLevelA"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "mgrsLevelB = KPIList[index].mgrsLevelB"
+        Assignment using operator =
+           Type: uint32
+           Source: "mgrsLevelB = KPIList[index].mgrsLevelB"
+          Identifier mgrsLevelB
+             Type: uint32
+             Source: "mgrsLevelB"
+          MemberAccess to member mgrsLevelB
+             Type: uint32
+             Source: "KPIList[index].mgrsLevelB"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "mgrsLevelC = KPIList[index].mgrsLevelC"
+        Assignment using operator =
+           Type: uint32
+           Source: "mgrsLevelC = KPIList[index].mgrsLevelC"
+          Identifier mgrsLevelC
+             Type: uint32
+             Source: "mgrsLevelC"
+          MemberAccess to member mgrsLevelC
+             Type: uint32
+             Source: "KPIList[index].mgrsLevelC"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "womenMgrsLevelA = KPIList[index].womenMgrsLevelA"
+        Assignment using operator =
+           Type: uint32
+           Source: "womenMgrsLevelA = KPIList[index].womenMgrsLevelA"
+          Identifier womenMgrsLevelA
+             Type: uint32
+             Source: "womenMgrsLevelA"
+          MemberAccess to member womenMgrsLevelA
+             Type: uint32
+             Source: "KPIList[index].womenMgrsLevelA"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "womenMgrsLevelB = KPIList[index].womenMgrsLevelB"
+        Assignment using operator =
+           Type: uint32
+           Source: "womenMgrsLevelB = KPIList[index].womenMgrsLevelB"
+          Identifier womenMgrsLevelB
+             Type: uint32
+             Source: "womenMgrsLevelB"
+          MemberAccess to member womenMgrsLevelB
+             Type: uint32
+             Source: "KPIList[index].womenMgrsLevelB"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "womenMgrsLevelC = KPIList[index].womenMgrsLevelC"
+        Assignment using operator =
+           Type: uint32
+           Source: "womenMgrsLevelC = KPIList[index].womenMgrsLevelC"
+          Identifier womenMgrsLevelC
+             Type: uint32
+             Source: "womenMgrsLevelC"
+          MemberAccess to member womenMgrsLevelC
+             Type: uint32
+             Source: "KPIList[index].womenMgrsLevelC"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "npo = KPIList[index].npo"
+        Assignment using operator =
+           Type: uint32
+           Source: "npo = KPIList[index].npo"
+          Identifier npo
+             Type: uint32
+             Source: "npo"
+          MemberAccess to member npo
+             Type: uint32
+             Source: "KPIList[index].npo"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "npop = KPIList[index].npop"
+        Assignment using operator =
+           Type: uint32
+           Source: "npop = KPIList[index].npop"
+          Identifier npop
+             Type: uint32
+             Source: "npop"
+          MemberAccess to member npop
+             Type: uint32
+             Source: "KPIList[index].npop"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "ideA = KPIList[index].ideA"
+        Assignment using operator =
+           Type: uint32
+           Source: "ideA = KPIList[index].ideA"
+          Identifier ideA
+             Type: uint32
+             Source: "ideA"
+          MemberAccess to member ideA
+             Type: uint32
+             Source: "KPIList[index].ideA"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "ideB = KPIList[index].ideB"
+        Assignment using operator =
+           Type: uint32
+           Source: "ideB = KPIList[index].ideB"
+          Identifier ideB
+             Type: uint32
+             Source: "ideB"
+          MemberAccess to member ideB
+             Type: uint32
+             Source: "KPIList[index].ideB"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "ideC = KPIList[index].ideC"
+        Assignment using operator =
+           Type: uint32
+           Source: "ideC = KPIList[index].ideC"
+          Identifier ideC
+             Type: uint32
+             Source: "ideC"
+          MemberAccess to member ideC
+             Type: uint32
+             Source: "KPIList[index].ideC"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "ide = KPIList[index].ide"
+        Assignment using operator =
+           Type: uint32
+           Source: "ide = KPIList[index].ide"
+          Identifier ide
+             Type: uint32
+             Source: "ide"
+          MemberAccess to member ide
+             Type: uint32
+             Source: "KPIList[index].ide"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+      ExpressionStatement
+         Source: "dateOfReport = KPIList[index].dateOfReport"
+        Assignment using operator =
+           Type: uint256
+           Source: "dateOfReport = KPIList[index].dateOfReport"
+          Identifier dateOfReport
+             Type: uint256
+             Source: "dateOfReport"
+          MemberAccess to member dateOfReport
+             Type: uint256
+             Source: "KPIList[index].dateOfReport"
+            IndexAccess
+               Type: struct ICompanySate.State storage ref
+               Source: "KPIList[index]"
+              Identifier KPIList
+                 Type: struct ICompanySate.State storage ref[] storage ref
+                 Source: "KPIList"
+              Identifier index
+                 Type: uint256
+                 Source: "index"
+  FunctionDefinition "getReward" - public - const
+     Source: "function getReward() public view returns (uint reward) {\n    // only owner can check its reward (current balance of tokens)\n    require(msg.sender == owner, \"Error - Only owner can check its balance\");\n\n    reward = rewardCoin.getBalance(msg.sender);\n  }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(uint reward)"
+      VariableDeclaration "reward"
+         Type: uint256
+         Source: "uint reward"
+        ElementaryTypeName uint
+           Source: "uint"
+    Block
+       Source: "{\n    // only owner can check its reward (current balance of tokens)\n    require(msg.sender == owner, \"Error - Only owner can check its balance\");\n\n    reward = rewardCoin.getBalance(msg.sender);\n  }"
+      ExpressionStatement
+         Source: "require(msg.sender == owner, \"Error - Only owner can check its balance\")"
+        FunctionCall
+           Type: tuple()
+           Source: "require(msg.sender == owner, \"Error - Only owner can check its balance\")"
+          Identifier require
+             Type: function (bool,string memory) pure
+             Source: "require"
+          BinaryOperation using operator ==
+             Type: bool
+             Source: "msg.sender == owner"
+            MemberAccess to member sender
+               Type: address payable
+               Source: "msg.sender"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"
+            Identifier owner
+               Type: address
+               Source: "owner"
+          Literal, token: [no token] value: Error - Only owner can check its balance
+             Type: literal_string "Error - Only owner can check its balance"
+             Source: "\"Error - Only owner can check its balance\""
+      ExpressionStatement
+         Source: "reward = rewardCoin.getBalance(msg.sender)"
+        Assignment using operator =
+           Type: uint256
+           Source: "reward = rewardCoin.getBalance(msg.sender)"
+          Identifier reward
+             Type: uint256
+             Source: "reward"
+          FunctionCall
+             Type: uint256
+             Source: "rewardCoin.getBalance(msg.sender)"
+            MemberAccess to member getBalance
+               Type: function (address) view external returns (uint256)
+               Source: "rewardCoin.getBalance"
+              Identifier rewardCoin
+                 Type: contract RewardCoin
+                 Source: "rewardCoin"
+            MemberAccess to member sender
+               Type: address payable
+               Source: "msg.sender"
+              Identifier msg
+                 Type: msg
+                 Source: "msg"

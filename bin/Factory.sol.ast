@@ -1,0 +1,287 @@
+PragmaDirective
+   Source: "pragma solidity ^0.5.0;"
+ImportDirective "./CompanyState.sol"
+   Source: "import \"./CompanyState.sol\";"
+ImportDirective "./RewardCoin.sol"
+   Source: "import \"./RewardCoin.sol\";"
+ContractDefinition "Factory"
+   Source: "contract Factory {\n\n  address private rewardCoin;\n\n  struct RegisteredCompany {\n    bool registered;\n    string name;\n    address companyContract;\n  }\n\n  RegisteredCompany private company;\n\n  constructor (address _rewardCoin) public {\n    rewardCoin = _rewardCoin;\n  }\n\n  event CompanyRegistered(string indexed name, address indexed companyContract, bool result);\n\n  function registerCompany(string memory _name)\n                      public returns (bool result) {\n    require(company.registered == false, \"Error - Company already registered\");\n    // proceed to create a new contract for the company and add it to the mapping of registered companies\n    CompanyState companyContract = new CompanyState(msg.sender, rewardCoin);\n\n    company.registered = true;\n    company.name = _name;\n    company.companyContract = address(companyContract);\n\n    result = true;\n\n    emit CompanyRegistered(_name, company.companyContract, result);\n\n  }\n\n  function getCompany() public view returns(string memory name, address cAddress, bool registered){\n\n    registered = company.registered;\n    cAddress = company.companyContract;\n    name = company.name;\n\n  }\n\n}"
+  VariableDeclaration "rewardCoin"
+     Type: address
+     Source: "address private rewardCoin"
+    ElementaryTypeName address
+       Source: "address"
+  StructDefinition "RegisteredCompany"
+     Source: "struct RegisteredCompany {\n    bool registered;\n    string name;\n    address companyContract;\n  }"
+    VariableDeclaration "registered"
+       Type: bool
+       Source: "bool registered"
+      ElementaryTypeName bool
+         Source: "bool"
+    VariableDeclaration "name"
+       Type: string storage pointer
+       Source: "string name"
+      ElementaryTypeName string
+         Source: "string"
+    VariableDeclaration "companyContract"
+       Type: address
+       Source: "address companyContract"
+      ElementaryTypeName address
+         Source: "address"
+  VariableDeclaration "company"
+     Type: struct Factory.RegisteredCompany storage ref
+     Source: "RegisteredCompany private company"
+    UserDefinedTypeName "RegisteredCompany"
+       Source: "RegisteredCompany"
+  FunctionDefinition "" - public
+     Source: "constructor (address _rewardCoin) public {\n    rewardCoin = _rewardCoin;\n  }"
+    ParameterList
+       Source: "(address _rewardCoin)"
+      VariableDeclaration "_rewardCoin"
+         Type: address
+         Source: "address _rewardCoin"
+        ElementaryTypeName address
+           Source: "address"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n    rewardCoin = _rewardCoin;\n  }"
+      ExpressionStatement
+         Source: "rewardCoin = _rewardCoin"
+        Assignment using operator =
+           Type: address
+           Source: "rewardCoin = _rewardCoin"
+          Identifier rewardCoin
+             Type: address
+             Source: "rewardCoin"
+          Identifier _rewardCoin
+             Type: address
+             Source: "_rewardCoin"
+  EventDefinition "CompanyRegistered"
+     Source: "event CompanyRegistered(string indexed name, address indexed companyContract, bool result);"
+    ParameterList
+       Source: "(string indexed name, address indexed companyContract, bool result)"
+      VariableDeclaration "name"
+         Type: string memory
+         Source: "string indexed name"
+        ElementaryTypeName string
+           Source: "string"
+      VariableDeclaration "companyContract"
+         Type: address
+         Source: "address indexed companyContract"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "result"
+         Type: bool
+         Source: "bool result"
+        ElementaryTypeName bool
+           Source: "bool"
+  FunctionDefinition "registerCompany" - public
+     Source: "function registerCompany(string memory _name)\n                      public returns (bool result) {\n    require(company.registered == false, \"Error - Company already registered\");\n    // proceed to create a new contract for the company and add it to the mapping of registered companies\n    CompanyState companyContract = new CompanyState(msg.sender, rewardCoin);\n\n    company.registered = true;\n    company.name = _name;\n    company.companyContract = address(companyContract);\n\n    result = true;\n\n    emit CompanyRegistered(_name, company.companyContract, result);\n\n  }"
+    ParameterList
+       Source: "(string memory _name)"
+      VariableDeclaration "_name"
+         Type: string memory
+         Source: "string memory _name"
+        ElementaryTypeName string
+           Source: "string"
+    ParameterList
+       Source: "(bool result)"
+      VariableDeclaration "result"
+         Type: bool
+         Source: "bool result"
+        ElementaryTypeName bool
+           Source: "bool"
+    Block
+       Source: "{\n    require(company.registered == false, \"Error - Company already registered\");\n    // proceed to create a new contract for the company and add it to the mapping of registered companies\n    CompanyState companyContract = new CompanyState(msg.sender, rewardCoin);\n\n    company.registered = true;\n    company.name = _name;\n    company.companyContract = address(companyContract);\n\n    result = true;\n\n    emit CompanyRegistered(_name, company.companyContract, result);\n\n  }"
+      ExpressionStatement
+         Source: "require(company.registered == false, \"Error - Company already registered\")"
+        FunctionCall
+           Type: tuple()
+           Source: "require(company.registered == false, \"Error - Company already registered\")"
+          Identifier require
+             Type: function (bool,string memory) pure
+             Source: "require"
+          BinaryOperation using operator ==
+             Type: bool
+             Source: "company.registered == false"
+            MemberAccess to member registered
+               Type: bool
+               Source: "company.registered"
+              Identifier company
+                 Type: struct Factory.RegisteredCompany storage ref
+                 Source: "company"
+            Literal, token: false value: false
+               Type: bool
+               Source: "false"
+          Literal, token: [no token] value: Error - Company already registered
+             Type: literal_string "Error - Company already registered"
+             Source: "\"Error - Company already registered\""
+      VariableDeclarationStatement
+         Source: "CompanyState companyContract = new CompanyState(msg.sender, rewardCoin)"
+        VariableDeclaration "companyContract"
+           Type: contract CompanyState
+           Source: "CompanyState companyContract"
+          UserDefinedTypeName "CompanyState"
+             Source: "CompanyState"
+        FunctionCall
+           Type: contract CompanyState
+           Source: "new CompanyState(msg.sender, rewardCoin)"
+          NewExpression
+             Type: function (address,address) returns (contract CompanyState)
+             Source: "new CompanyState"
+            UserDefinedTypeName "CompanyState"
+               Source: "CompanyState"
+          MemberAccess to member sender
+             Type: address payable
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+          Identifier rewardCoin
+             Type: address
+             Source: "rewardCoin"
+      ExpressionStatement
+         Source: "company.registered = true"
+        Assignment using operator =
+           Type: bool
+           Source: "company.registered = true"
+          MemberAccess to member registered
+             Type: bool
+             Source: "company.registered"
+            Identifier company
+               Type: struct Factory.RegisteredCompany storage ref
+               Source: "company"
+          Literal, token: true value: true
+             Type: bool
+             Source: "true"
+      ExpressionStatement
+         Source: "company.name = _name"
+        Assignment using operator =
+           Type: string storage ref
+           Source: "company.name = _name"
+          MemberAccess to member name
+             Type: string storage ref
+             Source: "company.name"
+            Identifier company
+               Type: struct Factory.RegisteredCompany storage ref
+               Source: "company"
+          Identifier _name
+             Type: string memory
+             Source: "_name"
+      ExpressionStatement
+         Source: "company.companyContract = address(companyContract)"
+        Assignment using operator =
+           Type: address
+           Source: "company.companyContract = address(companyContract)"
+          MemberAccess to member companyContract
+             Type: address
+             Source: "company.companyContract"
+            Identifier company
+               Type: struct Factory.RegisteredCompany storage ref
+               Source: "company"
+          FunctionCall
+             Type: address
+             Source: "address(companyContract)"
+            ElementaryTypeNameExpression address
+               Type: type(address)
+               Source: "address"
+            Identifier companyContract
+               Type: contract CompanyState
+               Source: "companyContract"
+      ExpressionStatement
+         Source: "result = true"
+        Assignment using operator =
+           Type: bool
+           Source: "result = true"
+          Identifier result
+             Type: bool
+             Source: "result"
+          Literal, token: true value: true
+             Type: bool
+             Source: "true"
+      EmitStatement
+         Source: "emit CompanyRegistered(_name, company.companyContract, result)"
+        FunctionCall
+           Type: tuple()
+           Source: "CompanyRegistered(_name, company.companyContract, result)"
+          Identifier CompanyRegistered
+             Type: function (string memory,address,bool)
+             Source: "CompanyRegistered"
+          Identifier _name
+             Type: string memory
+             Source: "_name"
+          MemberAccess to member companyContract
+             Type: address
+             Source: "company.companyContract"
+            Identifier company
+               Type: struct Factory.RegisteredCompany storage ref
+               Source: "company"
+          Identifier result
+             Type: bool
+             Source: "result"
+  FunctionDefinition "getCompany" - public - const
+     Source: "function getCompany() public view returns(string memory name, address cAddress, bool registered){\n\n    registered = company.registered;\n    cAddress = company.companyContract;\n    name = company.name;\n\n  }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(string memory name, address cAddress, bool registered)"
+      VariableDeclaration "name"
+         Type: string memory
+         Source: "string memory name"
+        ElementaryTypeName string
+           Source: "string"
+      VariableDeclaration "cAddress"
+         Type: address
+         Source: "address cAddress"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "registered"
+         Type: bool
+         Source: "bool registered"
+        ElementaryTypeName bool
+           Source: "bool"
+    Block
+       Source: "{\n\n    registered = company.registered;\n    cAddress = company.companyContract;\n    name = company.name;\n\n  }"
+      ExpressionStatement
+         Source: "registered = company.registered"
+        Assignment using operator =
+           Type: bool
+           Source: "registered = company.registered"
+          Identifier registered
+             Type: bool
+             Source: "registered"
+          MemberAccess to member registered
+             Type: bool
+             Source: "company.registered"
+            Identifier company
+               Type: struct Factory.RegisteredCompany storage ref
+               Source: "company"
+      ExpressionStatement
+         Source: "cAddress = company.companyContract"
+        Assignment using operator =
+           Type: address
+           Source: "cAddress = company.companyContract"
+          Identifier cAddress
+             Type: address
+             Source: "cAddress"
+          MemberAccess to member companyContract
+             Type: address
+             Source: "company.companyContract"
+            Identifier company
+               Type: struct Factory.RegisteredCompany storage ref
+               Source: "company"
+      ExpressionStatement
+         Source: "name = company.name"
+        Assignment using operator =
+           Type: string memory
+           Source: "name = company.name"
+          Identifier name
+             Type: string memory
+             Source: "name"
+          MemberAccess to member name
+             Type: string storage ref
+             Source: "company.name"
+            Identifier company
+               Type: struct Factory.RegisteredCompany storage ref
+               Source: "company"

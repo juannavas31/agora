@@ -1,0 +1,364 @@
+PragmaDirective
+   Source: "pragma solidity ^0.5.0;"
+ImportDirective "./ERC20.sol"
+   Source: "import \"./ERC20.sol\";"
+ContractDefinition "RewardCoin"
+   Source: "contract RewardCoin is ERC20 {\n\n  uint32 constant private bronceIdeThreshold = 70;\n  uint32 constant private silverIdeThreshold = 80;\n  uint32 constant private  goldIdeThreshold = 90;\n  uint32 constant private silverPoliciesThreshold = 5;\n  uint32 constant private goldPoliciesThreshold = 15;\n\n  function setReward(address company, uint32 ide, uint32 imc,\n                      uint32 npo, uint32 npop) public returns (uint32 reward) {\n    require(company != address(0), \"Error - Company address cannot be ZERO\");\n    // formula to compute the reward based on the kpis coming in State structure\n\n    reward = 0;\n\n    if (imc > 30 && imc < 70)  ++reward;\n    if (ide > bronceIdeThreshold)  ++reward;\n    if (ide > silverIdeThreshold)  ++reward;\n    if (ide > goldIdeThreshold)  ++reward;\n    if (npo > silverPoliciesThreshold)  ++reward;\n    if (npo > goldPoliciesThreshold)  ++reward;\n    if (npop > silverPoliciesThreshold)  ++reward;\n    if (npop > goldPoliciesThreshold)  ++reward;\n\n\n    _mint(company, reward);\n\n  }\n\n  function getBalance(address company) public view returns (uint balance) {\n    require(company != address(0), \"Error - Company address cannot be ZERO\");\n\n    balance = balanceOf(company);\n  }\n}"
+  InheritanceSpecifier
+     Source: "ERC20"
+    UserDefinedTypeName "ERC20"
+       Source: "ERC20"
+  VariableDeclaration "bronceIdeThreshold"
+     Type: uint32
+     Source: "uint32 constant private bronceIdeThreshold = 70"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 70
+       Type: int_const 70
+       Source: "70"
+  VariableDeclaration "silverIdeThreshold"
+     Type: uint32
+     Source: "uint32 constant private silverIdeThreshold = 80"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 80
+       Type: int_const 80
+       Source: "80"
+  VariableDeclaration "goldIdeThreshold"
+     Type: uint32
+     Source: "uint32 constant private  goldIdeThreshold = 90"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 90
+       Type: int_const 90
+       Source: "90"
+  VariableDeclaration "silverPoliciesThreshold"
+     Type: uint32
+     Source: "uint32 constant private silverPoliciesThreshold = 5"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 5
+       Type: int_const 5
+       Source: "5"
+  VariableDeclaration "goldPoliciesThreshold"
+     Type: uint32
+     Source: "uint32 constant private goldPoliciesThreshold = 15"
+    ElementaryTypeName uint32
+       Source: "uint32"
+    Literal, token: [no token] value: 15
+       Type: int_const 15
+       Source: "15"
+  FunctionDefinition "setReward" - public
+     Source: "function setReward(address company, uint32 ide, uint32 imc,\n                      uint32 npo, uint32 npop) public returns (uint32 reward) {\n    require(company != address(0), \"Error - Company address cannot be ZERO\");\n    // formula to compute the reward based on the kpis coming in State structure\n\n    reward = 0;\n\n    if (imc > 30 && imc < 70)  ++reward;\n    if (ide > bronceIdeThreshold)  ++reward;\n    if (ide > silverIdeThreshold)  ++reward;\n    if (ide > goldIdeThreshold)  ++reward;\n    if (npo > silverPoliciesThreshold)  ++reward;\n    if (npo > goldPoliciesThreshold)  ++reward;\n    if (npop > silverPoliciesThreshold)  ++reward;\n    if (npop > goldPoliciesThreshold)  ++reward;\n\n\n    _mint(company, reward);\n\n  }"
+    ParameterList
+       Source: "(address company, uint32 ide, uint32 imc,\n                      uint32 npo, uint32 npop)"
+      VariableDeclaration "company"
+         Type: address
+         Source: "address company"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "ide"
+         Type: uint32
+         Source: "uint32 ide"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "imc"
+         Type: uint32
+         Source: "uint32 imc"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npo"
+         Type: uint32
+         Source: "uint32 npo"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npop"
+         Type: uint32
+         Source: "uint32 npop"
+        ElementaryTypeName uint32
+           Source: "uint32"
+    ParameterList
+       Source: "(uint32 reward)"
+      VariableDeclaration "reward"
+         Type: uint32
+         Source: "uint32 reward"
+        ElementaryTypeName uint32
+           Source: "uint32"
+    Block
+       Source: "{\n    require(company != address(0), \"Error - Company address cannot be ZERO\");\n    // formula to compute the reward based on the kpis coming in State structure\n\n    reward = 0;\n\n    if (imc > 30 && imc < 70)  ++reward;\n    if (ide > bronceIdeThreshold)  ++reward;\n    if (ide > silverIdeThreshold)  ++reward;\n    if (ide > goldIdeThreshold)  ++reward;\n    if (npo > silverPoliciesThreshold)  ++reward;\n    if (npo > goldPoliciesThreshold)  ++reward;\n    if (npop > silverPoliciesThreshold)  ++reward;\n    if (npop > goldPoliciesThreshold)  ++reward;\n\n\n    _mint(company, reward);\n\n  }"
+      ExpressionStatement
+         Source: "require(company != address(0), \"Error - Company address cannot be ZERO\")"
+        FunctionCall
+           Type: tuple()
+           Source: "require(company != address(0), \"Error - Company address cannot be ZERO\")"
+          Identifier require
+             Type: function (bool,string memory) pure
+             Source: "require"
+          BinaryOperation using operator !=
+             Type: bool
+             Source: "company != address(0)"
+            Identifier company
+               Type: address
+               Source: "company"
+            FunctionCall
+               Type: address payable
+               Source: "address(0)"
+              ElementaryTypeNameExpression address
+                 Type: type(address)
+                 Source: "address"
+              Literal, token: [no token] value: 0
+                 Type: int_const 0
+                 Source: "0"
+          Literal, token: [no token] value: Error - Company address cannot be ZERO
+             Type: literal_string "Error - Company address cannot be ZERO"
+             Source: "\"Error - Company address cannot be ZERO\""
+      ExpressionStatement
+         Source: "reward = 0"
+        Assignment using operator =
+           Type: uint32
+           Source: "reward = 0"
+          Identifier reward
+             Type: uint32
+             Source: "reward"
+          Literal, token: [no token] value: 0
+             Type: int_const 0
+             Source: "0"
+      IfStatement
+         Source: "if (imc > 30 && imc < 70)  ++reward"
+        BinaryOperation using operator &&
+           Type: bool
+           Source: "imc > 30 && imc < 70"
+          BinaryOperation using operator >
+             Type: bool
+             Source: "imc > 30"
+            Identifier imc
+               Type: uint32
+               Source: "imc"
+            Literal, token: [no token] value: 30
+               Type: int_const 30
+               Source: "30"
+          BinaryOperation using operator <
+             Type: bool
+             Source: "imc < 70"
+            Identifier imc
+               Type: uint32
+               Source: "imc"
+            Literal, token: [no token] value: 70
+               Type: int_const 70
+               Source: "70"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      IfStatement
+         Source: "if (ide > bronceIdeThreshold)  ++reward"
+        BinaryOperation using operator >
+           Type: bool
+           Source: "ide > bronceIdeThreshold"
+          Identifier ide
+             Type: uint32
+             Source: "ide"
+          Identifier bronceIdeThreshold
+             Type: uint32
+             Source: "bronceIdeThreshold"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      IfStatement
+         Source: "if (ide > silverIdeThreshold)  ++reward"
+        BinaryOperation using operator >
+           Type: bool
+           Source: "ide > silverIdeThreshold"
+          Identifier ide
+             Type: uint32
+             Source: "ide"
+          Identifier silverIdeThreshold
+             Type: uint32
+             Source: "silverIdeThreshold"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      IfStatement
+         Source: "if (ide > goldIdeThreshold)  ++reward"
+        BinaryOperation using operator >
+           Type: bool
+           Source: "ide > goldIdeThreshold"
+          Identifier ide
+             Type: uint32
+             Source: "ide"
+          Identifier goldIdeThreshold
+             Type: uint32
+             Source: "goldIdeThreshold"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      IfStatement
+         Source: "if (npo > silverPoliciesThreshold)  ++reward"
+        BinaryOperation using operator >
+           Type: bool
+           Source: "npo > silverPoliciesThreshold"
+          Identifier npo
+             Type: uint32
+             Source: "npo"
+          Identifier silverPoliciesThreshold
+             Type: uint32
+             Source: "silverPoliciesThreshold"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      IfStatement
+         Source: "if (npo > goldPoliciesThreshold)  ++reward"
+        BinaryOperation using operator >
+           Type: bool
+           Source: "npo > goldPoliciesThreshold"
+          Identifier npo
+             Type: uint32
+             Source: "npo"
+          Identifier goldPoliciesThreshold
+             Type: uint32
+             Source: "goldPoliciesThreshold"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      IfStatement
+         Source: "if (npop > silverPoliciesThreshold)  ++reward"
+        BinaryOperation using operator >
+           Type: bool
+           Source: "npop > silverPoliciesThreshold"
+          Identifier npop
+             Type: uint32
+             Source: "npop"
+          Identifier silverPoliciesThreshold
+             Type: uint32
+             Source: "silverPoliciesThreshold"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      IfStatement
+         Source: "if (npop > goldPoliciesThreshold)  ++reward"
+        BinaryOperation using operator >
+           Type: bool
+           Source: "npop > goldPoliciesThreshold"
+          Identifier npop
+             Type: uint32
+             Source: "npop"
+          Identifier goldPoliciesThreshold
+             Type: uint32
+             Source: "goldPoliciesThreshold"
+        ExpressionStatement
+           Source: "++reward"
+          UnaryOperation (prefix) ++
+             Type: uint32
+             Source: "++reward"
+            Identifier reward
+               Type: uint32
+               Source: "reward"
+      ExpressionStatement
+         Source: "_mint(company, reward)"
+        FunctionCall
+           Type: tuple()
+           Source: "_mint(company, reward)"
+          Identifier _mint
+             Type: function (address,uint256)
+             Source: "_mint"
+          Identifier company
+             Type: address
+             Source: "company"
+          Identifier reward
+             Type: uint32
+             Source: "reward"
+  FunctionDefinition "getBalance" - public - const
+     Source: "function getBalance(address company) public view returns (uint balance) {\n    require(company != address(0), \"Error - Company address cannot be ZERO\");\n\n    balance = balanceOf(company);\n  }"
+    ParameterList
+       Source: "(address company)"
+      VariableDeclaration "company"
+         Type: address
+         Source: "address company"
+        ElementaryTypeName address
+           Source: "address"
+    ParameterList
+       Source: "(uint balance)"
+      VariableDeclaration "balance"
+         Type: uint256
+         Source: "uint balance"
+        ElementaryTypeName uint
+           Source: "uint"
+    Block
+       Source: "{\n    require(company != address(0), \"Error - Company address cannot be ZERO\");\n\n    balance = balanceOf(company);\n  }"
+      ExpressionStatement
+         Source: "require(company != address(0), \"Error - Company address cannot be ZERO\")"
+        FunctionCall
+           Type: tuple()
+           Source: "require(company != address(0), \"Error - Company address cannot be ZERO\")"
+          Identifier require
+             Type: function (bool,string memory) pure
+             Source: "require"
+          BinaryOperation using operator !=
+             Type: bool
+             Source: "company != address(0)"
+            Identifier company
+               Type: address
+               Source: "company"
+            FunctionCall
+               Type: address payable
+               Source: "address(0)"
+              ElementaryTypeNameExpression address
+                 Type: type(address)
+                 Source: "address"
+              Literal, token: [no token] value: 0
+                 Type: int_const 0
+                 Source: "0"
+          Literal, token: [no token] value: Error - Company address cannot be ZERO
+             Type: literal_string "Error - Company address cannot be ZERO"
+             Source: "\"Error - Company address cannot be ZERO\""
+      ExpressionStatement
+         Source: "balance = balanceOf(company)"
+        Assignment using operator =
+           Type: uint256
+           Source: "balance = balanceOf(company)"
+          Identifier balance
+             Type: uint256
+             Source: "balance"
+          FunctionCall
+             Type: uint256
+             Source: "balanceOf(company)"
+            Identifier balanceOf
+               Type: function (address) view returns (uint256)
+               Source: "balanceOf"
+            Identifier company
+               Type: address
+               Source: "company"

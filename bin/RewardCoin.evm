@@ -1,0 +1,2402 @@
+    /* "contracts/RewardCoin.sol":48:1263  contract RewardCoin is ERC20 {... */
+  mstore(0x40, 0x80)
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+    /* "contracts/RewardCoin.sol":48:1263  contract RewardCoin is ERC20 {... */
+  pop
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "contracts/RewardCoin.sol":48:1263  contract RewardCoin is ERC20 {... */
+      mstore(0x40, 0x80)
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_1
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x00
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_1:
+        /* "contracts/RewardCoin.sol":48:1263  contract RewardCoin is ERC20 {... */
+      pop
+      jumpi(tag_2, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x70a08231
+      gt
+      tag_13
+      jumpi
+      dup1
+      0x70a08231
+      eq
+      tag_8
+      jumpi
+      dup1
+      0xa457c2d7
+      eq
+      tag_9
+      jumpi
+      dup1
+      0xa9059cbb
+      eq
+      tag_10
+      jumpi
+      dup1
+      0xdd62ed3e
+      eq
+      tag_11
+      jumpi
+      dup1
+      0xf8b2cb4f
+      eq
+      tag_12
+      jumpi
+      jump(tag_2)
+    tag_13:
+      dup1
+      0x095ea7b3
+      eq
+      tag_3
+      jumpi
+      dup1
+      0x18160ddd
+      eq
+      tag_4
+      jumpi
+      dup1
+      0x23b872dd
+      eq
+      tag_5
+      jumpi
+      dup1
+      0x39509351
+      eq
+      tag_6
+      jumpi
+      dup1
+      0x697fa281
+      eq
+      tag_7
+      jumpi
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "contracts/ERC20.sol":2448:2593  function approve(address spender, uint256 value) public returns (bool) {... */
+    tag_3:
+      tag_14
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x40
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_15
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_15:
+        /* "contracts/ERC20.sol":2448:2593  function approve(address spender, uint256 value) public returns (bool) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_16
+      jump	// in
+    tag_14:
+      mload(0x40)
+      dup1
+      dup3
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":1509:1598  function totalSupply() public view returns (uint256) {... */
+    tag_4:
+      tag_17
+      tag_18
+      jump	// in
+    tag_17:
+      mload(0x40)
+      dup1
+      dup3
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":3050:3302  function transferFrom(address sender, address recipient, uint256 amount) public returns (bool) {... */
+    tag_5:
+      tag_19
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x60
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_20
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_20:
+        /* "contracts/ERC20.sol":3050:3302  function transferFrom(address sender, address recipient, uint256 amount) public returns (bool) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_21
+      jump	// in
+    tag_19:
+      mload(0x40)
+      dup1
+      dup3
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":3697:3900  function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {... */
+    tag_6:
+      tag_22
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x40
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_23
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_23:
+        /* "contracts/ERC20.sol":3697:3900  function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_24
+      jump	// in
+    tag_22:
+      mload(0x40)
+      dup1
+      dup3
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/RewardCoin.sol":344:1067  function setReward(address company, uint32 ide, uint32 imc,... */
+    tag_7:
+      tag_25
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:16   */
+      0xa0
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:17   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_26
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x00
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_26:
+        /* "contracts/RewardCoin.sol":344:1067  function setReward(address company, uint32 ide, uint32 imc,... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      0xffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      0xffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      0xffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      0xffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_27
+      jump	// in
+    tag_25:
+      mload(0x40)
+      dup1
+      dup3
+      0xffffffff
+      and
+      0xffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":1656:1764  function balanceOf(address account) public view returns (uint256) {... */
+    tag_8:
+      tag_28
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x20
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_29
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_29:
+        /* "contracts/ERC20.sol":1656:1764  function balanceOf(address account) public view returns (uint256) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_30
+      jump	// in
+    tag_28:
+      mload(0x40)
+      dup1
+      dup3
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":4387:4600  function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {... */
+    tag_9:
+      tag_31
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x40
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_32
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_32:
+        /* "contracts/ERC20.sol":4387:4600  function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_33
+      jump	// in
+    tag_31:
+      mload(0x40)
+      dup1
+      dup3
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":1967:2120  function transfer(address recipient, uint256 amount) public returns (bool) {... */
+    tag_10:
+      tag_34
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x40
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_35
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_35:
+        /* "contracts/ERC20.sol":1967:2120  function transfer(address recipient, uint256 amount) public returns (bool) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_36
+      jump	// in
+    tag_34:
+      mload(0x40)
+      dup1
+      dup3
+      iszero
+      iszero
+      iszero
+      iszero
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":2178:2310  function allowance(address owner, address spender) public view returns (uint256) {... */
+    tag_11:
+      tag_37
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x40
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_38
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_38:
+        /* "contracts/ERC20.sol":2178:2310  function allowance(address owner, address spender) public view returns (uint256) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_39
+      jump	// in
+    tag_37:
+      mload(0x40)
+      dup1
+      dup3
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/RewardCoin.sol":1071:1261  function getBalance(address company) public view returns (uint balance) {... */
+    tag_12:
+      tag_40
+      0x04
+      dup1
+      calldatasize
+      sub
+        /* "--CODEGEN--":13:15   */
+      0x20
+        /* "--CODEGEN--":8:11   */
+      dup2
+        /* "--CODEGEN--":5:16   */
+      lt
+        /* "--CODEGEN--":2:4   */
+      iszero
+      tag_41
+      jumpi
+        /* "--CODEGEN--":29:30   */
+      0x00
+        /* "--CODEGEN--":26:27   */
+      dup1
+        /* "--CODEGEN--":19:31   */
+      revert
+        /* "--CODEGEN--":2:4   */
+    tag_41:
+        /* "contracts/RewardCoin.sol":1071:1261  function getBalance(address company) public view returns (uint balance) {... */
+      dup2
+      add
+      swap1
+      dup1
+      dup1
+      calldataload
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      swap1
+      0x20
+      add
+      swap1
+      swap3
+      swap2
+      swap1
+      pop
+      pop
+      pop
+      tag_42
+      jump	// in
+    tag_40:
+      mload(0x40)
+      dup1
+      dup3
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "contracts/ERC20.sol":2448:2593  function approve(address spender, uint256 value) public returns (bool) {... */
+    tag_16:
+        /* "contracts/ERC20.sol":2513:2517  bool */
+      0x00
+        /* "contracts/ERC20.sol":2529:2565  _approve(msg.sender, spender, value) */
+      tag_44
+        /* "contracts/ERC20.sol":2538:2548  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":2550:2557  spender */
+      dup5
+        /* "contracts/ERC20.sol":2559:2564  value */
+      dup5
+        /* "contracts/ERC20.sol":2529:2537  _approve */
+      tag_45
+        /* "contracts/ERC20.sol":2529:2565  _approve(msg.sender, spender, value) */
+      jump	// in
+    tag_44:
+        /* "contracts/ERC20.sol":2582:2586  true */
+      0x01
+        /* "contracts/ERC20.sol":2575:2586  return true */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":2448:2593  function approve(address spender, uint256 value) public returns (bool) {... */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":1509:1598  function totalSupply() public view returns (uint256) {... */
+    tag_18:
+        /* "contracts/ERC20.sol":1553:1560  uint256 */
+      0x00
+        /* "contracts/ERC20.sol":1579:1591  _totalSupply */
+      sload(0x02)
+        /* "contracts/ERC20.sol":1572:1591  return _totalSupply */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":1509:1598  function totalSupply() public view returns (uint256) {... */
+      swap1
+      jump	// out
+        /* "contracts/ERC20.sol":3050:3302  function transferFrom(address sender, address recipient, uint256 amount) public returns (bool) {... */
+    tag_21:
+        /* "contracts/ERC20.sol":3139:3143  bool */
+      0x00
+        /* "contracts/ERC20.sol":3155:3191  _transfer(sender, recipient, amount) */
+      tag_48
+        /* "contracts/ERC20.sol":3165:3171  sender */
+      dup5
+        /* "contracts/ERC20.sol":3173:3182  recipient */
+      dup5
+        /* "contracts/ERC20.sol":3184:3190  amount */
+      dup5
+        /* "contracts/ERC20.sol":3155:3164  _transfer */
+      tag_49
+        /* "contracts/ERC20.sol":3155:3191  _transfer(sender, recipient, amount) */
+      jump	// in
+    tag_48:
+        /* "contracts/ERC20.sol":3201:3274  _approve(sender, msg.sender, _allowances[sender][msg.sender].sub(amount)) */
+      tag_50
+        /* "contracts/ERC20.sol":3210:3216  sender */
+      dup5
+        /* "contracts/ERC20.sol":3218:3228  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":3230:3273  _allowances[sender][msg.sender].sub(amount) */
+      tag_51
+        /* "contracts/ERC20.sol":3266:3272  amount */
+      dup6
+        /* "contracts/ERC20.sol":3230:3241  _allowances */
+      0x01
+        /* "contracts/ERC20.sol":3230:3249  _allowances[sender] */
+      0x00
+        /* "contracts/ERC20.sol":3242:3248  sender */
+      dup11
+        /* "contracts/ERC20.sol":3230:3249  _allowances[sender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":3230:3261  _allowances[sender][msg.sender] */
+      0x00
+        /* "contracts/ERC20.sol":3250:3260  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":3230:3261  _allowances[sender][msg.sender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":3230:3265  _allowances[sender][msg.sender].sub */
+      tag_52
+      swap1
+        /* "contracts/ERC20.sol":3230:3273  _allowances[sender][msg.sender].sub(amount) */
+      swap2
+      swap1
+      0xffffffff
+      and
+      jump	// in
+    tag_51:
+        /* "contracts/ERC20.sol":3201:3209  _approve */
+      tag_45
+        /* "contracts/ERC20.sol":3201:3274  _approve(sender, msg.sender, _allowances[sender][msg.sender].sub(amount)) */
+      jump	// in
+    tag_50:
+        /* "contracts/ERC20.sol":3291:3295  true */
+      0x01
+        /* "contracts/ERC20.sol":3284:3295  return true */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":3050:3302  function transferFrom(address sender, address recipient, uint256 amount) public returns (bool) {... */
+      swap4
+      swap3
+      pop
+      pop
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":3697:3900  function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {... */
+    tag_24:
+        /* "contracts/ERC20.sol":3777:3781  bool */
+      0x00
+        /* "contracts/ERC20.sol":3793:3872  _approve(msg.sender, spender, _allowances[msg.sender][spender].add(addedValue)) */
+      tag_54
+        /* "contracts/ERC20.sol":3802:3812  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":3814:3821  spender */
+      dup5
+        /* "contracts/ERC20.sol":3823:3871  _allowances[msg.sender][spender].add(addedValue) */
+      tag_55
+        /* "contracts/ERC20.sol":3860:3870  addedValue */
+      dup6
+        /* "contracts/ERC20.sol":3823:3834  _allowances */
+      0x01
+        /* "contracts/ERC20.sol":3823:3846  _allowances[msg.sender] */
+      0x00
+        /* "contracts/ERC20.sol":3835:3845  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":3823:3846  _allowances[msg.sender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":3823:3855  _allowances[msg.sender][spender] */
+      0x00
+        /* "contracts/ERC20.sol":3847:3854  spender */
+      dup10
+        /* "contracts/ERC20.sol":3823:3855  _allowances[msg.sender][spender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":3823:3859  _allowances[msg.sender][spender].add */
+      tag_56
+      swap1
+        /* "contracts/ERC20.sol":3823:3871  _allowances[msg.sender][spender].add(addedValue) */
+      swap2
+      swap1
+      0xffffffff
+      and
+      jump	// in
+    tag_55:
+        /* "contracts/ERC20.sol":3793:3801  _approve */
+      tag_45
+        /* "contracts/ERC20.sol":3793:3872  _approve(msg.sender, spender, _allowances[msg.sender][spender].add(addedValue)) */
+      jump	// in
+    tag_54:
+        /* "contracts/ERC20.sol":3889:3893  true */
+      0x01
+        /* "contracts/ERC20.sol":3882:3893  return true */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":3697:3900  function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {... */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "contracts/RewardCoin.sol":344:1067  function setReward(address company, uint32 ide, uint32 imc,... */
+    tag_27:
+        /* "contracts/RewardCoin.sol":467:480  uint32 reward */
+      0x00
+        /* "contracts/RewardCoin.sol":515:516  0 */
+      dup1
+        /* "contracts/RewardCoin.sol":496:517  company != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/RewardCoin.sol":496:503  company */
+      dup7
+        /* "contracts/RewardCoin.sol":496:517  company != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+      iszero
+        /* "contracts/RewardCoin.sol":488:560  require(company != address(0), "Error - Company address cannot be ZERO") */
+      tag_58
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x26
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      data_8ac2d0b23ba28e0a9277517b2ab3693c1e081bd33458e8475cdb74cd3f5384b1
+      0x26
+      swap2
+      codecopy
+      0x40
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_58:
+        /* "contracts/RewardCoin.sol":657:658  0 */
+      0x00
+        /* "contracts/RewardCoin.sol":648:658  reward = 0 */
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":675:677  30 */
+      0x1e
+        /* "contracts/RewardCoin.sol":669:672  imc */
+      dup5
+        /* "contracts/RewardCoin.sol":669:677  imc > 30 */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":669:689  imc > 30 && imc < 70 */
+      dup1
+      iszero
+      tag_59
+      jumpi
+      pop
+        /* "contracts/RewardCoin.sol":687:689  70 */
+      0x46
+        /* "contracts/RewardCoin.sol":681:684  imc */
+      dup5
+        /* "contracts/RewardCoin.sol":681:689  imc < 70 */
+      0xffffffff
+      and
+      lt
+        /* "contracts/RewardCoin.sol":669:689  imc > 30 && imc < 70 */
+    tag_59:
+        /* "contracts/RewardCoin.sol":665:700  if (imc > 30 && imc < 70)  ++reward */
+      iszero
+      tag_60
+      jumpi
+        /* "contracts/RewardCoin.sol":692:700  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":665:700  if (imc > 30 && imc < 70)  ++reward */
+    tag_60:
+        /* "contracts/RewardCoin.sol":127:129  70 */
+      0x46
+        /* "contracts/RewardCoin.sol":710:734  ide > bronceIdeThreshold */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":710:713  ide */
+      dup6
+        /* "contracts/RewardCoin.sol":710:734  ide > bronceIdeThreshold */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":706:745  if (ide > bronceIdeThreshold)  ++reward */
+      iszero
+      tag_61
+      jumpi
+        /* "contracts/RewardCoin.sol":737:745  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":706:745  if (ide > bronceIdeThreshold)  ++reward */
+    tag_61:
+        /* "contracts/RewardCoin.sol":178:180  80 */
+      0x50
+        /* "contracts/RewardCoin.sol":755:779  ide > silverIdeThreshold */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":755:758  ide */
+      dup6
+        /* "contracts/RewardCoin.sol":755:779  ide > silverIdeThreshold */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":751:790  if (ide > silverIdeThreshold)  ++reward */
+      iszero
+      tag_62
+      jumpi
+        /* "contracts/RewardCoin.sol":782:790  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":751:790  if (ide > silverIdeThreshold)  ++reward */
+    tag_62:
+        /* "contracts/RewardCoin.sol":228:230  90 */
+      0x5a
+        /* "contracts/RewardCoin.sol":800:822  ide > goldIdeThreshold */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":800:803  ide */
+      dup6
+        /* "contracts/RewardCoin.sol":800:822  ide > goldIdeThreshold */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":796:833  if (ide > goldIdeThreshold)  ++reward */
+      iszero
+      tag_63
+      jumpi
+        /* "contracts/RewardCoin.sol":825:833  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":796:833  if (ide > goldIdeThreshold)  ++reward */
+    tag_63:
+        /* "contracts/RewardCoin.sol":284:285  5 */
+      0x05
+        /* "contracts/RewardCoin.sol":843:872  npo > silverPoliciesThreshold */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":843:846  npo */
+      dup4
+        /* "contracts/RewardCoin.sol":843:872  npo > silverPoliciesThreshold */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":839:883  if (npo > silverPoliciesThreshold)  ++reward */
+      iszero
+      tag_64
+      jumpi
+        /* "contracts/RewardCoin.sol":875:883  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":839:883  if (npo > silverPoliciesThreshold)  ++reward */
+    tag_64:
+        /* "contracts/RewardCoin.sol":337:339  15 */
+      0x0f
+        /* "contracts/RewardCoin.sol":893:920  npo > goldPoliciesThreshold */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":893:896  npo */
+      dup4
+        /* "contracts/RewardCoin.sol":893:920  npo > goldPoliciesThreshold */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":889:931  if (npo > goldPoliciesThreshold)  ++reward */
+      iszero
+      tag_65
+      jumpi
+        /* "contracts/RewardCoin.sol":923:931  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":889:931  if (npo > goldPoliciesThreshold)  ++reward */
+    tag_65:
+        /* "contracts/RewardCoin.sol":284:285  5 */
+      0x05
+        /* "contracts/RewardCoin.sol":941:971  npop > silverPoliciesThreshold */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":941:945  npop */
+      dup3
+        /* "contracts/RewardCoin.sol":941:971  npop > silverPoliciesThreshold */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":937:982  if (npop > silverPoliciesThreshold)  ++reward */
+      iszero
+      tag_66
+      jumpi
+        /* "contracts/RewardCoin.sol":974:982  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":937:982  if (npop > silverPoliciesThreshold)  ++reward */
+    tag_66:
+        /* "contracts/RewardCoin.sol":337:339  15 */
+      0x0f
+        /* "contracts/RewardCoin.sol":992:1020  npop > goldPoliciesThreshold */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":992:996  npop */
+      dup3
+        /* "contracts/RewardCoin.sol":992:1020  npop > goldPoliciesThreshold */
+      0xffffffff
+      and
+      gt
+        /* "contracts/RewardCoin.sol":988:1031  if (npop > goldPoliciesThreshold)  ++reward */
+      iszero
+      tag_67
+      jumpi
+        /* "contracts/RewardCoin.sol":1023:1031  ++reward */
+      dup1
+      0x01
+      add
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":988:1031  if (npop > goldPoliciesThreshold)  ++reward */
+    tag_67:
+        /* "contracts/RewardCoin.sol":1039:1061  _mint(company, reward) */
+      tag_68
+        /* "contracts/RewardCoin.sol":1045:1052  company */
+      dup7
+        /* "contracts/RewardCoin.sol":1054:1060  reward */
+      dup3
+        /* "contracts/RewardCoin.sol":1039:1061  _mint(company, reward) */
+      0xffffffff
+      and
+        /* "contracts/RewardCoin.sol":1039:1044  _mint */
+      tag_69
+        /* "contracts/RewardCoin.sol":1039:1061  _mint(company, reward) */
+      jump	// in
+    tag_68:
+        /* "contracts/RewardCoin.sol":344:1067  function setReward(address company, uint32 ide, uint32 imc,... */
+      swap6
+      swap5
+      pop
+      pop
+      pop
+      pop
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":1656:1764  function balanceOf(address account) public view returns (uint256) {... */
+    tag_30:
+        /* "contracts/ERC20.sol":1713:1720  uint256 */
+      0x00
+        /* "contracts/ERC20.sol":1739:1748  _balances */
+      dup1
+        /* "contracts/ERC20.sol":1739:1757  _balances[account] */
+      0x00
+        /* "contracts/ERC20.sol":1749:1756  account */
+      dup4
+        /* "contracts/ERC20.sol":1739:1757  _balances[account] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":1732:1757  return _balances[account] */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":1656:1764  function balanceOf(address account) public view returns (uint256) {... */
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":4387:4600  function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {... */
+    tag_33:
+        /* "contracts/ERC20.sol":4472:4476  bool */
+      0x00
+        /* "contracts/ERC20.sol":4488:4572  _approve(msg.sender, spender, _allowances[msg.sender][spender].sub(subtractedValue)) */
+      tag_72
+        /* "contracts/ERC20.sol":4497:4507  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":4509:4516  spender */
+      dup5
+        /* "contracts/ERC20.sol":4518:4571  _allowances[msg.sender][spender].sub(subtractedValue) */
+      tag_73
+        /* "contracts/ERC20.sol":4555:4570  subtractedValue */
+      dup6
+        /* "contracts/ERC20.sol":4518:4529  _allowances */
+      0x01
+        /* "contracts/ERC20.sol":4518:4541  _allowances[msg.sender] */
+      0x00
+        /* "contracts/ERC20.sol":4530:4540  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":4518:4541  _allowances[msg.sender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":4518:4550  _allowances[msg.sender][spender] */
+      0x00
+        /* "contracts/ERC20.sol":4542:4549  spender */
+      dup10
+        /* "contracts/ERC20.sol":4518:4550  _allowances[msg.sender][spender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":4518:4554  _allowances[msg.sender][spender].sub */
+      tag_52
+      swap1
+        /* "contracts/ERC20.sol":4518:4571  _allowances[msg.sender][spender].sub(subtractedValue) */
+      swap2
+      swap1
+      0xffffffff
+      and
+      jump	// in
+    tag_73:
+        /* "contracts/ERC20.sol":4488:4496  _approve */
+      tag_45
+        /* "contracts/ERC20.sol":4488:4572  _approve(msg.sender, spender, _allowances[msg.sender][spender].sub(subtractedValue)) */
+      jump	// in
+    tag_72:
+        /* "contracts/ERC20.sol":4589:4593  true */
+      0x01
+        /* "contracts/ERC20.sol":4582:4593  return true */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":4387:4600  function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {... */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":1967:2120  function transfer(address recipient, uint256 amount) public returns (bool) {... */
+    tag_36:
+        /* "contracts/ERC20.sol":2036:2040  bool */
+      0x00
+        /* "contracts/ERC20.sol":2052:2092  _transfer(msg.sender, recipient, amount) */
+      tag_75
+        /* "contracts/ERC20.sol":2062:2072  msg.sender */
+      caller
+        /* "contracts/ERC20.sol":2074:2083  recipient */
+      dup5
+        /* "contracts/ERC20.sol":2085:2091  amount */
+      dup5
+        /* "contracts/ERC20.sol":2052:2061  _transfer */
+      tag_49
+        /* "contracts/ERC20.sol":2052:2092  _transfer(msg.sender, recipient, amount) */
+      jump	// in
+    tag_75:
+        /* "contracts/ERC20.sol":2109:2113  true */
+      0x01
+        /* "contracts/ERC20.sol":2102:2113  return true */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":1967:2120  function transfer(address recipient, uint256 amount) public returns (bool) {... */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":2178:2310  function allowance(address owner, address spender) public view returns (uint256) {... */
+    tag_39:
+        /* "contracts/ERC20.sol":2250:2257  uint256 */
+      0x00
+        /* "contracts/ERC20.sol":2276:2287  _allowances */
+      0x01
+        /* "contracts/ERC20.sol":2276:2294  _allowances[owner] */
+      0x00
+        /* "contracts/ERC20.sol":2288:2293  owner */
+      dup5
+        /* "contracts/ERC20.sol":2276:2294  _allowances[owner] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":2276:2303  _allowances[owner][spender] */
+      0x00
+        /* "contracts/ERC20.sol":2295:2302  spender */
+      dup4
+        /* "contracts/ERC20.sol":2276:2303  _allowances[owner][spender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":2269:2303  return _allowances[owner][spender] */
+      swap1
+      pop
+        /* "contracts/ERC20.sol":2178:2310  function allowance(address owner, address spender) public view returns (uint256) {... */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "contracts/RewardCoin.sol":1071:1261  function getBalance(address company) public view returns (uint balance) {... */
+    tag_42:
+        /* "contracts/RewardCoin.sol":1129:1141  uint balance */
+      0x00
+        /* "contracts/RewardCoin.sol":1176:1177  0 */
+      dup1
+        /* "contracts/RewardCoin.sol":1157:1178  company != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/RewardCoin.sol":1157:1164  company */
+      dup3
+        /* "contracts/RewardCoin.sol":1157:1178  company != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+      iszero
+        /* "contracts/RewardCoin.sol":1149:1221  require(company != address(0), "Error - Company address cannot be ZERO") */
+      tag_78
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x26
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      data_8ac2d0b23ba28e0a9277517b2ab3693c1e081bd33458e8475cdb74cd3f5384b1
+      0x26
+      swap2
+      codecopy
+      0x40
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_78:
+        /* "contracts/RewardCoin.sol":1238:1256  balanceOf(company) */
+      tag_79
+        /* "contracts/RewardCoin.sol":1248:1255  company */
+      dup3
+        /* "contracts/RewardCoin.sol":1238:1247  balanceOf */
+      tag_30
+        /* "contracts/RewardCoin.sol":1238:1256  balanceOf(company) */
+      jump	// in
+    tag_79:
+        /* "contracts/RewardCoin.sol":1228:1256  balance = balanceOf(company) */
+      swap1
+      pop
+        /* "contracts/RewardCoin.sol":1071:1261  function getBalance(address company) public view returns (uint balance) {... */
+      swap2
+      swap1
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":7113:7442  function _approve(address owner, address spender, uint256 value) internal {... */
+    tag_45:
+        /* "contracts/ERC20.sol":7222:7223  0 */
+      0x00
+        /* "contracts/ERC20.sol":7205:7224  owner != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":7205:7210  owner */
+      dup4
+        /* "contracts/ERC20.sol":7205:7224  owner != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+      iszero
+        /* "contracts/ERC20.sol":7197:7265  require(owner != address(0), "ERC20: approve from the zero address") */
+      tag_81
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x24
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      data_c953f4879035ed60e766b34720f656aab5c697b141d924c283124ecedb91c208
+      0x24
+      swap2
+      codecopy
+      0x40
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_81:
+        /* "contracts/ERC20.sol":7302:7303  0 */
+      0x00
+        /* "contracts/ERC20.sol":7283:7304  spender != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":7283:7290  spender */
+      dup3
+        /* "contracts/ERC20.sol":7283:7304  spender != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+      iszero
+        /* "contracts/ERC20.sol":7275:7343  require(spender != address(0), "ERC20: approve to the zero address") */
+      tag_82
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x22
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      data_24883cc5fe64ace9d0df1893501ecb93c77180f0ff69cca79affb3c316dc8029
+      0x22
+      swap2
+      codecopy
+      0x40
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_82:
+        /* "contracts/ERC20.sol":7384:7389  value */
+      dup1
+        /* "contracts/ERC20.sol":7354:7365  _allowances */
+      0x01
+        /* "contracts/ERC20.sol":7354:7372  _allowances[owner] */
+      0x00
+        /* "contracts/ERC20.sol":7366:7371  owner */
+      dup6
+        /* "contracts/ERC20.sol":7354:7372  _allowances[owner] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":7354:7381  _allowances[owner][spender] */
+      0x00
+        /* "contracts/ERC20.sol":7373:7380  spender */
+      dup5
+        /* "contracts/ERC20.sol":7354:7381  _allowances[owner][spender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":7354:7389  _allowances[owner][spender] = value */
+      dup2
+      swap1
+      sstore
+      pop
+        /* "contracts/ERC20.sol":7420:7427  spender */
+      dup2
+        /* "contracts/ERC20.sol":7404:7435  Approval(owner, spender, value) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":7413:7418  owner */
+      dup4
+        /* "contracts/ERC20.sol":7404:7435  Approval(owner, spender, value) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925
+        /* "contracts/ERC20.sol":7429:7434  value */
+      dup4
+        /* "contracts/ERC20.sol":7404:7435  Approval(owner, spender, value) */
+      mload(0x40)
+      dup1
+      dup3
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log3
+        /* "contracts/ERC20.sol":7113:7442  function _approve(address owner, address spender, uint256 value) internal {... */
+      pop
+      pop
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":5074:5496  function _transfer(address sender, address recipient, uint256 amount) internal {... */
+    tag_49:
+        /* "contracts/ERC20.sol":5189:5190  0 */
+      0x00
+        /* "contracts/ERC20.sol":5171:5191  sender != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":5171:5177  sender */
+      dup4
+        /* "contracts/ERC20.sol":5171:5191  sender != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+      iszero
+        /* "contracts/ERC20.sol":5163:5233  require(sender != address(0), "ERC20: transfer from the zero address") */
+      tag_84
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x25
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      data_baecc556b46f4ed0f2b4cb599d60785ac8563dd2dc0a5bf12edea1c39e5e1fea
+      0x25
+      swap2
+      codecopy
+      0x40
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_84:
+        /* "contracts/ERC20.sol":5272:5273  0 */
+      0x00
+        /* "contracts/ERC20.sol":5251:5274  recipient != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":5251:5260  recipient */
+      dup3
+        /* "contracts/ERC20.sol":5251:5274  recipient != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+      iszero
+        /* "contracts/ERC20.sol":5243:5314  require(recipient != address(0), "ERC20: transfer to the zero address") */
+      tag_85
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x23
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      data_0557e210f7a69a685100a7e4e3d0a7024c546085cee28910fd17d0b081d9516f
+      0x23
+      swap2
+      codecopy
+      0x40
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_85:
+        /* "contracts/ERC20.sol":5345:5374  _balances[sender].sub(amount) */
+      tag_86
+        /* "contracts/ERC20.sol":5367:5373  amount */
+      dup2
+        /* "contracts/ERC20.sol":5345:5354  _balances */
+      0x00
+        /* "contracts/ERC20.sol":5345:5362  _balances[sender] */
+      dup1
+        /* "contracts/ERC20.sol":5355:5361  sender */
+      dup7
+        /* "contracts/ERC20.sol":5345:5362  _balances[sender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":5345:5366  _balances[sender].sub */
+      tag_52
+      swap1
+        /* "contracts/ERC20.sol":5345:5374  _balances[sender].sub(amount) */
+      swap2
+      swap1
+      0xffffffff
+      and
+      jump	// in
+    tag_86:
+        /* "contracts/ERC20.sol":5325:5334  _balances */
+      0x00
+        /* "contracts/ERC20.sol":5325:5342  _balances[sender] */
+      dup1
+        /* "contracts/ERC20.sol":5335:5341  sender */
+      dup6
+        /* "contracts/ERC20.sol":5325:5342  _balances[sender] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":5325:5374  _balances[sender] = _balances[sender].sub(amount) */
+      dup2
+      swap1
+      sstore
+      pop
+        /* "contracts/ERC20.sol":5407:5439  _balances[recipient].add(amount) */
+      tag_87
+        /* "contracts/ERC20.sol":5432:5438  amount */
+      dup2
+        /* "contracts/ERC20.sol":5407:5416  _balances */
+      0x00
+        /* "contracts/ERC20.sol":5407:5427  _balances[recipient] */
+      dup1
+        /* "contracts/ERC20.sol":5417:5426  recipient */
+      dup6
+        /* "contracts/ERC20.sol":5407:5427  _balances[recipient] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":5407:5431  _balances[recipient].add */
+      tag_56
+      swap1
+        /* "contracts/ERC20.sol":5407:5439  _balances[recipient].add(amount) */
+      swap2
+      swap1
+      0xffffffff
+      and
+      jump	// in
+    tag_87:
+        /* "contracts/ERC20.sol":5384:5393  _balances */
+      0x00
+        /* "contracts/ERC20.sol":5384:5404  _balances[recipient] */
+      dup1
+        /* "contracts/ERC20.sol":5394:5403  recipient */
+      dup5
+        /* "contracts/ERC20.sol":5384:5404  _balances[recipient] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":5384:5439  _balances[recipient] = _balances[recipient].add(amount) */
+      dup2
+      swap1
+      sstore
+      pop
+        /* "contracts/ERC20.sol":5471:5480  recipient */
+      dup2
+        /* "contracts/ERC20.sol":5454:5489  Transfer(sender, recipient, amount) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":5463:5469  sender */
+      dup4
+        /* "contracts/ERC20.sol":5454:5489  Transfer(sender, recipient, amount) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+        /* "contracts/ERC20.sol":5482:5488  amount */
+      dup4
+        /* "contracts/ERC20.sol":5454:5489  Transfer(sender, recipient, amount) */
+      mload(0x40)
+      dup1
+      dup3
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log3
+        /* "contracts/ERC20.sol":5074:5496  function _transfer(address sender, address recipient, uint256 amount) internal {... */
+      pop
+      pop
+      pop
+      jump	// out
+        /* "contracts/SafeMath.sol":1274:1453  function sub(uint256 a, uint256 b) internal pure returns (uint256) {... */
+    tag_52:
+        /* "contracts/SafeMath.sol":1332:1339  uint256 */
+      0x00
+        /* "contracts/SafeMath.sol":1364:1365  a */
+      dup3
+        /* "contracts/SafeMath.sol":1359:1360  b */
+      dup3
+        /* "contracts/SafeMath.sol":1359:1365  b <= a */
+      gt
+      iszero
+        /* "contracts/SafeMath.sol":1351:1400  require(b <= a, "SafeMath: subtraction overflow") */
+      tag_89
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x1e
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      0x536166654d6174683a207375627472616374696f6e206f766572666c6f770000
+      dup2
+      mstore
+      pop
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_89:
+        /* "contracts/SafeMath.sol":1410:1419  uint256 c */
+      0x00
+        /* "contracts/SafeMath.sol":1426:1427  b */
+      dup3
+        /* "contracts/SafeMath.sol":1422:1423  a */
+      dup5
+        /* "contracts/SafeMath.sol":1422:1427  a - b */
+      sub
+        /* "contracts/SafeMath.sol":1410:1427  uint256 c = a - b */
+      swap1
+      pop
+        /* "contracts/SafeMath.sol":1445:1446  c */
+      dup1
+        /* "contracts/SafeMath.sol":1438:1446  return c */
+      swap2
+      pop
+      pop
+        /* "contracts/SafeMath.sol":1274:1453  function sub(uint256 a, uint256 b) internal pure returns (uint256) {... */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "contracts/SafeMath.sol":834:1010  function add(uint256 a, uint256 b) internal pure returns (uint256) {... */
+    tag_56:
+        /* "contracts/SafeMath.sol":892:899  uint256 */
+      0x00
+        /* "contracts/SafeMath.sol":911:920  uint256 c */
+      dup1
+        /* "contracts/SafeMath.sol":927:928  b */
+      dup3
+        /* "contracts/SafeMath.sol":923:924  a */
+      dup5
+        /* "contracts/SafeMath.sol":923:928  a + b */
+      add
+        /* "contracts/SafeMath.sol":911:928  uint256 c = a + b */
+      swap1
+      pop
+        /* "contracts/SafeMath.sol":951:952  a */
+      dup4
+        /* "contracts/SafeMath.sol":946:947  c */
+      dup2
+        /* "contracts/SafeMath.sol":946:952  c >= a */
+      lt
+      iszero
+        /* "contracts/SafeMath.sol":938:984  require(c >= a, "SafeMath: addition overflow") */
+      tag_91
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x1b
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      0x536166654d6174683a206164646974696f6e206f766572666c6f770000000000
+      dup2
+      mstore
+      pop
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_91:
+        /* "contracts/SafeMath.sol":1002:1003  c */
+      dup1
+        /* "contracts/SafeMath.sol":995:1003  return c */
+      swap2
+      pop
+      pop
+        /* "contracts/SafeMath.sol":834:1010  function add(uint256 a, uint256 b) internal pure returns (uint256) {... */
+      swap3
+      swap2
+      pop
+      pop
+      jump	// out
+        /* "contracts/ERC20.sol":5766:6068  function _mint(address account, uint256 amount) internal {... */
+    tag_69:
+        /* "contracts/ERC20.sol":5860:5861  0 */
+      0x00
+        /* "contracts/ERC20.sol":5841:5862  account != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":5841:5848  account */
+      dup3
+        /* "contracts/ERC20.sol":5841:5862  account != address(0) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+      iszero
+        /* "contracts/ERC20.sol":5833:5898  require(account != address(0), "ERC20: mint to the zero address") */
+      tag_93
+      jumpi
+      mload(0x40)
+      0x08c379a000000000000000000000000000000000000000000000000000000000
+      dup2
+      mstore
+      0x04
+      add
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      0x1f
+      dup2
+      mstore
+      0x20
+      add
+      dup1
+      0x45524332303a206d696e7420746f20746865207a65726f206164647265737300
+      dup2
+      mstore
+      pop
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_93:
+        /* "contracts/ERC20.sol":5924:5948  _totalSupply.add(amount) */
+      tag_94
+        /* "contracts/ERC20.sol":5941:5947  amount */
+      dup2
+        /* "contracts/ERC20.sol":5924:5936  _totalSupply */
+      sload(0x02)
+        /* "contracts/ERC20.sol":5924:5940  _totalSupply.add */
+      tag_56
+      swap1
+        /* "contracts/ERC20.sol":5924:5948  _totalSupply.add(amount) */
+      swap2
+      swap1
+      0xffffffff
+      and
+      jump	// in
+    tag_94:
+        /* "contracts/ERC20.sol":5909:5921  _totalSupply */
+      0x02
+        /* "contracts/ERC20.sol":5909:5948  _totalSupply = _totalSupply.add(amount) */
+      dup2
+      swap1
+      sstore
+      pop
+        /* "contracts/ERC20.sol":5979:6009  _balances[account].add(amount) */
+      tag_95
+        /* "contracts/ERC20.sol":6002:6008  amount */
+      dup2
+        /* "contracts/ERC20.sol":5979:5988  _balances */
+      0x00
+        /* "contracts/ERC20.sol":5979:5997  _balances[account] */
+      dup1
+        /* "contracts/ERC20.sol":5989:5996  account */
+      dup6
+        /* "contracts/ERC20.sol":5979:5997  _balances[account] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+      sload
+        /* "contracts/ERC20.sol":5979:6001  _balances[account].add */
+      tag_56
+      swap1
+        /* "contracts/ERC20.sol":5979:6009  _balances[account].add(amount) */
+      swap2
+      swap1
+      0xffffffff
+      and
+      jump	// in
+    tag_95:
+        /* "contracts/ERC20.sol":5958:5967  _balances */
+      0x00
+        /* "contracts/ERC20.sol":5958:5976  _balances[account] */
+      dup1
+        /* "contracts/ERC20.sol":5968:5975  account */
+      dup5
+        /* "contracts/ERC20.sol":5958:5976  _balances[account] */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      dup2
+      mstore
+      0x20
+      add
+      swap1
+      dup2
+      mstore
+      0x20
+      add
+      0x00
+      keccak256
+        /* "contracts/ERC20.sol":5958:6009  _balances[account] = _balances[account].add(amount) */
+      dup2
+      swap1
+      sstore
+      pop
+        /* "contracts/ERC20.sol":6045:6052  account */
+      dup2
+        /* "contracts/ERC20.sol":6024:6061  Transfer(address(0), account, amount) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "contracts/ERC20.sol":6041:6042  0 */
+      0x00
+        /* "contracts/ERC20.sol":6024:6061  Transfer(address(0), account, amount) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+        /* "contracts/ERC20.sol":6054:6060  amount */
+      dup4
+        /* "contracts/ERC20.sol":6024:6061  Transfer(address(0), account, amount) */
+      mload(0x40)
+      dup1
+      dup3
+      dup2
+      mstore
+      0x20
+      add
+      swap2
+      pop
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log3
+        /* "contracts/ERC20.sol":5766:6068  function _mint(address account, uint256 amount) internal {... */
+      pop
+      pop
+      jump	// out
+    stop
+    data_0557e210f7a69a685100a7e4e3d0a7024c546085cee28910fd17d0b081d9516f 45524332303a207472616e7366657220746f20746865207a65726f2061646472657373
+    data_24883cc5fe64ace9d0df1893501ecb93c77180f0ff69cca79affb3c316dc8029 45524332303a20617070726f766520746f20746865207a65726f2061646472657373
+    data_8ac2d0b23ba28e0a9277517b2ab3693c1e081bd33458e8475cdb74cd3f5384b1 4572726f72202d20436f6d70616e7920616464726573732063616e6e6f74206265205a45524f
+    data_baecc556b46f4ed0f2b4cb599d60785ac8563dd2dc0a5bf12edea1c39e5e1fea 45524332303a207472616e736665722066726f6d20746865207a65726f2061646472657373
+    data_c953f4879035ed60e766b34720f656aab5c697b141d924c283124ecedb91c208 45524332303a20617070726f76652066726f6d20746865207a65726f2061646472657373
+
+    auxdata: 0xa265627a7a72315820b219eaac2121a7924fbc19227b5f51f65f6038df025367844f483f8a6d6cfdac64736f6c634300050c0032
+}

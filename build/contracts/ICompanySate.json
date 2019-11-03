@@ -1,0 +1,2235 @@
+{
+  "contractName": "ICompanySate",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_mgrsA",
+          "type": "uint32"
+        },
+        {
+          "name": "_mgrsB",
+          "type": "uint32"
+        },
+        {
+          "name": "_mgrsC",
+          "type": "uint32"
+        },
+        {
+          "name": "_wMgrsA",
+          "type": "uint32"
+        },
+        {
+          "name": "_wMgrsB",
+          "type": "uint32"
+        },
+        {
+          "name": "_wMgrsC",
+          "type": "uint32"
+        },
+        {
+          "name": "_npo",
+          "type": "uint32"
+        },
+        {
+          "name": "_npop",
+          "type": "uint32"
+        }
+      ],
+      "name": "setState",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getLatestState",
+      "outputs": [
+        {
+          "name": "mgrsLevelA",
+          "type": "uint32"
+        },
+        {
+          "name": "mgrsLevelB",
+          "type": "uint32"
+        },
+        {
+          "name": "mgrsLevelC",
+          "type": "uint32"
+        },
+        {
+          "name": "womenMgrsLevelA",
+          "type": "uint32"
+        },
+        {
+          "name": "womenMgrsLevelB",
+          "type": "uint32"
+        },
+        {
+          "name": "womenMgrsLevelC",
+          "type": "uint32"
+        },
+        {
+          "name": "npo",
+          "type": "uint32"
+        },
+        {
+          "name": "npop",
+          "type": "uint32"
+        },
+        {
+          "name": "ideA",
+          "type": "uint32"
+        },
+        {
+          "name": "ideB",
+          "type": "uint32"
+        },
+        {
+          "name": "ideC",
+          "type": "uint32"
+        },
+        {
+          "name": "ide",
+          "type": "uint32"
+        },
+        {
+          "name": "dateOfReport",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getReward",
+      "outputs": [
+        {
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"getLatestState\",\"outputs\":[{\"name\":\"mgrsLevelA\",\"type\":\"uint32\"},{\"name\":\"mgrsLevelB\",\"type\":\"uint32\"},{\"name\":\"mgrsLevelC\",\"type\":\"uint32\"},{\"name\":\"womenMgrsLevelA\",\"type\":\"uint32\"},{\"name\":\"womenMgrsLevelB\",\"type\":\"uint32\"},{\"name\":\"womenMgrsLevelC\",\"type\":\"uint32\"},{\"name\":\"npo\",\"type\":\"uint32\"},{\"name\":\"npop\",\"type\":\"uint32\"},{\"name\":\"ideA\",\"type\":\"uint32\"},{\"name\":\"ideB\",\"type\":\"uint32\"},{\"name\":\"ideC\",\"type\":\"uint32\"},{\"name\":\"ide\",\"type\":\"uint32\"},{\"name\":\"dateOfReport\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getReward\",\"outputs\":[{\"name\":\"reward\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_mgrsA\",\"type\":\"uint32\"},{\"name\":\"_mgrsB\",\"type\":\"uint32\"},{\"name\":\"_mgrsC\",\"type\":\"uint32\"},{\"name\":\"_wMgrsA\",\"type\":\"uint32\"},{\"name\":\"_wMgrsB\",\"type\":\"uint32\"},{\"name\":\"_wMgrsC\",\"type\":\"uint32\"},{\"name\":\"_npo\",\"type\":\"uint32\"},{\"name\":\"_npop\",\"type\":\"uint32\"}],\"name\":\"setState\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/juan/BC_Challenge/agora/contracts/ICompanyState.sol\":\"ICompanySate\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/juan/BC_Challenge/agora/contracts/ICompanyState.sol\":{\"keccak256\":\"0xcff91e3fe2d6b2fba818cfa98dd2d1d98448e088affe78e2703d9f31fa7653b6\",\"urls\":[\"bzzr://325222a2840459a761ab771c15ef3d73e512eac4ddc0d4293e1658b6f3008224\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\n\n// interface used to define data to be exchanged between RewardCoin and CompanyState contracts\n\n/*\nIndicators to consider in this contract as input from the company.\n- total number of managers in top level, mid level and low level positions\n- total number of women managers in the same management levels\n- policies in place, both mandatory and optional\n\nthe contract computes and stores the equality index.\n*/\n\n\ninterface ICompanySate {\n\n  struct State {\n    uint32 mgrsLevelA;\n    uint32 mgrsLevelB;\n    uint32 mgrsLevelC;\n    uint32 womenMgrsLevelA;\n    uint32 womenMgrsLevelB;\n    uint32 womenMgrsLevelC;\n    uint32 npo;  // number of mandatory policies\n    uint32 npop; // number of voluntary policies\n    uint32 ideA;  // \"Indice de Equidad\" Equality index at management level A\n    uint32 ideB;\n    uint32 ideC;\n    uint32 ide;  // global equality index.\n\n    uint dateOfReport;\n  }\n\n  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,\n                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC,\n                    uint32 _npo, uint32 _npop) external;\n\n  function getLatestState() view external returns (\n    uint32 mgrsLevelA,\n    uint32 mgrsLevelB,\n    uint32 mgrsLevelC,\n    uint32 womenMgrsLevelA,\n    uint32 womenMgrsLevelB,\n    uint32 womenMgrsLevelC,\n    uint32 npo,\n    uint32 npop,\n    uint32 ideA,\n    uint32 ideB,\n    uint32 ideC,\n    uint32 ide,\n    uint dateOfReport);\n\n  function getReward() view external returns (uint reward);\n\n}\n",
+  "sourcePath": "/home/juan/BC_Challenge/agora/contracts/ICompanyState.sol",
+  "ast": {
+    "absolutePath": "/home/juan/BC_Challenge/agora/contracts/ICompanyState.sol",
+    "exportedSymbols": {
+      "ICompanySate": [
+        1212
+      ]
+    },
+    "id": 1213,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1131,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 1212,
+        "linearizedBaseContracts": [
+          1212
+        ],
+        "name": "ICompanySate",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ICompanySate.State",
+            "id": 1158,
+            "members": [
+              {
+                "constant": false,
+                "id": 1133,
+                "name": "mgrsLevelA",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "484:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1132,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "484:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1135,
+                "name": "mgrsLevelB",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "507:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1134,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "507:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1137,
+                "name": "mgrsLevelC",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "530:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1136,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "530:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1139,
+                "name": "womenMgrsLevelA",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "553:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1138,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "553:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1141,
+                "name": "womenMgrsLevelB",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "581:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1140,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "581:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1143,
+                "name": "womenMgrsLevelC",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "609:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1142,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "609:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1145,
+                "name": "npo",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "637:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1144,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "637:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1147,
+                "name": "npop",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "686:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1146,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "686:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1149,
+                "name": "ideA",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "735:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1148,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "735:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1151,
+                "name": "ideB",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "813:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1150,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "813:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1153,
+                "name": "ideC",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "830:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1152,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "830:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1155,
+                "name": "ide",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "847:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1154,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "847:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1157,
+                "name": "dateOfReport",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "891:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1156,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "891:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "State",
+            "nodeType": "StructDefinition",
+            "scope": 1212,
+            "src": "465:448:6",
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 1177,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setState",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1160,
+                  "name": "_mgrsA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "935:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1159,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "935:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1162,
+                  "name": "_mgrsB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "950:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1161,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "950:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1164,
+                  "name": "_mgrsC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "965:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1163,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "965:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1166,
+                  "name": "_wMgrsA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1000:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1165,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1000:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1168,
+                  "name": "_wMgrsB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1016:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1167,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1016:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1170,
+                  "name": "_wMgrsC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1032:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1169,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1032:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1172,
+                  "name": "_npo",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1068:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1171,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1068:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1174,
+                  "name": "_npop",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1081:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1173,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1081:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "934:160:6"
+            },
+            "returnParameters": {
+              "id": 1176,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1103:0:6"
+            },
+            "scope": 1212,
+            "src": "917:187:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 1206,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLatestState",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1178,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1131:2:6"
+            },
+            "returnParameters": {
+              "id": 1205,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1180,
+                  "name": "mgrsLevelA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1162:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1179,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1162:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1182,
+                  "name": "mgrsLevelB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1185:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1181,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1185:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1184,
+                  "name": "mgrsLevelC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1208:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1183,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1208:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1186,
+                  "name": "womenMgrsLevelA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1231:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1185,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1231:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1188,
+                  "name": "womenMgrsLevelB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1259:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1187,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1259:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1190,
+                  "name": "womenMgrsLevelC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1287:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1189,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1287:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1192,
+                  "name": "npo",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1315:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1191,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1315:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1194,
+                  "name": "npop",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1331:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1193,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1331:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1196,
+                  "name": "ideA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1348:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1195,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1348:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1198,
+                  "name": "ideB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1365:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1197,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1365:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1200,
+                  "name": "ideC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1382:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1199,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1382:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1202,
+                  "name": "ide",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1399:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1201,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1399:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1204,
+                  "name": "dateOfReport",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1415:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1203,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1415:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1156:277:6"
+            },
+            "scope": 1212,
+            "src": "1108:326:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 1211,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReward",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1207,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1456:2:6"
+            },
+            "returnParameters": {
+              "id": 1210,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1209,
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1211,
+                  "src": "1482:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1208,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1482:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1481:13:6"
+            },
+            "scope": 1212,
+            "src": "1438:57:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1213,
+        "src": "437:1061:6"
+      }
+    ],
+    "src": "0:1499:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/juan/BC_Challenge/agora/contracts/ICompanyState.sol",
+    "exportedSymbols": {
+      "ICompanySate": [
+        1212
+      ]
+    },
+    "id": 1213,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1131,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 1212,
+        "linearizedBaseContracts": [
+          1212
+        ],
+        "name": "ICompanySate",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ICompanySate.State",
+            "id": 1158,
+            "members": [
+              {
+                "constant": false,
+                "id": 1133,
+                "name": "mgrsLevelA",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "484:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1132,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "484:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1135,
+                "name": "mgrsLevelB",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "507:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1134,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "507:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1137,
+                "name": "mgrsLevelC",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "530:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1136,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "530:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1139,
+                "name": "womenMgrsLevelA",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "553:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1138,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "553:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1141,
+                "name": "womenMgrsLevelB",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "581:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1140,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "581:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1143,
+                "name": "womenMgrsLevelC",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "609:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1142,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "609:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1145,
+                "name": "npo",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "637:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1144,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "637:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1147,
+                "name": "npop",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "686:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1146,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "686:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1149,
+                "name": "ideA",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "735:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1148,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "735:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1151,
+                "name": "ideB",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "813:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1150,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "813:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1153,
+                "name": "ideC",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "830:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1152,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "830:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1155,
+                "name": "ide",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "847:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 1154,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "847:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1157,
+                "name": "dateOfReport",
+                "nodeType": "VariableDeclaration",
+                "scope": 1158,
+                "src": "891:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1156,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "891:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "State",
+            "nodeType": "StructDefinition",
+            "scope": 1212,
+            "src": "465:448:6",
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 1177,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setState",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1160,
+                  "name": "_mgrsA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "935:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1159,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "935:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1162,
+                  "name": "_mgrsB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "950:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1161,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "950:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1164,
+                  "name": "_mgrsC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "965:13:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1163,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "965:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1166,
+                  "name": "_wMgrsA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1000:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1165,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1000:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1168,
+                  "name": "_wMgrsB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1016:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1167,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1016:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1170,
+                  "name": "_wMgrsC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1032:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1169,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1032:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1172,
+                  "name": "_npo",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1068:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1171,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1068:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1174,
+                  "name": "_npop",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1177,
+                  "src": "1081:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1173,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1081:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "934:160:6"
+            },
+            "returnParameters": {
+              "id": 1176,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1103:0:6"
+            },
+            "scope": 1212,
+            "src": "917:187:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 1206,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLatestState",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1178,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1131:2:6"
+            },
+            "returnParameters": {
+              "id": 1205,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1180,
+                  "name": "mgrsLevelA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1162:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1179,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1162:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1182,
+                  "name": "mgrsLevelB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1185:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1181,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1185:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1184,
+                  "name": "mgrsLevelC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1208:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1183,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1208:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1186,
+                  "name": "womenMgrsLevelA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1231:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1185,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1231:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1188,
+                  "name": "womenMgrsLevelB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1259:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1187,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1259:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1190,
+                  "name": "womenMgrsLevelC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1287:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1189,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1287:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1192,
+                  "name": "npo",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1315:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1191,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1315:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1194,
+                  "name": "npop",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1331:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1193,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1331:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1196,
+                  "name": "ideA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1348:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1195,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1348:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1198,
+                  "name": "ideB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1365:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1197,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1365:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1200,
+                  "name": "ideC",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1382:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1199,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1382:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1202,
+                  "name": "ide",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1399:10:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 1201,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1399:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1204,
+                  "name": "dateOfReport",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1206,
+                  "src": "1415:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1203,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1415:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1156:277:6"
+            },
+            "scope": 1212,
+            "src": "1108:326:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 1211,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReward",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1207,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1456:2:6"
+            },
+            "returnParameters": {
+              "id": 1210,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1209,
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1211,
+                  "src": "1482:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1208,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1482:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1481:13:6"
+            },
+            "scope": 1212,
+            "src": "1438:57:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1213,
+        "src": "437:1061:6"
+      }
+    ],
+    "src": "0:1499:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.16",
+  "updatedAt": "2019-11-01T09:30:51.523Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

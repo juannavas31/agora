@@ -1,0 +1,199 @@
+PragmaDirective
+   Source: "pragma solidity ^0.5.0;"
+ContractDefinition "ICompanySate"
+   Source: "interface ICompanySate {\n\n  struct State {\n    uint32 mgrsLevelA;\n    uint32 mgrsLevelB;\n    uint32 mgrsLevelC;\n    uint32 womenMgrsLevelA;\n    uint32 womenMgrsLevelB;\n    uint32 womenMgrsLevelC;\n    uint32 npo;  // number of mandatory policies\n    uint32 npop; // number of voluntary policies\n    uint32 ideA;  // \"Indice de Equidad\" Equality index at management level A\n    uint32 ideB;\n    uint32 ideC;\n    uint32 ide;  // global equality index.\n\n    uint dateOfReport;\n  }\n\n  function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,\n                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC,\n                    uint32 _npo, uint32 _npop) external;\n\n  function getLatestState() view external returns (\n    uint32 mgrsLevelA,\n    uint32 mgrsLevelB,\n    uint32 mgrsLevelC,\n    uint32 womenMgrsLevelA,\n    uint32 womenMgrsLevelB,\n    uint32 womenMgrsLevelC,\n    uint32 npo,\n    uint32 npop,\n    uint32 ideA,\n    uint32 ideB,\n    uint32 ideC,\n    uint32 ide,\n    uint dateOfReport);\n\n  function getReward() view external returns (uint reward);\n\n}"
+  StructDefinition "State"
+     Source: "struct State {\n    uint32 mgrsLevelA;\n    uint32 mgrsLevelB;\n    uint32 mgrsLevelC;\n    uint32 womenMgrsLevelA;\n    uint32 womenMgrsLevelB;\n    uint32 womenMgrsLevelC;\n    uint32 npo;  // number of mandatory policies\n    uint32 npop; // number of voluntary policies\n    uint32 ideA;  // \"Indice de Equidad\" Equality index at management level A\n    uint32 ideB;\n    uint32 ideC;\n    uint32 ide;  // global equality index.\n\n    uint dateOfReport;\n  }"
+    VariableDeclaration "mgrsLevelA"
+       Type: uint32
+       Source: "uint32 mgrsLevelA"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "mgrsLevelB"
+       Type: uint32
+       Source: "uint32 mgrsLevelB"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "mgrsLevelC"
+       Type: uint32
+       Source: "uint32 mgrsLevelC"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "womenMgrsLevelA"
+       Type: uint32
+       Source: "uint32 womenMgrsLevelA"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "womenMgrsLevelB"
+       Type: uint32
+       Source: "uint32 womenMgrsLevelB"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "womenMgrsLevelC"
+       Type: uint32
+       Source: "uint32 womenMgrsLevelC"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "npo"
+       Type: uint32
+       Source: "uint32 npo"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "npop"
+       Type: uint32
+       Source: "uint32 npop"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "ideA"
+       Type: uint32
+       Source: "uint32 ideA"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "ideB"
+       Type: uint32
+       Source: "uint32 ideB"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "ideC"
+       Type: uint32
+       Source: "uint32 ideC"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "ide"
+       Type: uint32
+       Source: "uint32 ide"
+      ElementaryTypeName uint32
+         Source: "uint32"
+    VariableDeclaration "dateOfReport"
+       Type: uint256
+       Source: "uint dateOfReport"
+      ElementaryTypeName uint
+         Source: "uint"
+  FunctionDefinition "setState" - public
+     Source: "function setState(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,\n                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC,\n                    uint32 _npo, uint32 _npop) external;"
+    ParameterList
+       Source: "(uint32 _mgrsA, uint32 _mgrsB, uint32 _mgrsC,\n                    uint32 _wMgrsA, uint32 _wMgrsB, uint32 _wMgrsC,\n                    uint32 _npo, uint32 _npop)"
+      VariableDeclaration "_mgrsA"
+         Type: uint32
+         Source: "uint32 _mgrsA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_mgrsB"
+         Type: uint32
+         Source: "uint32 _mgrsB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_mgrsC"
+         Type: uint32
+         Source: "uint32 _mgrsC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_wMgrsA"
+         Type: uint32
+         Source: "uint32 _wMgrsA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_wMgrsB"
+         Type: uint32
+         Source: "uint32 _wMgrsB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_wMgrsC"
+         Type: uint32
+         Source: "uint32 _wMgrsC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_npo"
+         Type: uint32
+         Source: "uint32 _npo"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "_npop"
+         Type: uint32
+         Source: "uint32 _npop"
+        ElementaryTypeName uint32
+           Source: "uint32"
+    ParameterList
+       Source: ""
+  FunctionDefinition "getLatestState" - public - const
+     Source: "function getLatestState() view external returns (\n    uint32 mgrsLevelA,\n    uint32 mgrsLevelB,\n    uint32 mgrsLevelC,\n    uint32 womenMgrsLevelA,\n    uint32 womenMgrsLevelB,\n    uint32 womenMgrsLevelC,\n    uint32 npo,\n    uint32 npop,\n    uint32 ideA,\n    uint32 ideB,\n    uint32 ideC,\n    uint32 ide,\n    uint dateOfReport);"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(\n    uint32 mgrsLevelA,\n    uint32 mgrsLevelB,\n    uint32 mgrsLevelC,\n    uint32 womenMgrsLevelA,\n    uint32 womenMgrsLevelB,\n    uint32 womenMgrsLevelC,\n    uint32 npo,\n    uint32 npop,\n    uint32 ideA,\n    uint32 ideB,\n    uint32 ideC,\n    uint32 ide,\n    uint dateOfReport)"
+      VariableDeclaration "mgrsLevelA"
+         Type: uint32
+         Source: "uint32 mgrsLevelA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "mgrsLevelB"
+         Type: uint32
+         Source: "uint32 mgrsLevelB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "mgrsLevelC"
+         Type: uint32
+         Source: "uint32 mgrsLevelC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "womenMgrsLevelA"
+         Type: uint32
+         Source: "uint32 womenMgrsLevelA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "womenMgrsLevelB"
+         Type: uint32
+         Source: "uint32 womenMgrsLevelB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "womenMgrsLevelC"
+         Type: uint32
+         Source: "uint32 womenMgrsLevelC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npo"
+         Type: uint32
+         Source: "uint32 npo"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "npop"
+         Type: uint32
+         Source: "uint32 npop"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideA"
+         Type: uint32
+         Source: "uint32 ideA"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideB"
+         Type: uint32
+         Source: "uint32 ideB"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ideC"
+         Type: uint32
+         Source: "uint32 ideC"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "ide"
+         Type: uint32
+         Source: "uint32 ide"
+        ElementaryTypeName uint32
+           Source: "uint32"
+      VariableDeclaration "dateOfReport"
+         Type: uint256
+         Source: "uint dateOfReport"
+        ElementaryTypeName uint
+           Source: "uint"
+  FunctionDefinition "getReward" - public - const
+     Source: "function getReward() view external returns (uint reward);"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(uint reward)"
+      VariableDeclaration "reward"
+         Type: uint256
+         Source: "uint reward"
+        ElementaryTypeName uint
+           Source: "uint"
