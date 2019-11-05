@@ -10,7 +10,7 @@ routes
     .add('admin', '/admin')
     .add('reportIndicators', '/reportIndicators/:address')
     .add('showKPIs', '/showKPIs/:address')
-    .add('showHistory', '/showHistory/:address');
+    .add('previousKPIs', '/previousKPIs/:address');
 
 
 // the routes object contains helpers to facilitate navigation

@@ -66,7 +66,7 @@ class HomeIndex extends Component{
                     </Link>
                   </Table.Cell>
                   <Table.Cell>
-                    <Link route={`/listKPIs/${this.props.company.cAddress}`} >
+                    <Link route={`/previousKPIs/${this.props.company.cAddress}`} >
                     <a>
                         <Button primary floated='right' style={{marginBottom:10}}>Previous KPIs</Button>
                     </a>
@@ -88,8 +88,8 @@ class HomeIndex extends Component{
           <Image src={'https://sustainabledevelopment.un.org/content/images/sdgskp.png'} size='medium' 
             href="https://sustainabledevelopment.un.org/sdg5" bordered />
           <Card fluid
-                header='Target 5.4 Equal Opportunities'
-                description='Recognize and value unpaid care and domestic work through the provision of public services, infrastructure and social protection policies and the promotion of shared responsibility within the household and the family as nationally appropriate'
+                header='Target 5.5 Equal Opportunities'
+                description='Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life'
               />
         </Container>
       ); 

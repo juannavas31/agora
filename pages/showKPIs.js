@@ -66,9 +66,16 @@ class ShowKPIs extends Component {
 
         const latestKPIs = await company.methods.getLatestState().call({from: accounts[1]});
 
-        const tokensBalance = await company.methods.getReward().call({from: accounts[1]});
+        let tokensBalance = await company.methods.getReward().call({from: accounts[1]});
 
-        let womenRatio=(latestKPIs.womenMgrsLevelA+latestKPIs.womenMgrsLevelB+latestKPIs.womenMgrsLevelC)/(latestKPIs.mgrsLevelA+latestKPIs.mgrsLevelB+latestKPIs.mgrsLevelC);
+        let wMa = parseInt(latestKPIs.womenMgrsLevelA);
+        let wMb = parseInt(latestKPIs.womenMgrsLevelB);
+        let wMc = parseInt(latestKPIs.womenMgrsLevelC);
+        let ma = parseInt(latestKPIs.mgrsLevelA);
+        let mb = parseInt(latestKPIs.mgrsLevelB);
+        let mc = parseInt(latestKPIs.mgrsLevelC);
+
+        let womenRatio=(wMa + wMb + wMc)/(ma + mb + mc);
 
         this.setState ({
             mgrsLevelA : latestKPIs.mgrsLevelA,
@@ -98,11 +105,14 @@ class ShowKPIs extends Component {
         // we are going to pass those data through a bit of destructuring
         const {npo, npop, ideA, ideB, ideC, ide, dateOfReport, womenRatio, tokensBalance} = this.state;
 
+        let ideStr = (ide/10000).toFixed(2) + '%'; 
+        let womenRatioStr = (100*womenRatio).toFixed(2) + '%';
+
         const items = [
           {
             header: 'IDE',
             description: 'Index of Equality',
-            meta: ide / 1000000
+            meta: ideStr
           },
           {
             header: 'Tokens',
@@ -112,7 +122,7 @@ class ShowKPIs extends Component {
           {
             header: 'Women Ratio',
             description: 'Women vs Total ratio',
-            meta: womenRatio
+            meta: womenRatioStr
           },
           {
               header: 'NPO',
@@ -137,11 +147,13 @@ class ShowKPIs extends Component {
         const {mgrsLevelA, mgrsLevelB, mgrsLevelC, womenMgrsLevelA, womenMgrsLevelB, womenMgrsLevelC, dateOfReport} = this.state;
 
 
-        let numericDate = parseInt(dateOfReport._hex); 
-        const dateFormatted = new Date(numericDate).toString(); 
+        let numericDate = parseInt(dateOfReport); 
+        let dateInt = parseInt(numericDate)*1000; // javascript timestamp is in milliseconds, solidity in seconds
+        let dateObj = new Date(dateInt); 
+        let month = (dateObj.getMonth() + 1).toString(); //getMonth() output is from 0 to 11. 
+        let dateStr = dateObj.getDate() + "-" + month + "-" + dateObj.getFullYear();
 
-        console.log("Show KPIs date numeric: ", numericDate); 
-
+  
         const items = [
           {
             header: 'Top Level Executives',
@@ -176,7 +188,7 @@ class ShowKPIs extends Component {
           {
             header: 'Date',
             description: 'Date of reported indicators',
-            meta: dateFormatted
+            meta: dateStr
           }
       ];
 

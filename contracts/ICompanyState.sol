@@ -50,6 +50,12 @@ interface ICompanySate {
     uint32 ide,
     uint dateOfReport);
 
+  function getPeviousStates() view external returns(uint32[] memory ideList,
+                                                uint32[] memory npoList,
+                                                uint32[] memory npopList,
+                                                uint32[] memory womenRatioList,
+                                                uint256[] memory dateList );
+
   function getReward() view external returns (uint reward);
 
 }

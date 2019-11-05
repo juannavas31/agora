@@ -59,6 +59,9 @@ class ReportIndicators extends Component {
 
           const companyContract = companyState(this.state.address);
           // send the data captured in the form to the company instance contract.
+
+          console.log("ReportIndicators. About to send data"); 
+          
           let result = await companyContract.methods.setState(this.state.mgrsLevelA,
                                                   this.state.mgrsLevelB,
                                                   this.state.mgrsLevelC,

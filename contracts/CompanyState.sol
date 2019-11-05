@@ -37,11 +37,12 @@ contract CompanyState is ICompanySate {
     uint32 wMgrsA_Ratio = 100*_wMgrsA/_mgrsA;
     uint32 wMgrsB_Ratio = 100*_wMgrsB/_mgrsB;
     uint32 wMgrsC_Ratio = 100*_wMgrsB/_mgrsC;
+
     newReport.ideA = 4*(wMgrsA_Ratio * (100 - wMgrsA_Ratio));
     newReport.ideB = 4*(wMgrsB_Ratio * (100 - wMgrsB_Ratio));
     newReport.ideC = 4*(wMgrsC_Ratio * (100 - wMgrsC_Ratio));
     newReport.ide = factorA * newReport.ideA + factorB * newReport.ideB + factorC * newReport.ideC;
-
+    
     newReport.mgrsLevelA = _mgrsA;
     newReport.mgrsLevelB = _mgrsB;
     newReport.mgrsLevelC = _mgrsC;
@@ -58,7 +59,6 @@ contract CompanyState is ICompanySate {
 
     uint32 reward = rewardCoin.setReward(msg.sender, newReport.ide, womenMgrsRatio,
                                          newReport.npo, newReport.npop);
-    // emit StateRecorded(msg.sender, ide, ideA, ideB, ideC, npo, npop, reward);
 
     emit StateRecorded(msg.sender, newReport.ide, newReport.ideA, newReport.ideB, newReport.ideC, newReport.npo, newReport.npop, reward);
   }
@@ -78,7 +78,7 @@ contract CompanyState is ICompanySate {
       uint32 ide,
       uint256 dateOfReport) {
 
-    uint index = KPIList.length -1 ;
+    uint index = KPIList.length - 1;
 
     mgrsLevelA = KPIList[index].mgrsLevelA;
     mgrsLevelB = KPIList[index].mgrsLevelB;
@@ -94,6 +94,31 @@ contract CompanyState is ICompanySate {
     ide = KPIList[index].ide;
     dateOfReport = KPIList[index].dateOfReport;
 
+  }
+
+  // getPreviousStates returns all KPIS stored in KPIList array. 
+
+  function getPeviousStates() public view returns(uint32[] memory ideList,
+                                                uint32[] memory npoList,
+                                                uint32[] memory npopList,
+                                                uint32[] memory womenRatioList,
+                                                uint256[] memory dateList ){
+    uint32 womenR = 0; 
+    uint256 size = KPIList.length; 
+    ideList = new uint32[](size);
+    npoList = new uint32[](size);
+    npopList = new uint32[](size);
+    womenRatioList = new uint32[](size);
+    dateList = new uint256[](size);
+  
+    for (uint16 i = 0; i < size; i++) {
+      ideList[i] = KPIList[i].ide; 
+      npoList[i] = KPIList[i].npo;
+      npopList[i] = KPIList[i].npop;
+      womenR = 100*(KPIList[i].womenMgrsLevelA+KPIList[i].womenMgrsLevelB+KPIList[i].womenMgrsLevelC)/(KPIList[i].mgrsLevelA+KPIList[i].mgrsLevelB+KPIList[i].mgrsLevelC);
+      womenRatioList[i] = womenR;
+      dateList[i] = KPIList[i].dateOfReport;
+    }
   }
 
   function getReward() public view returns (uint reward) {

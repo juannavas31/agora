@@ -4,9 +4,9 @@ import "./ERC20.sol";
 
 contract RewardCoin is ERC20 {
 
-  uint32 constant private bronceIdeThreshold = 70;
-  uint32 constant private silverIdeThreshold = 80;
-  uint32 constant private  goldIdeThreshold = 90;
+  uint32 constant private bronceIdeThreshold = 700000;  // equivalent to 70%
+  uint32 constant private silverIdeThreshold = 800000;
+  uint32 constant private  goldIdeThreshold = 900000;
   uint32 constant private silverPoliciesThreshold = 5;
   uint32 constant private goldPoliciesThreshold = 15;
 
