@@ -7,7 +7,7 @@ It was presented in the Challenge day, in [Blockchain Convergence Congress (Mala
 
 The proposal is also in line with new regulation for 2020, where big companies must include social reporting in the annual reports, including gender equality indicators. 
 
-##Description
+## Description
 
 The company must enroll to be able to report indicators about total executives and women executives at the top 3 levels of management. 
 Out of those indicators, Key Performing Indicators are calculated and according to KPIs levels, tokens are granted to the company as a reward. The tokens can be traded later by other benefits with other companies or public institutions in this system.
@@ -16,7 +16,7 @@ Out of those indicators, Key Performing Indicators are calculated and according 
 
 The prototype is implemented by several smart contracts in Solidity (Ethereum) and a web app based on React. 
 
-##How to Run it 
+## How to Run it 
 You need node v10, truffle and ganache installed on your machine. 
 Run ganache. 
 Download the repository and run 
